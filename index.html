@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Magic Walnut Plant Shoppe | Not A Storefront. A Sanctuary.</title>
+  <meta name="description" content="Rare and unique plants for regular people that think they are rare and unique. Weekly WYSIWYG rare aroid drops, street-flash merch, and live Palmstreet carnival games." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Special+Elite&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ember: #E05A37;
+      --ember-glow: rgba(224, 90, 55, 0.45);
+      --emerald: #2E9E5B;
+      --concrete-dark: #141517;
+      --concrete-card: #1E2023;
+      --chalk: #F4F1EA;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--concrete-dark);
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(224, 90, 55, 0.08), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(46, 158, 91, 0.08), transparent 45%),
+        url('https://www.transparenttextures.com/patterns/concrete-wall.png');
+      color: var(--chalk);
+      overflow-x: hidden;
+    }
+    body.theme-brick {
+      background-color: #EAE6DF;
+      background-image: url('https://www.transparenttextures.com/patterns/brick-wall.png');
+      color: #161616;
+    }
+    .stencil-font { font-family: 'Permanent Marker', cursive; letter-spacing: 0.04em; }
+    .typewriter-font { font-family: 'Special Elite', monospace; }
+    .mono-font { font-family: 'Space Mono', monospace; }
+
+    /* Glowing Robot Eyes */
+    .robot-eye-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 9999px;
+      background-color: var(--ember);
+      box-shadow: 0 0 8px var(--ember), 0 0 16px var(--ember);
+      display: inline-block;
+      animation: eyeBlink 4.5s infinite;
+    }
+    @keyframes eyeBlink {
+      0%, 94%, 98%, 100% { transform: scaleY(1); opacity: 1; }
+      96% { transform: scaleY(0.15); opacity: 0.6; }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #121315; }
+    ::-webkit-scrollbar-thumb { background: #33363b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--ember); }
+
+    /* Sanctuary Specimen Cards */
+    .specimen-card {
+      background: rgba(28, 30, 34, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .specimen-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--ember);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7), 0 0 22px rgba(224, 90, 55, 0.25);
+    }
+    .lined-paper-card {
+      background-color: #f6f2e6;
+      background-image: linear-gradient(#d3cfc2 1px, transparent 1px);
+      background-size: 100% 28px;
+      color: #1c1d1f;
+      border-left: 4px solid #d9534f;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- 1. TOP ECOSYSTEM PORTAL BAR (iamdustin.com Network) -->
+  <div class="bg-black/95 border-b border-white/10 text-xs py-2 px-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2 mono-font">
+        <span class="px-2 py-0.5 rounded bg-orange-600/20 border border-orange-500/40 text-orange-400 font-bold text-[10px]">IAMDUSTIN NETWORK</span>
+        <span class="text-gray-400 hidden sm:inline">Connected Creative Universe:</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-3 md:gap-5 mono-font text-[11px]">
+        <a href="https://iamdustin.com" target="_blank" class="text-gray-300 hover:text-orange-400 transition flex items-center gap-1">
+          <span class="text-orange-500">◆</span> iamdustin.com
+        </a>
+        <a href="#top" class="text-emerald-400 font-bold underline decoration-emerald-500/60 underline-offset-4">
+          themagicwalnutplantshoppe.com
+        </a>
+        <a href="https://fuckwhattheytoldyou.com" target="_blank" class="text-gray-300 hover:text-orange-400 transition">
+          fuckwhattheytoldyou.com
+        </a>
+        <a href="https://iamdustin.com#hobby-astronaut" target="_blank" class="text-gray-300 hover:text-orange-400 transition">
+          🚀 The Hobby Astronaut
+        </a>
+        <a href="https://timefoldstatic.com" target="_blank" class="text-gray-300 hover:text-orange-400 transition">
+          timefoldstatic.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. LIVE ANNOUNCEMENT TICKER -->
+  <div class="bg-[#E05A37] text-black font-extrabold text-xs py-2 px-4 tracking-wider uppercase text-center mono-font shadow-md">
+    <span id="announcement-bar-text">
+      🔥 WEEKLY SANCTUARY DROP ACTIVE • EXACT-PLANT (WYSIWYG) RARE AROIDS • NATIONWIDE INSULATED SHIPPING OR LOCAL PICKUP • PLAY THE LIVE PALMSTREET CARNIVAL GAMES!
+    </span>
+  </div>
+
+  <!-- 3. STICKY NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur-md border-b border-white/15">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <!-- Brand Logo + Robot Eyes -->
+      <a href="#top" class="flex items-center gap-3 group">
+        <div class="flex items-center gap-1.5 bg-zinc-900 border-2 border-white/20 group-hover:border-orange-500 px-2.5 py-2 rounded-lg transition">
+          <span class="robot-eye-dot"></span>
+          <span class="robot-eye-dot"></span>
+        </div>
+        <div>
+          <span class="stencil-font text-xl md:text-2xl text-white tracking-wider block leading-none">THE MAGIC WALNUT</span>
+          <span class="typewriter-font text-[11px] text-orange-400 tracking-widest block mt-0.5">PLANT SHOPPE • SANCTUARY</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold">
+        <a href="#shoppe" class="text-gray-200 hover:text-orange-400 transition">🌿 Weekly Plant Drop</a>
+        <a href="#arcade" class="text-amber-400 hover:text-amber-300 transition flex items-center gap-1">
+          🎰 Live Carnival Arcade
+        </a>
+        <a href="#merch" class="text-gray-200 hover:text-orange-400 transition">👕 Street-Flash Merch & Art</a>
+        <a href="#about" class="text-gray-200 hover:text-orange-400 transition">🦝 The Sanctuary (About)</a>
+        <a href="#shipping" class="text-gray-200 hover:text-orange-400 transition">📦 Shipping & Policies</a>
+        <a href="#care-faq" class="text-gray-200 hover:text-orange-400 transition">📓 Field Notes & FAQ</a>
+      </nav>
+
+      <!-- Action Buttons: Admin Studio & Cart -->
+      <div class="flex items-center gap-2.5">
+        <button id="open-admin-btn" class="bg-zinc-800 hover:bg-zinc-700 text-amber-300 border border-amber-500/40 text-xs mono-font font-bold px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition shadow">
+          <span>⚡</span>
+          <span>Sanctuary Studio / Hermes Drop</span>
+        </button>
+
+        <button id="open-cart-btn" class="bg-[#E05A37] hover:bg-[#f26742] text-black font-extrabold text-xs md:text-sm px-4 py-2 rounded-xl flex items-center gap-2 transition shadow-lg">
+          <span>🛒 Crate</span>
+          <span id="cart-count-badge" class="bg-black text-white mono-font text-xs px-2 py-0.5 rounded-full">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 4. HERO SECTION (Featuring 1.2.jpg & Untitled Project Stencil Cutouts) -->
+  <section id="top" class="relative py-10 md:py-16 px-4 border-b border-white/10 overflow-hidden">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-8 items-center">
+      <!-- Left 6 Cols: Copy & Taglines -->
+      <div class="lg:col-span-6 space-y-6">
+        <div class="inline-flex items-center gap-2 bg-zinc-900/90 border border-orange-500/40 px-3.5 py-1.5 rounded-full">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span id="hero-batch-badge" class="text-xs mono-font text-orange-300 uppercase tracking-widest">WEEKLY WYSIWYG BATCH LIVE</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-none">
+          <span class="stencil-font block text-white" style="text-shadow: 4px 4px 0 #000;">NOT A STOREFRONT.</span>
+          <span class="stencil-font block text-[#E05A37] mt-2" style="text-shadow: 3px 3px 0 #000;">A SANCTUARY.</span>
+        </h1>
+
+        <div class="bg-zinc-900/80 border-l-4 border-[#E05A37] p-4 rounded-r-xl">
+          <p id="hero-subtagline" class="typewriter-font text-lg md:text-xl text-gray-200 leading-relaxed">
+            "rare and unique plants for regular people that think they are rare and unique _"
+          </p>
+        </div>
+
+        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+          Every specimen in <strong>The Magic Walnut Plant Shoppe</strong> is hand-grown, rooted in our custom chunky aroid mix, and photographed fresh so the exact leaf, variegation, and root system you see is the exact plant arriving at your door.
+        </p>
+
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="#shoppe" class="bg-[#E05A37] hover:bg-[#f06642] text-black font-black px-6 py-3.5 rounded-xl text-sm md:text-base uppercase tracking-wider transition transform hover:-translate-y-0.5 shadow-xl">
+            🌿 Browse Weekly Plant Drop
+          </a>
+          <a href="#arcade" class="bg-zinc-900 hover:bg-zinc-800 text-amber-300 border-2 border-amber-500/50 font-bold px-5 py-3.5 rounded-xl text-sm md:text-base transition flex items-center gap-2">
+            <span>🎰</span> Play Live Carnival Games
+          </a>
+        </div>
+
+        <!-- Live Show & Official Storefronts Strip -->
+        <div class="bg-zinc-900/90 border border-white/15 rounded-xl p-4 space-y-2.5">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="text-xs mono-font uppercase tracking-wider text-amber-400 font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+              Live Streams & Official Shops
+            </span>
+            <span class="text-xs text-gray-400 italic">Curated by @themagicwalnut</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1">
+            <a href="https://palmstreet.app/u/themagicwalnut?pr=gPBMNjrm" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-black font-black text-xs mono-font p-2.5 rounded-lg transition text-center shadow flex items-center justify-center">
+              🌴 Palmstreet
+            </a>
+            <a href="https://www.whatnot.com/s/CDDTW1SX" target="_blank" class="bg-amber-400 hover:bg-amber-300 text-black font-black text-xs mono-font p-2.5 rounded-lg transition text-center shadow flex items-center justify-center">
+              ⚡ Whatnot
+            </a>
+            <a href="https://www.facebook.com/groups/thehobbybotanist" target="_blank" class="bg-zinc-800 hover:bg-zinc-700 border border-white/15 text-emerald-300 font-bold text-xs mono-font p-2.5 rounded-lg transition text-center flex items-center justify-center">
+              🌿 FB Group
+            </a>
+            <a href="https://www.etsy.com/shop/TheMagicWalnutCo" target="_blank" class="bg-zinc-800 hover:bg-zinc-700 border border-white/15 text-orange-300 font-bold text-xs mono-font p-2.5 rounded-lg transition text-center flex items-center justify-center">
+              🛍️ Etsy
+            </a>
+            <a href="https://www.ebay.com/usr/themagicwalnutplantshoppe" target="_blank" class="bg-zinc-800 hover:bg-zinc-700 border border-white/15 text-blue-300 font-bold text-xs mono-font p-2.5 rounded-lg transition text-center flex items-center justify-center">
+              🏷️ eBay
+            </a>
+            <a href="https://www.instagram.com/themagicwalnutplantshoppe" target="_blank" class="bg-zinc-800 hover:bg-zinc-700 border border-white/15 text-pink-300 font-bold text-xs mono-font p-2.5 rounded-lg transition text-center flex items-center justify-center">
+              📸 Instagram
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Trust Pillars -->
+        <div class="grid grid-cols-3 gap-3 pt-4 border-t border-white/10 text-xs mono-font text-gray-300">
+          <div class="bg-black/40 p-3 rounded-lg border border-white/10">
+            <span class="text-emerald-400 font-bold block">✓ 100% WYSIWYG</span>
+            Exact plant photographed weekly
+          </div>
+          <div class="bg-black/40 p-3 rounded-lg border border-white/10">
+            <span class="text-orange-400 font-bold block">✓ $0 BS CHECKOUT</span>
+            Stripe, PayPal, Venmo & CashApp
+          </div>
+          <div class="bg-black/40 p-3 rounded-lg border border-white/10">
+            <span class="text-amber-300 font-bold block">✓ SANCTUARY PACKED</span>
+            Insulated crates & winter heat packs
+          </div>
+        </div>
+      </div>
+
+      <!-- Right 6 Cols: Iconic Dripping Wood Sign & Robot + Raccoon Hero Art -->
+      <div class="lg:col-span-6">
+        <div class="relative rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-zinc-900 group">
+          <img id="hero-main-img" src="assets/logos/1.2.jpg" alt="The Magic Walnut Plant Shoppe - Not a Storefront. A Sanctuary." class="w-full h-auto object-cover group-hover:scale-[1.02] transition duration-500" />
+          <div class="absolute bottom-3 right-3 bg-black/85 backdrop-blur px-3 py-1.5 rounded-lg border border-white/15 text-[11px] mono-font text-gray-300">
+            🤖 Guardian Robot & Top-Hat Raccoon Sanctuary Crew
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SHOPPE: THE CURATED COLLECTION (Weekly Plant Drop) -->
+  <section id="shoppe" class="py-16 px-4 border-b border-white/10">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section Banner with 2.png Art -->
+      <div class="grid md:grid-cols-12 gap-6 items-center bg-zinc-900/80 border border-white/15 rounded-2xl p-6 mb-10">
+        <div class="md:col-span-4">
+          <img src="assets/logos/2.png" alt="Shoppe: The Curated Collection" class="w-full max-w-xs mx-auto rounded-xl border border-white/15 shadow-lg" />
+        </div>
+        <div class="md:col-span-8 space-y-3">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="bg-emerald-600/20 border border-emerald-500/50 text-emerald-300 text-xs mono-font font-bold px-3 py-1 rounded-full">
+              FRESH WEEKLY BATCH
+            </span>
+            <span id="drop-title-pill" class="text-xs mono-font text-gray-400">Updated Weekly via Sanctuary Studio / Hermes Agent</span>
+          </div>
+          <h2 class="text-3xl md:text-5xl stencil-font text-white">SHOPPE: THE CURATED COLLECTION</h2>
+          <p class="text-gray-300 text-sm md:text-base max-w-2xl">
+            Because living rare plants push new variegated leaves every week, we photograph and drop new batches regularly. Click any specimen card to inspect all angles, ruler scale shots, and clear-cup root photos.
+          </p>
+
+          <!-- Filter & Search Controls -->
+          <div class="flex flex-wrap items-center gap-2 pt-3">
+            <button data-filter="ALL" class="shop-filter-btn bg-[#E05A37] text-black font-bold text-xs mono-font px-3.5 py-2 rounded-lg">ALL SPECIMENS</button>
+            <button data-filter="WYSIWYG" class="shop-filter-btn bg-zinc-800 hover:bg-zinc-700 text-gray-200 text-xs mono-font px-3.5 py-2 rounded-lg">1-OF-1 EXACT PLANT (WYSIWYG)</button>
+            <button data-filter="Monstera" class="shop-filter-btn bg-zinc-800 hover:bg-zinc-700 text-gray-200 text-xs mono-font px-3.5 py-2 rounded-lg">MONSTERA</button>
+            <button data-filter="Philodendron" class="shop-filter-btn bg-zinc-800 hover:bg-zinc-700 text-gray-200 text-xs mono-font px-3.5 py-2 rounded-lg">PHILODENDRON</button>
+            <button data-filter="Syngonium & Starters" class="shop-filter-btn bg-zinc-800 hover:bg-zinc-700 text-gray-200 text-xs mono-font px-3.5 py-2 rounded-lg">STARTERS & NODES</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic Plant Grid -->
+      <div id="plants-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- 6. LIVE SHOW & CARNIVAL ARCADE (Palmstreet Live Games + Google Sites Embed Exporter) -->
+  <section id="arcade" class="py-16 px-4 border-b border-white/10 bg-zinc-950/70">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+        <div>
+          <span class="text-xs mono-font uppercase tracking-widest text-amber-400 font-bold block">PALMSTREET (@THEMAGICWALNUT) & WHATNOT LIVE INTERACTIVE CARNIVAL</span>
+          <h2 class="text-3xl md:text-5xl stencil-font text-white mt-1">🎰 THE MAGIC WALNUT CARNIVAL ARCADE</h2>
+          <p class="text-gray-300 text-sm mt-2 max-w-3xl">
+            Discover unique finds curated by <strong>@themagicwalnut</strong>—surprises unfold live on <a href="https://palmstreet.app/u/themagicwalnut?pr=gPBMNjrm" target="_blank" class="text-emerald-400 font-bold underline">Palmstreet</a> & <a href="https://www.whatnot.com/s/CDDTW1SX" target="_blank" class="text-amber-400 font-bold underline">Whatnot</a>! Play right here during live shows, or grab the 1-click embed code for Google Sites. Pre-loaded with your CSV prize lists and Auto-Save!
+          </p>
+        </div>
+
+        <!-- Direct Live Stream Join Buttons -->
+        <div class="flex flex-wrap gap-2">
+          <a href="https://palmstreet.app/u/themagicwalnut?pr=gPBMNjrm" target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-black font-black text-xs mono-font px-4 py-2.5 rounded-xl shadow flex items-center gap-1.5">
+            🌴 Join @themagicwalnut on Palmstreet ↗
+          </a>
+          <a href="https://www.whatnot.com/s/CDDTW1SX" target="_blank" class="bg-amber-400 hover:bg-amber-300 text-black font-black text-xs mono-font px-4 py-2.5 rounded-xl shadow flex items-center gap-1.5">
+            ⚡ Join Live on Whatnot ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Game Switcher Tabs -->
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="flex flex-wrap gap-2">
+          <button id="tab-game-pull" class="bg-amber-500 text-black font-black text-xs md:text-sm mono-font px-4 py-2.5 rounded-xl shadow">
+            🎯 Game #1: Plant Mystery Pull (CSV Ready)
+          </button>
+          <button id="tab-game-box" class="bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs md:text-sm mono-font px-4 py-2.5 rounded-xl border border-white/15">
+            🕹️ Game #2: 8-Bit Sanctuary Box Game
+          </button>
+          <button id="tab-game-darts" class="bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs md:text-sm mono-font px-4 py-2.5 rounded-xl border border-white/15">
+            🎈 Game #3: Pixel Carnival Balloon Darts
+          </button>
+        </div>
+        <button id="open-embed-helper-btn" class="bg-emerald-900/60 hover:bg-emerald-800 text-emerald-300 border border-emerald-500/40 text-xs mono-font px-3.5 py-2.5 rounded-xl">
+          📋 Google Sites & CSV Helper
+        </button>
+      </div>
+
+      <!-- Embedded Live Game Frame -->
+      <div class="rounded-2xl overflow-hidden border-2 border-amber-500/50 shadow-2xl bg-black">
+        <div class="bg-zinc-900 px-4 py-2 border-b border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs mono-font">
+          <span id="active-game-title" class="text-amber-300 font-bold">ACTIVE ARCADE CABINET: PLANT MYSTERY PULL (LIVE STREAM EDITION)</span>
+          <div class="flex items-center gap-3">
+            <a id="open-fullscreen-game" href="google-sites-embeds/mystery-pull-embed.html" target="_blank" class="text-orange-400 hover:underline font-bold">
+              ↗ Open Fullscreen for OBS / Palmstreet Stream
+            </a>
+          </div>
+        </div>
+        <iframe id="arcade-iframe" src="google-sites-embeds/mystery-pull-embed.html" class="w-full h-[820px] border-0"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. STREET-FLASH MERCH, TEES & GROWER'S SKETCHBOOK PRINTS -->
+  <section id="merch" class="py-16 px-4 border-b border-white/10">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+        <div>
+          <span class="text-xs mono-font uppercase tracking-widest text-orange-400 font-bold block">MAKE.COM / PRINT-ON-DEMAND READY APPAREL & ART</span>
+          <h2 class="text-3xl md:text-5xl stencil-font text-white mt-1">👕 SANCTUARY STREET-FLASH & BOTANICAL SKETCHES</h2>
+          <p class="text-gray-300 text-sm mt-2 max-w-2xl">
+            Original underground aroid artwork—from street-flash Queen Anthuriums to lined-notebook zentangles and fine graphite botanical studies. Ready for automated Make.com + Printful/Etsy fulfillment or limited sanctuary drops.
+          </p>
+        </div>
+      </div>
+
+      <div id="merch-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- 8. ABOUT DUSTIN & THE SANCTUARY (Authentic Story + One-Man Show) -->
+  <section id="about" class="py-16 px-4 border-b border-white/10 bg-zinc-900/50">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-start">
+      <!-- Left 5 Cols: 6.jpg Artwork + One-Man-Show Callout + Import Service Card -->
+      <div class="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
+        <div class="rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black relative">
+          <img src="assets/logos/6.jpg" alt="Dustin, Robot and Raccoon watering the giant Sanctuary Monstera" class="w-full h-auto object-cover" />
+          <div class="p-3 bg-zinc-950/90 border-t border-white/10 text-xs mono-font text-center text-amber-300">
+            "The ultimate goal? Haven't figured that out yet. But in the meantime let me ship you a plant :)"
+          </div>
+        </div>
+
+        <!-- The Iconic "We = I" One-Man Show Box -->
+        <div class="bg-zinc-950 border-2 border-[#E05A37] rounded-2xl p-5 shadow-xl">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="robot-eye-dot"></span>
+            <span class="text-xs mono-font uppercase tracking-widest text-orange-400 font-bold">ONE-MAN SANCTUARY DISCLAIMER</span>
+          </div>
+          <p class="typewriter-font text-sm text-gray-200 leading-relaxed">
+            "Please note — all references to <strong>'we'</strong> can be replaced with <strong>'I.'</strong> As your curator, customer service representative, packing agent, plant care expert, gardener, shipping agent, website builder, photographer, plant listings writer, purchaser, and everything else that revolves around <strong>The Magic Walnut Plant Shoppe</strong>, I handle all aspects of your experience. And I look forward to this opportunity."
+          </p>
+        </div>
+
+        <!-- Import & Acclimation Concierge Service Card -->
+        <div class="bg-emerald-950/30 border border-emerald-500/40 rounded-2xl p-5">
+          <span class="text-xs mono-font uppercase text-emerald-400 font-bold block mb-1">🌍 PLANT IMPORT & ACCLIMATION SERVICE</span>
+          <h3 class="stencil-font text-xl text-white mb-2">SKIP THE IMPORT HEARTBREAK</h3>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Through a tapestry of triumphs and tribulations encountered in the intricate realm of plant imports, one of my primary objectives is to spare you the potential headaches, heartbreak, and financial perils associated with procuring expensive flora. For a nominal fee, I extend an <strong>import and acclimation service</strong>, diligently ensuring that your precious botanical acquisitions adjust seamlessly to their new environment before they ever hit your doorstep. Reach out directly for details!
+          </p>
+        </div>
+      </div>
+
+      <!-- Right 7 Cols: Dustin's Authentic Story -->
+      <div class="lg:col-span-7 space-y-5">
+        <span class="text-xs mono-font uppercase tracking-widest text-emerald-400 font-bold">BEHIND THE SANCTUARY • ABOUT ME</span>
+        <h2 class="text-3xl md:text-5xl stencil-font text-white">MEET DUSTIN & THE MAGIC WALNUT</h2>
+        <p class="typewriter-font text-lg text-orange-300">
+          "I hand-pick and carefully propagate plants from my personal collections, ensuring each one possesses that special touch of magic."
+        </p>
+
+        <div id="about-story-text" class="space-y-4 text-gray-200 leading-relaxed text-sm md:text-base bg-zinc-950/70 border border-white/10 p-6 rounded-2xl">
+          <p>
+            I hand-pick and carefully propagate plants from my personal collections, ensuring each one possesses that special touch of magic. The ultimate goal? Haven't figured that out yet. But in the meantime let me ship you a plant :)
+          </p>
+          <p>
+            To forge a deeper connection with our valued customers, I've established a cozy little Facebook group that embodies the essence of our shop and my personal journey—I admit... I don't hop in there enough! Given the unfortunate tales of scams that plague the online plant market, I wholeheartedly understand the hesitation and anxiety that can arise when ordering plants remotely. I've experienced such trials myself, which only fuels my commitment to providing you with a safe and delightful shopping experience:
+            <a href="https://www.facebook.com/groups/thehobbybotanist" target="_blank" class="text-emerald-400 font-bold underline break-all ml-1">facebook.com/groups/thehobbybotanist</a>
+          </p>
+          <div class="bg-zinc-900/90 border-l-4 border-amber-400 p-4 rounded-r-xl my-3">
+            <h4 class="stencil-font text-amber-400 text-lg mb-1">🍞 THE "BAKING A LOAF OF BREAD" RULE</h4>
+            <p class="text-xs md:text-sm text-gray-300 leading-relaxed">
+              While my primary aim is to promptly deliver your beloved plant companions, there are moments when delays are simply beyond my control. <strong>Picture baking a loaf of bread</strong> — extracting it prematurely from the oven, despite the timer's ring, would only yield a half-baked disappointment. Should you require expedited service, I implore you to reach out to me directly. However, if you seek immediate gratification, may I suggest the expedience of Amazon? 😉 Rest assured, I will always keep you informed if your order encounters any hiccups or unforeseen delays. Once your cherished plant embarks on its journey, your tracking number is dispatched automatically—if you haven't received it yet, it simply means your plant is still finishing its prep in the Sanctuary. Nevertheless, I assure you that you will receive the botanical treasure you've invested in.
+            </p>
+          </div>
+          <p>
+            Please bear in mind that processing times may fluctuate on a weekly basis. As a shopkeeper, I wear numerous hats, diligently ensuring the smooth operation of our establishment. If there is a slight delay in my response, chances are I'm occupied with my <strong>delightful trio of children</strong>, tending to my green companions, perhaps tending to more urgent matters like changing a diaper, or even indulging my <strong>passion for piano</strong>. As a devoted father, my hobby of cultivating plants has remarkably evolved into a captivating plant shop side hustle, ultimately leading to a transformative career shift.
+          </p>
+          <p>
+            Having invested my time, space, and boundless energy into a select group of plants—with a particular fondness for the majestic <strong>Monstera Albo</strong>—I've gained invaluable insights by nurturing over 1,000 specimens. Such experiences have bestowed upon me a wealth of knowledge regarding the do's and don'ts of successfully cultivating your very own Monstera Albo. As your trusted horticultural guide, I'm here to assist you every step of the way. Embrace curiosity and pose your burning questions! Before embarking on the journey of acquiring an unrooted Monstera Albo, I encourage you to conduct meticulous research (start with my <strong>Monstera Albo Field Guide</strong> right below!).
+          </p>
+          <p class="text-xs text-gray-400 italic pt-2 border-t border-white/10">
+            Before we proceed, I kindly request that you take a moment to peruse our <a href="#shipping" class="text-orange-400 underline">Shipping & Sanctuary Policies</a> below. Familiarizing yourself with these guidelines will facilitate a seamless shopping experience. I look forward to hearing from you if you have any questions!
+          </p>
+        </div>
+
+        <!-- Social, Live Stream & Community Links -->
+        <div class="pt-3">
+          <span class="text-xs mono-font uppercase tracking-wider text-amber-400 font-bold block mb-2.5">🔗 CONNECT ON PALMSTREET, WHATNOT, MARKETPLACES & SOCIALS:</span>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+            <a id="link-palmstreet" href="https://palmstreet.app/u/themagicwalnut?pr=gPBMNjrm" target="_blank" class="bg-[#E05A37] hover:bg-[#f26742] text-black p-2.5 rounded-xl text-xs mono-font font-black shadow flex items-center justify-center text-center">
+              🌴 Palmstreet Live
+            </a>
+            <a id="link-whatnot" href="https://www.whatnot.com/s/CDDTW1SX" target="_blank" class="bg-amber-400 hover:bg-amber-300 text-black p-2.5 rounded-xl text-xs mono-font font-black shadow flex items-center justify-center text-center">
+              ⚡ Whatnot Live
+            </a>
+            <a id="link-fb-group" href="https://www.facebook.com/groups/thehobbybotanist" target="_blank" class="bg-emerald-700 hover:bg-emerald-600 text-white p-2.5 rounded-xl text-xs mono-font font-bold shadow flex items-center justify-center text-center">
+              🌿 FB Group
+            </a>
+            <a href="https://www.instagram.com/themagicwalnutplantshoppe" target="_blank" class="bg-zinc-800 hover:bg-zinc-700 border border-white/15 p-2.5 rounded-xl text-xs mono-font font-bold text-white flex items-center justify-center text-center">
+              📸 Instagram
+            </a>
+            <a href="https://www.facebook.com/themagicwalnutplantshoppe" target="_blank" class="bg-zinc-800 hover:bg-zinc-700 border border-white/15 p-2.5 rounded-xl text-xs mono-font font-bold text-white flex items-center justify-center text-center">
+              👍 FB Shoppe
+            </a>
+            <a href="https://www.etsy.com/shop/TheMagicWalnutCo" target="_blank" class="bg-zinc-800 hover:bg-zinc-700 border border-white/15 p-2.5 rounded-xl text-xs mono-font font-bold text-orange-300 flex items-center justify-center text-center">
+              🛍️ Etsy Store
+            </a>
+            <a href="https://www.ebay.com/usr/themagicwalnutplantshoppe" target="_blank" class="col-span-2 sm:col-span-3 bg-zinc-800 hover:bg-zinc-700 border border-white/15 p-2.5 rounded-xl text-xs mono-font font-bold text-blue-300 flex items-center justify-center text-center">
+              🏷️ eBay Store: themagicwalnutplantshoppe
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. SHIPPING POLICY ("FRAGILE — A NEW SANCTUARY" featuring 3.png) -->
+  <section id="shipping" class="py-16 px-4 border-b border-white/10">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-7 space-y-5 order-2 lg:order-1">
+        <span class="text-xs mono-font uppercase tracking-widest text-orange-400 font-bold">SANCTUARY TRANSIT PROTOCOL</span>
+        <h2 class="text-3xl md:text-5xl stencil-font text-white">FRAGILE — A NEW SANCTUARY (SHIPPING POLICY)</h2>
+        <p class="text-gray-300 text-sm md:text-base">
+          Shipping living rare plants requires armor-grade care. Every box is hand-packed by Dustin using poly-fil leaf cushions, taped pot collars so substrate stays locked around the roots, and breathable insulation.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4 pt-2">
+          <div class="bg-zinc-900/90 border border-white/15 p-4 rounded-xl">
+            <h3 class="stencil-font text-lg text-amber-400 mb-1">📅 Shipping Schedule</h3>
+            <p class="text-xs text-gray-300 leading-relaxed">
+              We ship <strong>Monday & Tuesday</strong> (and Wednesday for 2-Day Express) via USPS Priority or UPS so your plant never sits in a sorting facility over the weekend.
+            </p>
+          </div>
+          <div class="bg-zinc-900/90 border border-white/15 p-4 rounded-xl">
+            <h3 class="stencil-font text-lg text-orange-400 mb-1">🔥 Winter Heat Packs & Insulation</h3>
+            <p class="text-xs text-gray-300 leading-relaxed">
+              If temps between our sanctuary and your zip code drop below <strong>45°F</strong>, add our <strong>72-Hour Heat Pack + Thermal Wrap ($6)</strong> right inside the checkout drawer.
+            </p>
+          </div>
+          <div class="bg-zinc-900/90 border border-white/15 p-4 rounded-xl">
+            <h3 class="stencil-font text-lg text-emerald-400 mb-1">📍 Free Local Pickup</h3>
+            <p class="text-xs text-gray-300 leading-relaxed">
+              Local to the area? Select <strong>Local Pickup ($0)</strong> in the cart and we’ll message you right after checkout to coordinate a hand-off!
+            </p>
+          </div>
+          <div class="bg-zinc-900/90 border border-white/15 p-4 rounded-xl">
+            <h3 class="stencil-font text-lg text-white mb-1">🛡️ Live Arrival Guarantee</h3>
+            <p class="text-xs text-gray-300 leading-relaxed">
+              Send a quick unboxing video within <strong>4 hours of delivery</strong> if carrier damage occurs. Minor cosmetic leaf stress on variegated white tissue is normal during transit.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 order-1 lg:order-2">
+        <div class="rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl bg-zinc-900">
+          <img src="assets/logos/3.png" alt="Fragile - A New Sanctuary Shipping Crate" class="w-full h-auto object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FIELD NOTES, DUSTIN'S MONSTERA ALBO CARE GUIDE & FAQs (Featuring 4.png & Lined-Notebook Aesthetic) -->
+  <section id="care-faq" class="py-16 px-4 border-b border-white/10 bg-zinc-900/40">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <!-- Top Row: Dustin's Authentic Monstera Albo Care Guide -->
+      <div class="bg-zinc-950/90 border-2 border-emerald-500/40 rounded-2xl p-6 md:p-8 shadow-2xl">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-6">
+          <div>
+            <span class="text-xs mono-font uppercase tracking-widest text-emerald-400 font-bold">SANCTUARY FIELD MANUAL • WRITTEN BY DUSTIN</span>
+            <h2 class="text-3xl md:text-5xl stencil-font text-white mt-1">🌿 THE MONSTERA ALBO CARE GUIDE</h2>
+          </div>
+          <span class="bg-amber-500/20 border border-amber-400/50 text-amber-300 text-xs mono-font font-bold px-3.5 py-1.5 rounded-full">
+            1,000+ SPECIMENS GROWN & SOLD
+          </span>
+        </div>
+
+        <blockquote class="bg-zinc-900 border-l-4 border-[#E05A37] p-4 rounded-r-xl text-sm md:text-base text-gray-200 italic mb-6">
+          "These plants are iconic for two reasons: half because they are beautiful, and half because they are a mystery. I've sold over 1,000 of these plants — and I've killed my fair share along the way. Everything in this guide is based on personal experience: what has worked for me, what hasn't, and the lessons learned from both. Use me as a resource. Happy PLANTING!" — <strong class="text-orange-400 not-italic">Dustin</strong>
+        </blockquote>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs md:text-sm">
+          <!-- Card 1: How Your Plant Was Grown -->
+          <div class="bg-zinc-900/90 border border-white/15 p-4 rounded-xl space-y-2">
+            <span class="text-xs mono-font text-amber-400 font-bold uppercase">1. Sanctuary Conditions</span>
+            <h3 class="stencil-font text-lg text-white">HOW YOUR PLANT WAS GROWN</h3>
+            <ul class="space-y-1.5 text-gray-300 text-xs leading-relaxed">
+              <li>• <strong>Temp:</strong> 50°–75°F (Cooler months) to 70°–90°F (Summer).</li>
+              <li>• <strong>Humidity:</strong> Consistently around <strong>75%</strong>.</li>
+              <li>• <strong>Light:</strong> <strong>14–16 hours</strong> of daylight daily.</li>
+              <li>• <strong>Golden Rule:</strong> Watch videos, read up, and find your own rhythm with your plant!</li>
+            </ul>
+          </div>
+
+          <!-- Card 2: For Leafless Nodes -->
+          <div class="bg-zinc-900/90 border border-white/15 p-4 rounded-xl space-y-2">
+            <span class="text-xs mono-font text-emerald-400 font-bold uppercase">2. Leafless Nodes (No Roots)</span>
+            <h3 class="stencil-font text-lg text-white">50/50 PERLITE & MOSS</h3>
+            <ul class="space-y-1.5 text-gray-300 text-xs leading-relaxed">
+              <li>• <strong>The Mix:</strong> 50/50 mix of Perlite and Sphagnum Moss.</li>
+              <li>• <strong>The Setup:</strong> Place node & mix in an airtight container to lock in high humidity.</li>
+              <li>• <strong>Air Exchange:</strong> Keep closed mostly, but open periodically to let it breathe—air exchange is vital!</li>
+            </ul>
+          </div>
+
+          <!-- Card 3: For Cuttings (With Leaves, No Roots) -->
+          <div class="bg-zinc-900/90 border border-white/15 p-4 rounded-xl space-y-2">
+            <span class="text-xs mono-font text-orange-400 font-bold uppercase">3. Unrooted Leaf Cuttings</span>
+            <h3 class="stencil-font text-lg text-white">BUBBLER / AEROPONICS</h3>
+            <ul class="space-y-1.5 text-gray-300 text-xs leading-relaxed">
+              <li>• <strong>Method:</strong> Water with a <strong>bubbler (air stone)</strong> or aeroponics system.</li>
+              <li>• <strong>Temp:</strong> Keep above <strong>70°F</strong> to stimulate root growth.</li>
+              <li>• <strong>Light:</strong> 14–16 hrs bright light with the green leaf surface facing the light.</li>
+            </ul>
+          </div>
+
+          <!-- Card 4: For Rooted Plants & The "No Move" Rule -->
+          <div class="bg-zinc-900/90 border border-emerald-500/40 p-4 rounded-xl space-y-2">
+            <span class="text-xs mono-font text-emerald-300 font-bold uppercase">4. Rooted Plants & Stability</span>
+            <h3 class="stencil-font text-lg text-white">THE "NO MOVE" RULE</h3>
+            <ul class="space-y-1.5 text-gray-300 text-xs leading-relaxed">
+              <li>• <strong>Substrate:</strong> Very light, airy, chunky soil mix (roots need oxygen!).</li>
+              <li>• <strong>Placement:</strong> Southern/Southwestern window indoors, or morning sun / shade cloth outdoors.</li>
+              <li>• <strong>2 Keys to Success:</strong> (1) Consistent watering rhythm & (2) <strong>DON'T MOVE IT</strong> once happy and growing!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row: 4.png Art + Lined Notebook + FAQs -->
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        <!-- Left 5 Cols: 4.png Art + Care Notebook Page -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="rounded-2xl overflow-hidden border-2 border-white/20 shadow-xl">
+            <img src="assets/logos/4.png" alt="Robot and Raccoons watering a sprout in concrete" class="w-full h-auto object-cover" />
+          </div>
+
+          <!-- Lined Notebook Care Card -->
+          <div class="lined-paper-card p-6 rounded-xl shadow-xl">
+            <span class="mono-font text-xs font-bold uppercase text-red-700 block mb-1">GROWER'S NOTEBOOK • PAGE #01</span>
+            <h3 class="stencil-font text-2xl text-zinc-900 mb-3">FIRST 7 DAYS AFTER UNBOXING</h3>
+            <ul class="space-y-2 text-xs md:text-sm font-medium text-zinc-800">
+              <li><strong>1. DO NOT REPOT IMMEDIATELY:</strong> Let your new plant acclimate to your room's humidity and light for at least 10–14 days in its sanctuary cup.</li>
+              <li><strong>2. THE "NO MOVE" RULE:</strong> Once you place your plant in bright indirect light and it starts pushing growth, leave it right there—stability is everything.</li>
+              <li><strong>3. ASK DUSTIN ANYTIME:</strong> Not sure if your node or cutting looks happy? Post a photo in <a href="https://www.facebook.com/groups/thehobbybotanist" target="_blank" class="underline font-bold text-red-800">The Hobby Botanist FB Group</a>!</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right 7 Cols: Frequently Asked Questions -->
+        <div class="lg:col-span-7 space-y-4">
+          <span class="text-xs mono-font uppercase tracking-widest text-emerald-400 font-bold">SANCTUARY KNOWLEDGEBASE</span>
+          <h2 class="text-3xl md:text-5xl stencil-font text-white mb-4">FREQUENTLY ASKED QUESTIONS</h2>
+
+          <div class="space-y-3" id="faq-accordion">
+            <details class="bg-zinc-900/90 border border-white/15 rounded-xl p-4 group" open>
+              <summary class="font-bold text-white cursor-pointer flex justify-between items-center">
+                <span>Are the plants shown in the photos the exact plants I will receive?</span>
+                <span class="text-orange-400 mono-font">+</span>
+              </summary>
+              <p class="text-sm text-gray-300 mt-3 leading-relaxed">
+                Yes! Any listing badged <strong>1-OF-1 EXACT PLANT (WYSIWYG — "What You See Is What You Get")</strong> is photographed individually every week. You receive that exact specimen cup, root system, and leaf pattern. Standard stock starters with multiple quantities are clearly marked as <em>Grower's Choice Stock</em>.
+              </p>
+            </details>
+
+            <details class="bg-zinc-900/90 border border-white/15 rounded-xl p-4 group">
+              <summary class="font-bold text-white cursor-pointer flex justify-between items-center">
+                <span>What payment methods do you accept with $0 buyer fees?</span>
+                <span class="text-orange-400 mono-font">+</span>
+              </summary>
+              <p class="text-sm text-gray-300 mt-3 leading-relaxed">
+                You can check out using <strong>Stripe (Card / Apple Pay / Google Pay)</strong>, <strong>PayPal (`@themagicwalnutplantshoppe`)</strong>, <strong>Venmo (`@themagicwalnutplantshoppe`)</strong>, <strong>Cash App (`$dartsilver`)</strong>, or <strong>Zelle (`themagicwalnutplantshoppe@gmail.com`)</strong>.
+              </p>
+            </details>
+
+            <details class="bg-zinc-900/90 border border-white/15 rounded-xl p-4 group">
+              <summary class="font-bold text-white cursor-pointer flex justify-between items-center">
+                <span>How does your Plant Import & Acclimation Service work?</span>
+                <span class="text-orange-400 mono-font">+</span>
+              </summary>
+              <p class="text-sm text-gray-300 mt-3 leading-relaxed">
+                Importing rare flora directly from overseas can be stressful and risky. For a nominal fee, I receive, rehab, root, and acclimate your imported plants in my 75%-humidity Sanctuary setup until they are stable and thriving before shipping them to your door. Reach out via email or our Facebook group for details!
+              </p>
+            </details>
+
+            <details class="bg-zinc-900/90 border border-white/15 rounded-xl p-4 group">
+              <summary class="font-bold text-white cursor-pointer flex justify-between items-center">
+                <span>Can I combine shipping if I win a plant in the Live Mystery Pull AND buy from the site?</span>
+                <span class="text-orange-400 mono-font">+</span>
+              </summary>
+              <p class="text-sm text-gray-300 mt-3 leading-relaxed">
+                100% yes! Just put your Palmstreet / Whatnot / Live Stream username in the order notes at checkout and I will pack all of your plants into one insulated Sanctuary crate.
+              </p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. FOOTER & IAMDUSTIN.COM CREATIVE UNIVERSE PORTAL -->
+  <footer class="bg-black border-t border-white/15 py-12 px-4 mt-auto">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-12 gap-8 pb-10 border-b border-white/10">
+        <div class="md:col-span-5 space-y-3">
+          <div class="flex items-center gap-3">
+            <img src="assets/logos/logoRobotWatering.png" alt="Magic Walnut Robot" class="w-12 h-12 object-contain bg-white/90 rounded-lg p-1" />
+            <div>
+              <h3 class="stencil-font text-2xl text-white">THE MAGIC WALNUT PLANT SHOPPE</h3>
+              <p class="typewriter-font text-xs text-orange-400">themagicwalnutplantshoppe.com</p>
+            </div>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed max-w-md">
+            Not a storefront. A sanctuary. Rare and unique plants for regular people that think they are rare and unique. Discover unique finds curated by <strong>@themagicwalnut</strong>—surprises unfold live on Palmstreet!
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2 text-[11px] mono-font">
+            <a href="https://palmstreet.app/u/themagicwalnut?pr=gPBMNjrm" target="_blank" class="text-emerald-400 hover:underline font-bold">🌴 Palmstreet</a>
+            <span class="text-gray-600">•</span>
+            <a href="https://www.whatnot.com/s/CDDTW1SX" target="_blank" class="text-amber-400 hover:underline font-bold">⚡ Whatnot</a>
+            <span class="text-gray-600">•</span>
+            <a href="https://www.facebook.com/groups/thehobbybotanist" target="_blank" class="text-emerald-300 hover:underline">🌿 Hobby Botanist FB Group</a>
+            <span class="text-gray-600">•</span>
+            <a href="https://www.facebook.com/themagicwalnutplantshoppe" target="_blank" class="text-gray-300 hover:underline">FB Shoppe</a>
+            <span class="text-gray-600">•</span>
+            <a href="https://www.instagram.com/themagicwalnutplantshoppe" target="_blank" class="text-pink-300 hover:underline">Instagram</a>
+            <span class="text-gray-600">•</span>
+            <a href="https://www.etsy.com/shop/TheMagicWalnutCo" target="_blank" class="text-orange-300 hover:underline">Etsy</a>
+            <span class="text-gray-600">•</span>
+            <a href="https://www.ebay.com/usr/themagicwalnutplantshoppe" target="_blank" class="text-blue-300 hover:underline">eBay</a>
+          </div>
+        </div>
+
+        <!-- The iamdustin.com Ecosystem Network Cards -->
+        <div class="md:col-span-7">
+          <h4 class="text-xs mono-font uppercase tracking-widest text-amber-400 font-bold mb-3">
+            🌐 THE IAMDUSTIN.COM CREATIVE ECOSYSTEM
+          </h4>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs">
+            <a href="https://iamdustin.com" target="_blank" class="p-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-white/10 hover:border-orange-500 transition block">
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-white mono-font">iamdustin.com</span>
+                <span class="text-[10px] bg-orange-600/20 text-orange-400 px-2 py-0.5 rounded">MAIN HUB</span>
+              </div>
+              <p class="text-gray-400 mt-1">Central hub connecting Dustin's projects, art, writing & builds.</p>
+            </a>
+
+            <a href="https://fuckwhattheytoldyou.com" target="_blank" class="p-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-white/10 hover:border-orange-500 transition block">
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-white mono-font">fuckwhattheytoldyou.com</span>
+                <span class="text-[10px] bg-zinc-800 text-gray-300 px-2 py-0.5 rounded">DOMAIN</span>
+              </div>
+              <p class="text-gray-400 mt-1">Unfiltered perspectives, counter-narrative & raw ideas.</p>
+            </a>
+
+            <a href="https://iamdustin.com#hobby-astronaut" target="_blank" class="p-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-white/10 hover:border-orange-500 transition block">
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-white mono-font">🚀 The Hobby Astronaut</span>
+                <span class="text-[10px] bg-blue-600/20 text-blue-300 px-2 py-0.5 rounded">SPACE</span>
+              </div>
+              <p class="text-gray-400 mt-1">Amateur astronomy, cosmos exploration & stargazing logs.</p>
+            </a>
+
+            <a href="https://timefoldstatic.com" target="_blank" class="p-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-white/10 hover:border-orange-500 transition block">
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-white mono-font">timefoldstatic.com</span>
+                <span class="text-[10px] bg-purple-600/20 text-purple-300 px-2 py-0.5 rounded">SIGNAL</span>
+              </div>
+              <p class="text-gray-400 mt-1">Sonic experiments, timefold static & creative transmissions.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-wrap items-center justify-between gap-4 text-xs text-gray-500 mono-font">
+        <span>© 2026 The Magic Walnut Plant Shoppe & iamdustin.com. All rights reserved.</span>
+        <span>Built for $0/mo subscription overhead • Hermes Agent & Make.com Ready</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MODAL 1: PLANT SPECIMEN LIGHTBOX & MULTI-ANGLE GALLERY
+       ========================================================================= -->
+  <div id="specimen-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md hidden items-center justify-center z-50 p-4">
+    <div class="bg-zinc-900 border-2 border-white/20 rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl grid md:grid-cols-12 max-h-[90vh]">
+      <div class="md:col-span-7 bg-black flex flex-col justify-between p-4">
+        <div class="relative aspect-square overflow-hidden rounded-xl border border-white/10 bg-zinc-950 flex items-center justify-center">
+          <img id="modal-main-img" src="" alt="Plant specimen" class="w-full h-full object-cover" />
+          <span id="modal-badge" class="absolute top-3 left-3 bg-[#E05A37] text-black font-black text-xs mono-font px-3 py-1 rounded-full">1-OF-1</span>
+        </div>
+        <div id="modal-thumbs" class="flex gap-2 mt-3 overflow-x-auto pb-1"></div>
+      </div>
+      <div class="md:col-span-5 p-6 flex flex-col justify-between overflow-y-auto">
+        <div>
+          <div class="flex justify-between items-start gap-2">
+            <span id="modal-category" class="text-xs mono-font text-emerald-400 uppercase font-bold">MONSTERA</span>
+            <button id="close-specimen-modal" class="text-gray-400 hover:text-white text-2xl leading-none">&times;</button>
+          </div>
+          <h3 id="modal-title" class="text-2xl stencil-font text-white mt-1"></h3>
+          <p id="modal-botanical" class="text-xs italic text-gray-400 mt-0.5"></p>
+          <div id="modal-price" class="text-3xl font-black text-amber-400 mt-4"></div>
+
+          <p id="modal-desc" class="text-sm text-gray-300 mt-4 leading-relaxed"></p>
+
+          <div class="mt-5 space-y-2 border-t border-white/10 pt-4 text-xs mono-font">
+            <div class="flex justify-between"><span class="text-gray-400">Pot / Vessel:</span><span id="modal-pot" class="text-white font-bold"></span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Root System:</span><span id="modal-roots" class="text-emerald-400 font-bold"></span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Light Preference:</span><span id="modal-light" class="text-white"></span></div>
+          </div>
+        </div>
+
+        <div class="pt-6 mt-6 border-t border-white/10">
+          <button id="modal-add-cart-btn" class="w-full bg-[#E05A37] hover:bg-[#f26844] text-black font-black py-3.5 px-6 rounded-xl uppercase tracking-wider text-sm transition shadow-lg">
+            🛒 Add Specimen to Sanctuary Crate
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: SANCTUARY CRATE (CART + SHIPPING + STRIPE/PAYPAL/VENMO CHECKOUT)
+       ========================================================================= -->
+  <div id="cart-drawer" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden justify-end z-50">
+    <div class="bg-zinc-950 border-l border-white/15 w-full max-w-md h-full flex flex-col justify-between p-6 overflow-y-auto shadow-2xl">
+      <div>
+        <div class="flex items-center justify-between border-b border-white/15 pb-4">
+          <div>
+            <h3 class="text-2xl stencil-font text-white">🛒 YOUR SANCTUARY CRATE</h3>
+            <p class="text-xs text-gray-400 mono-font">Direct $0-Fee Checkout • Pirate Ship Label Ready</p>
+          </div>
+          <button id="close-cart-btn" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+        </div>
+
+        <!-- Cart Items -->
+        <div id="cart-items-list" class="divide-y divide-white/10 my-4"></div>
+
+        <!-- Shipping & Winter Heat Pack Selector -->
+        <div class="bg-zinc-900 border border-white/15 rounded-xl p-4 space-y-3 mt-4">
+          <label class="block text-xs mono-font uppercase text-amber-400 font-bold">1. Select Transit Method:</label>
+          <select id="shipping-method-select" class="w-full bg-black border border-white/20 rounded-lg px-3 py-2 text-xs text-white font-semibold">
+            <option value="14">📦 USPS Priority Sanctuary Box ($14.00)</option>
+            <option value="24">⚡ UPS 2-Day Express Sanctuary Air ($24.00)</option>
+            <option value="0">📍 Local Sanctuary Pickup — Free ($0.00)</option>
+          </select>
+
+          <label class="flex items-center justify-between gap-2 pt-2 border-t border-white/10 cursor-pointer">
+            <div>
+              <span class="text-xs font-bold text-orange-300 block">🔥 Add 72-Hr Winter Heat Pack + Thermal Insulation</span>
+              <span class="text-[11px] text-gray-400">Recommended if temps drop below 45°F</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs mono-font font-bold text-white">+$6</span>
+              <input type="checkbox" id="heat-pack-checkbox" class="w-4 h-4 accent-[#E05A37]">
+            </div>
+          </label>
+        </div>
+
+        <!-- Customer Info for Pirate Ship Export -->
+        <div class="bg-zinc-900 border border-white/15 rounded-xl p-4 space-y-2 mt-4">
+          <div class="flex items-center justify-between">
+            <label class="block text-xs mono-font uppercase text-emerald-400 font-bold">2. Shipping / Pickup Contact Info:</label>
+            <span class="text-[10px] mono-font text-gray-400">Pirate Ship Ready</span>
+          </div>
+          <input type="text" id="buyer-name" placeholder="Full Name (Required)" class="w-full bg-black border border-white/20 rounded-lg px-3 py-2 text-xs text-white">
+          <div class="grid grid-cols-2 gap-2">
+            <input type="email" id="buyer-email" placeholder="Email for Tracking (Required)" class="w-full bg-black border border-white/20 rounded-lg px-3 py-2 text-xs text-white">
+            <input type="text" id="buyer-handle" placeholder="Palmstreet/Whatnot @handle (Optional)" class="w-full bg-black border border-white/20 rounded-lg px-3 py-2 text-xs text-white">
+          </div>
+          <input type="text" id="buyer-street" placeholder="Street Address & Apt/Unit" class="w-full bg-black border border-white/20 rounded-lg px-3 py-2 text-xs text-white">
+          <div class="grid grid-cols-3 gap-2">
+            <input type="text" id="buyer-city" placeholder="City" class="w-full bg-black border border-white/20 rounded-lg px-3 py-2 text-xs text-white">
+            <input type="text" id="buyer-state" placeholder="State (e.g. TX)" class="w-full bg-black border border-white/20 rounded-lg px-3 py-2 text-xs text-white">
+            <input type="text" id="buyer-zip" placeholder="ZIP Code" class="w-full bg-black border border-white/20 rounded-lg px-3 py-2 text-xs text-white">
+          </div>
+          <input type="text" id="buyer-notes" placeholder="Order Notes (e.g. Combine with Live Pull Slot #4)" class="w-full bg-black border border-white/20 rounded-lg px-3 py-2 text-xs text-white">
+        </div>
+      </div>
+
+      <!-- Totals & Checkout Buttons -->
+      <div class="pt-4 border-t border-white/15 space-y-3 mt-6">
+        <div class="space-y-1 text-xs mono-font">
+          <div class="flex justify-between text-gray-400"><span>Specimens Subtotal:</span><span id="cart-subtotal">$0.00</span></div>
+          <div class="flex justify-between text-gray-400"><span>Shipping & Protection:</span><span id="cart-shipping">$14.00</span></div>
+          <div class="flex justify-between text-base font-extrabold text-white pt-1 border-t border-white/10">
+            <span>TOTAL:</span><span id="cart-total" class="text-amber-400">$0.00</span>
+          </div>
+        </div>
+
+        <!-- Payment Choices -->
+        <div class="grid grid-cols-1 gap-2 pt-2">
+          <button id="checkout-paypal-btn" class="w-full bg-[#0070ba] hover:bg-[#005ea6] text-white font-black py-3 px-4 rounded-xl text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2">
+            <span>💙 Pay Exact Total with PayPal (@themagicwalnutplantshoppe)</span>
+          </button>
+          <div class="grid grid-cols-2 gap-2">
+            <button id="checkout-venmo-btn" class="bg-[#008CFF] hover:bg-[#0074d4] text-white font-bold py-2.5 px-3 rounded-xl text-xs">
+              💠 Venmo (@themagicwalnut...)
+            </button>
+            <button id="checkout-cashapp-btn" class="bg-[#00D632] hover:bg-[#00b82b] text-black font-black py-2.5 px-3 rounded-xl text-xs">
+              💵 Cash App ($dartsilver)
+            </button>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <button id="checkout-zelle-btn" class="bg-purple-700 hover:bg-purple-600 text-white font-bold py-2.5 px-3 rounded-xl text-xs">
+              🏦 Zelle (Email Transfer)
+            </button>
+            <button id="checkout-stripe-btn" class="bg-[#E05A37] hover:bg-[#f26742] text-black font-black py-2.5 px-3 rounded-xl text-xs">
+              💳 Card / Stripe Invoice
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 3: SANCTUARY ADMIN STUDIO & HERMES WEEKLY DROP MANAGER (Wix-Style)
+       ========================================================================= -->
+  <div id="admin-studio-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden items-center justify-center z-50 p-4">
+    <div class="bg-zinc-900 border-2 border-amber-500/70 rounded-2xl max-w-5xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
+      <!-- Top Bar -->
+      <div class="bg-black px-6 py-4 border-b border-white/15 flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs mono-font text-amber-400 uppercase font-bold block">WIX-STYLE VISUAL DASHBOARD + HERMES AGENT PIPELINE</span>
+          <h2 class="text-2xl stencil-font text-white">⚡ SANCTUARY STUDIO & WEEKLY DROP MANAGER</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="export-catalog-json-btn" class="bg-emerald-700 hover:bg-emerald-600 text-white text-xs mono-font font-bold px-3 py-2 rounded-lg">
+            💾 Download catalog.json
+          </button>
+          <button id="close-admin-studio" class="bg-zinc-800 hover:bg-zinc-700 text-white text-sm font-bold px-3 py-1.5 rounded-lg">&times; Close</button>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="p-6 overflow-y-auto space-y-8">
+        <!-- Section A: How to Use Hermes Agent for Weekly Drops -->
+        <div class="bg-zinc-950 border border-emerald-500/40 rounded-xl p-5">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <h3 class="text-lg stencil-font text-emerald-400">🤖 OPTION 1: HERMES AGENT / DROP SCRIPT (FASTEST WEEKLY WORKFLOW)</h3>
+            <span class="text-xs mono-font bg-emerald-950 text-emerald-300 px-2.5 py-1 rounded border border-emerald-700">ZERO MANUAL CODING</span>
+          </div>
+          <p class="text-xs text-gray-300 leading-relaxed mb-3">
+            Every week when you photograph a new batch of plants, drop the photos into a dated folder on `H:\The Magic Walnut Plants Sales\` (or `website\drops\inbox\`) and tell Hermes (or run `python hermes_drop_agent.py`):
+          </p>
+          <div class="bg-black border border-white/10 p-3 rounded-lg mono-font text-xs text-amber-300 select-all">
+            "Hermes, publish a new weekly plant drop from folder H:\The Magic Walnut Plants Sales\10-28-2026: IMG_1 to IMG_3 is Monstera Albo $110, IMG_4 is Florida Beauty $55, IMG_5 is Queen Anthurium $75."
+          </div>
+        </div>
+
+        <!-- Section B: Quick Visual Add a New Plant Specimen -->
+        <div class="bg-zinc-950 border border-white/15 rounded-xl p-5">
+          <h3 class="text-lg stencil-font text-orange-400 mb-4">🌿 OPTION 2: ADD A PLANT RIGHT NOW (VISUAL STUDIO)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div>
+              <label class="text-xs text-gray-400 block mb-1">Plant Name / Title:</label>
+              <input type="text" id="new-plant-name" placeholder="e.g. Monstera Albo High Var #4" class="w-full bg-zinc-900 border border-white/20 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+            <div>
+              <label class="text-xs text-gray-400 block mb-1">Price ($ USD):</label>
+              <input type="number" id="new-plant-price" placeholder="85" class="w-full bg-zinc-900 border border-white/20 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+            <div>
+              <label class="text-xs text-gray-400 block mb-1">Category & Type:</label>
+              <select id="new-plant-cat" class="w-full bg-zinc-900 border border-white/20 rounded-lg px-3 py-2 text-sm text-white">
+                <option value="Monstera">Monstera (1-of-1 WYSIWYG)</option>
+                <option value="Philodendron">Philodendron (1-of-1 WYSIWYG)</option>
+                <option value="Syngonium & Starters">Syngonium & Starters</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-xs text-gray-400 block mb-1">Pot Size & Root Notes:</label>
+              <input type="text" id="new-plant-pot" value="4&quot; Clear Sanctuary Cup • Rooted" class="w-full bg-zinc-900 border border-white/20 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+            <div class="md:col-span-2">
+              <label class="text-xs text-gray-400 block mb-1">Upload Plant Photos (Select 1 or Multiple Angles):</label>
+              <input type="file" id="new-plant-files" accept="image/*" multiple class="w-full text-xs text-gray-300 bg-zinc-900 border border-white/20 rounded-lg p-1.5">
+            </div>
+            <div class="md:col-span-3">
+              <label class="text-xs text-gray-400 block mb-1">Description:</label>
+              <input type="text" id="new-plant-desc" placeholder="Exact plant pictured. Healthy roots in chunky aroid mix." class="w-full bg-zinc-900 border border-white/20 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+          </div>
+          <div class="mt-4 flex justify-end">
+            <button id="add-plant-submit-btn" class="bg-[#E05A37] hover:bg-[#f26742] text-black font-black text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl">
+              + Publish Specimen to Live Shoppe
+            </button>
+          </div>
+        </div>
+
+        <!-- Section C: Manage Current Weekly Drop (Toggle Sold, Edit Price, or Wipe Batch) -->
+        <div class="bg-zinc-950 border border-white/15 rounded-xl p-5">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <h3 class="text-lg stencil-font text-white">📋 CURRENT WEEKLY DROP INVENTORY</h3>
+            <div class="flex gap-2">
+              <button id="restore-sample-drop-btn" class="bg-zinc-800 hover:bg-zinc-700 text-gray-200 text-xs mono-font px-3 py-1.5 rounded-lg border border-white/15">
+                ↺ Restore Default Sample Drop
+              </button>
+              <button id="wipe-drop-btn" class="bg-red-900/70 hover:bg-red-800 text-red-200 text-xs mono-font font-bold px-3 py-1.5 rounded-lg border border-red-500/40">
+                🗑️ Archive / Wipe All for New Weekly Shoot
+              </button>
+            </div>
+          </div>
+          <div id="admin-plants-table" class="space-y-2"></div>
+        </div>
+
+        <!-- Section C.2: Backend Checkout Settings (Make.com Webhook, Stripe & Pirate Ship CSV) -->
+        <div class="bg-zinc-950 border border-amber-500/40 rounded-xl p-5 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 class="text-lg stencil-font text-amber-400">🛒 BACKEND CHECKOUT, MAKE.COM WEBHOOK & PIRATE SHIP CSV</h3>
+              <p class="text-xs text-gray-400">Every checkout automatically sends an Order Ticket to <code class="text-emerald-300">themagicwalnutplantshoppe@gmail.com</code> AND optionally triggers your Make.com Webhook!</p>
+            </div>
+            <button id="export-pirateship-csv-btn" class="bg-amber-500 hover:bg-amber-400 text-black font-black text-xs mono-font px-3.5 py-2 rounded-lg shadow">
+              🏴‍☠️ Download Pirate Ship Labels CSV
+            </button>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="text-xs text-gray-300 font-bold block mb-1">Make.com Order Webhook URL (Optional — Instant Automation):</label>
+              <input type="url" id="make-webhook-input" placeholder="https://hook.us1.make.com/..." class="w-full bg-zinc-900 border border-white/20 rounded-lg px-3 py-2 text-xs text-white mono-font">
+              <span class="text-[11px] text-gray-500 block mt-1">When a customer checks out, full JSON (Address, Plants, Total, Payment Method) is POSTed here!</span>
+            </div>
+            <div>
+              <label class="text-xs text-gray-300 font-bold block mb-1">Stripe Payment / Checkout Link (Optional):</label>
+              <input type="url" id="stripe-link-input" placeholder="https://buy.stripe.com/..." class="w-full bg-zinc-900 border border-white/20 rounded-lg px-3 py-2 text-xs text-white mono-font">
+              <span class="text-[11px] text-gray-500 block mt-1">If set, clicking "Card / Stripe" opens this link; otherwise it dispatches an instant Card Invoice request to your email!</span>
+            </div>
+          </div>
+
+          <div>
+            <span class="text-xs mono-font uppercase text-emerald-400 font-bold block mb-2">Recent Sanctuary Crate Orders (Saved Locally + Exportable to Pirate Ship):</span>
+            <div id="admin-orders-list" class="space-y-2 max-h-48 overflow-y-auto"></div>
+          </div>
+        </div>
+
+        <!-- Section D: Site Text, Social Links & GitHub/Squarespace Guide -->
+        <div class="bg-zinc-950 border border-white/15 rounded-xl p-5 space-y-4">
+          <h3 class="text-lg stencil-font text-amber-400">🎨 SANCTUARY THEME, SOCIAL LINKS & SQUARESPACE DNS</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="text-xs text-gray-400 block mb-1">Top Announcement Banner:</label>
+              <input type="text" id="edit-announcement-input" class="w-full bg-zinc-900 border border-white/20 rounded-lg px-3 py-2 text-xs text-white">
+            </div>
+            <div class="flex items-end gap-3">
+              <button id="toggle-wall-theme-btn" class="bg-zinc-800 hover:bg-zinc-700 border border-white/20 text-white text-xs mono-font font-bold px-4 py-2.5 rounded-lg">
+                🧱 Toggle Concrete vs. White-Brick Wall Theme
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-black/60 border border-white/10 rounded-xl p-4 text-xs space-y-2">
+            <span class="font-bold text-emerald-400 mono-font block">🌐 HOW TO POINT YOUR SQUARESPACE DOMAIN TO GITHUB PAGES ($0/MO HOSTING):</span>
+            <p class="text-gray-300">
+              1. Double-click <code class="text-amber-300">PUBLISH_TO_LIVE_SITE.bat</code> in <code class="text-amber-300">H:\The Magic Walnut Plants Sales\website\</code> whenever you update your weekly photos. It pushes everything to your GitHub repo with the <code class="text-emerald-300">CNAME</code> file for <strong>themagicwalnutplantshoppe.com</strong>.
+            </p>
+            <p class="text-gray-300">
+              2. In <strong>Squarespace Domains → DNS Settings</strong> for <code class="text-white">themagicwalnutplantshoppe.com</code>, add these 4 GitHub Pages <code class="text-amber-300">A</code> records for <code class="text-white">@</code>:
+              <code class="text-emerald-300 block mt-1">185.199.108.153  •  185.199.109.153  •  185.199.110.153  •  185.199.111.153</code>
+              And a <code class="text-amber-300">CNAME</code> record for <code class="text-white">www</code> pointing to <code class="text-emerald-300">iamdustins.github.io</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 4: GOOGLE SITES & CSV PRIZE EMBED HELPER
+       ========================================================================= -->
+  <div id="embed-helper-modal" class="fixed inset-0 bg-black/85 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+    <div class="bg-zinc-900 border-2 border-emerald-500/60 rounded-2xl max-w-3xl w-full p-6 space-y-4">
+      <div class="flex justify-between items-center">
+        <h3 class="text-2xl stencil-font text-emerald-400">📋 GOOGLE SITES EMBEDS & YOUR CSV PRIZE FILES</h3>
+        <button id="close-embed-helper" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+      </div>
+      <p class="text-xs text-gray-300 leading-relaxed">
+        All <strong>3 of your Carnival Games</strong> AND your existing CSV files (<code class="text-amber-300">plant_list.csv</code> & <code class="text-amber-300">Plant_Box_Game dec 8th_test.csv</code>) are now built right into this site inside:
+        <code class="text-amber-300 block mt-1 bg-black p-2 rounded border border-white/10">H:\The Magic Walnut Plants Sales\website\google-sites-embeds\</code>
+      </p>
+      <div class="grid sm:grid-cols-3 gap-3 text-xs">
+        <div class="bg-black/60 p-4 rounded-xl border border-white/10 space-y-2">
+          <span class="font-bold text-amber-400 block">1. Plant Mystery Pull (v3)</span>
+          <p class="text-gray-400">Pre-loaded with your <code class="text-white">plant_list.csv</code> (Albo Chase + Thai Con Top Prize) + 1-click CSV upload.</p>
+          <a href="google-sites-embeds/mystery-pull-embed.html" target="_blank" class="inline-block bg-amber-500 text-black font-bold px-3 py-1.5 rounded">Open Fullscreen ↗</a>
+        </div>
+        <div class="bg-black/60 p-4 rounded-xl border border-white/10 space-y-2">
+          <span class="font-bold text-emerald-400 block">2. 8-Bit Sanctuary Box Game</span>
+          <p class="text-gray-400">3D swinging wooden crate doors, Tone.js 8-bit chiptunes (Bach/Beethoven/Satie), and custom prizes.</p>
+          <a href="google-sites-embeds/plant-box-8bit-embed.html" target="_blank" class="inline-block bg-emerald-500 text-black font-bold px-3 py-1.5 rounded">Open Fullscreen ↗</a>
+        </div>
+        <div class="bg-black/60 p-4 rounded-xl border border-white/10 space-y-2">
+          <span class="font-bold text-orange-400 block">3. Pixel Carnival Balloon Darts</span>
+          <p class="text-gray-400">Upgraded from your <code class="text-white">01-Web-MVP</code> folder with mouse/keyboard aim & CSV prize wheel!</p>
+          <a href="google-sites-embeds/pixel-carnival-darts-embed.html" target="_blank" class="inline-block bg-[#E05A37] text-black font-bold px-3 py-1.5 rounded">Open Fullscreen ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 5: SANCTUARY ORDER TICKET & DIRECT PAYMENT CONFIRMATION MODAL
+       ========================================================================= -->
+  <div id="order-invoice-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden items-center justify-center z-50 p-4">
+    <div class="bg-zinc-900 border-2 border-[#E05A37] rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-white/15 pb-3">
+        <div>
+          <span id="invoice-order-id" class="text-xs mono-font text-emerald-400 font-bold uppercase block">ORDER #MW-0000</span>
+          <h3 class="text-2xl stencil-font text-white">🌿 SANCTUARY ORDER TICKET</h3>
+        </div>
+        <button id="close-invoice-modal" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+      </div>
+
+      <div class="bg-black/70 border border-white/10 rounded-xl p-4 space-y-2 text-xs mono-font">
+        <div class="flex justify-between"><span class="text-gray-400">Buyer:</span><span id="invoice-buyer" class="text-white font-bold"></span></div>
+        <div class="flex justify-between"><span class="text-gray-400">Transit / Address:</span><span id="invoice-address" class="text-gray-200 text-right max-w-[240px]"></span></div>
+        <div class="border-t border-white/10 pt-2">
+          <span class="text-gray-400 block mb-1">Claimed Specimens:</span>
+          <div id="invoice-items" class="text-emerald-300 font-bold space-y-0.5"></div>
+        </div>
+        <div class="border-t border-white/10 pt-2 flex justify-between text-base font-black">
+          <span class="text-white">EXACT TOTAL DUE:</span>
+          <span id="invoice-total" class="text-amber-400">$0.00</span>
+        </div>
+      </div>
+
+      <!-- Step 1: Payment Action -->
+      <div id="invoice-payment-box" class="bg-zinc-950 border border-amber-500/40 rounded-xl p-4 space-y-3">
+        <p id="invoice-payment-instructions" class="text-xs text-gray-200 leading-relaxed"></p>
+        <div class="flex flex-col gap-2">
+          <a id="invoice-pay-link" href="#" target="_blank" class="w-full text-center bg-[#E05A37] hover:bg-[#f26742] text-black font-black py-3 px-4 rounded-xl text-xs uppercase tracking-wider shadow-lg block">
+            ↗ Step 1: Open Payment App With Exact Total
+          </a>
+          <button id="copy-order-note-btn" class="w-full bg-zinc-800 hover:bg-zinc-700 text-amber-300 border border-amber-500/30 text-xs mono-font font-bold py-2 px-3 rounded-lg">
+            📋 Copy Order Note for Payment Memo
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Confirm & Send Ticket to Dustin -->
+      <div class="space-y-2 pt-1">
+        <button id="confirm-order-sent-btn" class="w-full bg-emerald-600 hover:bg-emerald-500 text-black font-black py-3 px-4 rounded-xl text-xs uppercase tracking-wider shadow-lg">
+          ✓ Step 2: Complete Order & Send Packing Ticket to Dustin
+        </button>
+        <p id="invoice-webhook-status" class="text-[11px] mono-font text-center text-gray-400">
+          Automatically dispatches your shipping label details to The Magic Walnut Sanctuary.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       APPLICATION JAVASCRIPT
+       ========================================================================= -->
+  <script>
+    const CATALOG_STORAGE_KEY = 'magic_walnut_catalog_v1';
+    const CART_STORAGE_KEY = 'magic_walnut_cart_v1';
+    const ORDERS_STORAGE_KEY = 'magic_walnut_orders_v1';
+    const SETTINGS_STORAGE_KEY = 'magic_walnut_checkout_settings_v1';
+
+    let defaultCatalog = null;
+    let catalog = null;
+    let cart = [];
+    let orders = [];
+    let checkoutSettings = { makeWebhookUrl: '', stripeCheckoutUrl: '' };
+    let activeInvoiceOrder = null;
+    let currentFilter = 'ALL';
+
+    async function initApp() {
+      try {
+        const res = await fetch('catalog.json');
+        defaultCatalog = await res.json();
+      } catch (e) {
+        console.error('Failed to fetch catalog.json', e);
+      }
+
+      const saved = localStorage.getItem(CATALOG_STORAGE_KEY);
+      if (saved) {
+        try {
+          catalog = JSON.parse(saved);
+        } catch (e) {
+          catalog = JSON.parse(JSON.stringify(defaultCatalog));
+        }
+      } else {
+        catalog = JSON.parse(JSON.stringify(defaultCatalog));
+      }
+
+      const savedCart = localStorage.getItem(CART_STORAGE_KEY);
+      if (savedCart) {
+        try { cart = JSON.parse(savedCart); } catch (e) { cart = []; }
+      }
+
+      const savedOrders = localStorage.getItem(ORDERS_STORAGE_KEY);
+      if (savedOrders) {
+        try { orders = JSON.parse(savedOrders); } catch (e) { orders = []; }
+      }
+
+      const savedSettings = localStorage.getItem(SETTINGS_STORAGE_KEY);
+      if (savedSettings) {
+        try { checkoutSettings = { ...checkoutSettings, ...JSON.parse(savedSettings) }; } catch (e) {}
+      }
+
+      renderShoppe();
+      renderMerch();
+      renderCart();
+      renderAdminTable();
+      bindEvents();
+    }
+
+    function saveCatalog() {
+      localStorage.setItem(CATALOG_STORAGE_KEY, JSON.stringify(catalog));
+      renderShoppe();
+      renderAdminTable();
+    }
+
+    function saveCart() {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+      renderCart();
+    }
+
+    function renderShoppe() {
+      if (!catalog || !catalog.plants) return;
+      const grid = document.getElementById('plants-grid');
+      const filtered = catalog.plants.filter(p => {
+        if (currentFilter === 'ALL') return true;
+        if (currentFilter === 'WYSIWYG') return p.type === 'WYSIWYG';
+        return p.category === currentFilter;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full bg-zinc-900/80 border border-white/15 rounded-2xl p-12 text-center space-y-3">
+            <p class="text-2xl stencil-font text-amber-400">🌿 NEXT SANCTUARY PHOTO DROP LOADING...</p>
+            <p class="text-sm text-gray-400 max-w-md mx-auto">Open <strong>Sanctuary Studio / Hermes Drop</strong> in the top bar to upload this week's plant photos or restore the sample batch!</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(plant => {
+        const isSold = plant.status === 'sold' || plant.stock <= 0;
+        const mainImg = (plant.images && plant.images[0]) ? plant.images[0] : 'assets/logos/2.png';
+        const photoCount = plant.images ? plant.images.length : 1;
+
+        return `
+          <article class="specimen-card rounded-2xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="relative aspect-[4/3] bg-black overflow-hidden cursor-pointer group" onclick="openSpecimenModal('${plant.id}')">
+                <img src="${mainImg}" alt="${plant.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 ${isSold ? 'opacity-40 grayscale' : ''}" />
+                <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                  <span class="bg-black/85 border border-orange-500/60 text-orange-300 text-[11px] mono-font font-bold px-2.5 py-1 rounded-full">
+                    ${plant.badge || plant.type}
+                  </span>
+                  ${photoCount > 1 ? `<span class="bg-black/80 text-white text-[11px] mono-font px-2.5 py-1 rounded-full">📸 ${photoCount} Angles</span>` : ''}
+                </div>
+                ${isSold ? `
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="bg-red-600 text-white stencil-font text-2xl px-6 py-2 rounded-xl rotate-[-8deg] shadow-2xl border-2 border-white">CLAIMED / SOLD</span>
+                  </div>
+                ` : ''}
+              </div>
+
+              <div class="p-5">
+                <div class="flex items-center justify-between text-xs mono-font text-emerald-400 mb-1">
+                  <span>${plant.category}</span>
+                  <span>${plant.potSize || 'Sanctuary Cup'}</span>
+                </div>
+                <h3 class="text-lg font-extrabold text-white leading-snug cursor-pointer hover:text-orange-400 transition" onclick="openSpecimenModal('${plant.id}')">
+                  ${plant.name}
+                </h3>
+                <p class="text-xs italic text-gray-400 mt-0.5">${plant.botanical || ''}</p>
+                <p class="text-xs text-gray-300 mt-2.5 line-clamp-2 leading-relaxed">${plant.description}</p>
+              </div>
+            </div>
+
+            <div class="px-5 pb-5 pt-3 border-t border-white/10 flex items-center justify-between gap-3">
+              <div>
+                <span class="text-xs text-gray-400 block mono-font">SANCTUARY PRICE</span>
+                <span class="text-2xl font-black text-amber-400">$${plant.price}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="openSpecimenModal('${plant.id}')" class="bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold px-3 py-2.5 rounded-xl border border-white/15">
+                  Inspect
+                </button>
+                <button ${isSold ? 'disabled' : ''} onclick="addToCart('${plant.id}', 'plant')" class="${isSold ? 'bg-zinc-800 text-gray-500 cursor-not-allowed' : 'bg-[#E05A37] hover:bg-[#f26742] text-black'} font-black text-xs uppercase px-4 py-2.5 rounded-xl transition shadow">
+                  ${isSold ? 'Sold Out' : '+ Claim'}
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function renderMerch() {
+      if (!catalog || !catalog.merch) return;
+      const grid = document.getElementById('merch-grid');
+      grid.innerHTML = catalog.merch.map(item => `
+        <article class="specimen-card rounded-2xl overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="relative aspect-square bg-zinc-950 overflow-hidden group">
+              <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <span class="absolute top-3 left-3 bg-black/85 border border-amber-400/50 text-amber-300 text-[11px] mono-font font-bold px-2.5 py-1 rounded-full">
+                ${item.badge}
+              </span>
+            </div>
+            <div class="p-5">
+              <span class="text-xs mono-font text-orange-400 uppercase font-bold">${item.type}</span>
+              <h3 class="text-lg font-extrabold text-white mt-1">${item.name}</h3>
+              <p class="text-xs text-gray-300 mt-2 leading-relaxed">${item.description}</p>
+            </div>
+          </div>
+          <div class="px-5 pb-5 pt-3 border-t border-white/10 flex items-center justify-between">
+            <span class="text-2xl font-black text-amber-400">$${item.price}</span>
+            <button onclick="addToCart('${item.id}', 'merch')" class="bg-zinc-800 hover:bg-[#E05A37] hover:text-black text-white font-bold text-xs uppercase px-4 py-2.5 rounded-xl border border-white/20 transition">
+              + Add to Crate
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    window.openSpecimenModal = function(plantId) {
+      const plant = catalog.plants.find(p => p.id === plantId);
+      if (!plant) return;
+      const modal = document.getElementById('specimen-modal');
+      const mainImg = document.getElementById('modal-main-img');
+      const thumbs = document.getElementById('modal-thumbs');
+
+      mainImg.src = plant.images[0] || 'assets/logos/2.png';
+      document.getElementById('modal-badge').textContent = plant.badge || plant.type;
+      document.getElementById('modal-category').textContent = plant.category;
+      document.getElementById('modal-title').textContent = plant.name;
+      document.getElementById('modal-botanical').textContent = plant.botanical || '';
+      document.getElementById('modal-price').textContent = `$${plant.price}.00`;
+      document.getElementById('modal-desc').textContent = plant.description;
+      document.getElementById('modal-pot').textContent = plant.potSize || '4" Sanctuary Pot';
+      document.getElementById('modal-roots').textContent = plant.rootStatus || 'Established';
+      document.getElementById('modal-light').textContent = plant.light || 'Bright Indirect';
+
+      thumbs.innerHTML = (plant.images || []).map((imgUrl, idx) => `
+        <img src="${imgUrl}" onclick="document.getElementById('modal-main-img').src='${imgUrl}'" class="w-16 h-16 object-cover rounded-lg border-2 border-white/20 hover:border-orange-500 cursor-pointer" />
+      `).join('');
+
+      const addBtn = document.getElementById('modal-add-cart-btn');
+      const isSold = plant.status === 'sold' || plant.stock <= 0;
+      addBtn.disabled = isSold;
+      addBtn.textContent = isSold ? 'SPECIMEN CLAIMED / SOLD' : `🛒 Claim Specimen ($${plant.price})`;
+      addBtn.onclick = () => {
+        addToCart(plant.id, 'plant');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      };
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    };
+
+    window.addToCart = function(itemId, kind) {
+      const sourceList = kind === 'merch' ? catalog.merch : catalog.plants;
+      const item = sourceList.find(i => i.id === itemId);
+      if (!item) return;
+
+      if (kind === 'plant' && item.type === 'WYSIWYG') {
+        const already = cart.find(c => c.id === item.id);
+        if (already) {
+          openCartDrawer();
+          return;
+        }
+      }
+
+      cart.push({
+        id: item.id,
+        name: item.name,
+        price: Number(item.price),
+        image: (item.images && item.images[0]) ? item.images[0] : item.image,
+        kind
+      });
+      saveCart();
+      openCartDrawer();
+    };
+
+    window.removeFromCart = function(index) {
+      cart.splice(index, 1);
+      saveCart();
+    };
+
+    function openCartDrawer() {
+      const d = document.getElementById('cart-drawer');
+      d.classList.remove('hidden');
+      d.classList.add('flex');
+    }
+
+    function renderCart() {
+      document.getElementById('cart-count-badge').textContent = cart.length;
+      const list = document.getElementById('cart-items-list');
+      if (cart.length === 0) {
+        list.innerHTML = `<p class="text-xs text-gray-500 py-8 text-center mono-font">Your Sanctuary Crate is currently empty.</p>`;
+      } else {
+        list.innerHTML = cart.map((item, idx) => `
+          <div class="py-3 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <img src="${item.image}" class="w-12 h-12 rounded-lg object-cover border border-white/15" />
+              <div>
+                <h4 class="text-xs font-bold text-white leading-snug">${item.name}</h4>
+                <span class="text-xs mono-font text-amber-400 font-bold">$${item.price}.00</span>
+              </div>
+            </div>
+            <button onclick="removeFromCart(${idx})" class="text-xs text-red-400 hover:text-red-300 mono-font">Remove</button>
+          </div>
+        `).join('');
+      }
+
+      const subtotal = cart.reduce((sum, i) => sum + i.price, 0);
+      const shipMethod = Number(document.getElementById('shipping-method-select').value || 0);
+      const heatPack = document.getElementById('heat-pack-checkbox').checked ? 6 : 0;
+      const shippingTotal = cart.length > 0 ? (shipMethod + heatPack) : 0;
+      const grandTotal = subtotal + shippingTotal;
+
+      document.getElementById('cart-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('cart-shipping').textContent = `$${shippingTotal.toFixed(2)}`;
+      document.getElementById('cart-total').textContent = `$${grandTotal.toFixed(2)}`;
+    }
+
+    function renderAdminTable() {
+      const container = document.getElementById('admin-plants-table');
+      if (!catalog || !catalog.plants) return;
+      document.getElementById('edit-announcement-input').value = document.getElementById('announcement-bar-text').textContent.trim();
+      const makeInput = document.getElementById('make-webhook-input');
+      const stripeInput = document.getElementById('stripe-link-input');
+      if (makeInput) makeInput.value = checkoutSettings.makeWebhookUrl || '';
+      if (stripeInput) stripeInput.value = checkoutSettings.stripeCheckoutUrl || '';
+
+      const ordersContainer = document.getElementById('admin-orders-list');
+      if (ordersContainer) {
+        if (orders.length === 0) {
+          ordersContainer.innerHTML = `<p class="text-xs text-gray-500 mono-font">No checkout tickets recorded yet. Try a test checkout in the Crate!</p>`;
+        } else {
+          ordersContainer.innerHTML = orders.map(o => `
+            <div class="bg-zinc-900 border border-white/10 rounded-lg p-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
+              <div>
+                <span class="mono-font text-amber-400 font-bold">${o.orderId}</span>
+                <span class="text-white font-bold ml-2">${o.buyerName}</span>
+                <span class="text-gray-400 ml-1">(${o.buyerEmail})</span>
+                <span class="block text-[11px] text-gray-400">${o.street}, ${o.city}, ${o.state} ${o.zip} • ${o.itemsSummary}</span>
+              </div>
+              <div class="text-right mono-font">
+                <span class="text-emerald-400 font-bold block">$${o.grandTotal.toFixed(2)} (${o.provider.toUpperCase()})</span>
+                <span class="text-[10px] text-gray-500">${o.createdAt}</span>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+
+      if (catalog.plants.length === 0) {
+        container.innerHTML = `<p class="text-xs text-gray-500 mono-font">No plants in current drop. Add one above or restore the sample batch.</p>`;
+        return;
+      }
+
+      container.innerHTML = catalog.plants.map((p, idx) => `
+        <div class="flex flex-wrap items-center justify-between gap-3 bg-zinc-900 p-3 rounded-xl border border-white/10">
+          <div class="flex items-center gap-3">
+            <img src="${(p.images && p.images[0]) || 'assets/logos/2.png'}" class="w-12 h-12 rounded-lg object-cover" />
+            <div>
+              <span class="text-xs font-bold text-white block">${p.name}</span>
+              <span class="text-[11px] mono-font text-gray-400">${p.category} • $${p.price} • Status: <strong class="${p.status === 'sold' ? 'text-red-400' : 'text-emerald-400'}">${p.status.toUpperCase()}</strong></span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="togglePlantStatus('${p.id}')" class="text-xs mono-font bg-zinc-800 hover:bg-zinc-700 text-white px-3 py-1.5 rounded-lg border border-white/15">
+              ${p.status === 'sold' ? 'Mark Available' : 'Mark SOLD'}
+            </button>
+            <button onclick="deletePlant('${p.id}')" class="text-xs mono-font bg-red-950 hover:bg-red-900 text-red-300 px-3 py-1.5 rounded-lg border border-red-700/40">
+              Delete
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    window.togglePlantStatus = function(id) {
+      const p = catalog.plants.find(x => x.id === id);
+      if (!p) return;
+      p.status = p.status === 'sold' ? 'available' : 'sold';
+      saveCatalog();
+    };
+
+    window.deletePlant = function(id) {
+      catalog.plants = catalog.plants.filter(x => x.id !== id);
+      saveCatalog();
+    };
+
+    function handleCheckout(provider) {
+      if (cart.length === 0) {
+        alert('Your Sanctuary Crate is empty! Claim a plant or merch item first.');
+        return;
+      }
+      const buyerName = document.getElementById('buyer-name').value.trim();
+      const buyerEmail = document.getElementById('buyer-email').value.trim();
+      const buyerHandle = document.getElementById('buyer-handle').value.trim();
+      const street = document.getElementById('buyer-street').value.trim();
+      const city = document.getElementById('buyer-city').value.trim();
+      const state = document.getElementById('buyer-state').value.trim();
+      const zip = document.getElementById('buyer-zip').value.trim();
+      const notes = document.getElementById('buyer-notes').value.trim();
+      const shipMethodVal = Number(document.getElementById('shipping-method-select').value || 0);
+      const isPickup = shipMethodVal === 0;
+
+      if (!buyerName || !buyerEmail) {
+        alert('Please enter your Full Name and Email so Dustin can send your tracking number!');
+        document.getElementById('buyer-name').focus();
+        return;
+      }
+      if (!isPickup && (!street || !city || !state || !zip)) {
+        alert('Please enter your complete Street Address, City, State, and ZIP Code for shipping (or select Free Local Pickup).');
+        document.getElementById('buyer-street').focus();
+        return;
+      }
+
+      const subtotal = cart.reduce((sum, i) => sum + i.price, 0);
+      const heatPack = document.getElementById('heat-pack-checkbox').checked;
+      const shippingTotal = shipMethodVal + (heatPack ? 6 : 0);
+      const grandTotal = subtotal + shippingTotal;
+      const orderId = 'MW-' + Math.floor(1000 + Math.random() * 9000);
+      const itemsSummary = cart.map(i => `${i.name} ($${i.price})`).join(', ') + (heatPack ? ' + 72Hr Heat Pack ($6)' : '');
+
+      activeInvoiceOrder = {
+        orderId,
+        createdAt: new Date().toLocaleString(),
+        buyerName,
+        buyerEmail,
+        buyerHandle,
+        street: isPickup ? 'LOCAL PICKUP' : street,
+        city: isPickup ? '' : city,
+        state: isPickup ? '' : state,
+        zip: isPickup ? '' : zip,
+        notes,
+        shippingMethod: isPickup ? 'Local Pickup ($0)' : (shipMethodVal === 24 ? 'UPS 2-Day ($24)' : 'USPS Priority ($14)'),
+        heatPack,
+        subtotal,
+        shippingTotal,
+        grandTotal,
+        provider,
+        items: [...cart],
+        itemsSummary
+      };
+
+      // Populate Order Ticket Modal
+      document.getElementById('invoice-order-id').textContent = `ORDER #${orderId} • ${provider.toUpperCase()}`;
+      document.getElementById('invoice-buyer').textContent = `${buyerName} ${buyerHandle ? '(' + buyerHandle + ')' : ''}`;
+      document.getElementById('invoice-address').textContent = isPickup ? '📍 Local Sanctuary Pickup' : `${street}, ${city}, ${state} ${zip}`;
+      document.getElementById('invoice-items').innerHTML = cart.map(i => `<div>• ${i.name} — $${i.price}.00</div>`).join('') + (heatPack ? `<div class="text-orange-300">• + 72-Hr Winter Heat Pack ($6.00)</div>` : '');
+      document.getElementById('invoice-total').textContent = `$${grandTotal.toFixed(2)}`;
+
+      const payLink = document.getElementById('invoice-pay-link');
+      const payInstr = document.getElementById('invoice-payment-instructions');
+      const paymentMemo = `Order ${orderId} - ${buyerName} (${itemsSummary})`;
+
+      try { navigator.clipboard.writeText(paymentMemo); } catch (e) {}
+
+      if (provider === 'paypal') {
+        payLink.href = `https://www.paypal.com/paypalme/themagicwalnutplantshoppe/${grandTotal.toFixed(2)}`;
+        payLink.textContent = `💙 Step 1: Pay $${grandTotal.toFixed(2)} on PayPal.me ↗`;
+        payInstr.innerHTML = `Your exact total (<strong>$${grandTotal.toFixed(2)}</strong>) is pre-loaded into PayPal for <strong>@themagicwalnutplantshoppe</strong>. Paste your copied Order ID (<strong>${orderId}</strong>) in the PayPal note!`;
+      } else if (provider === 'venmo') {
+        payLink.href = `https://venmo.com/themagicwalnutplantshoppe?txn=pay&amount=${grandTotal.toFixed(2)}&note=${encodeURIComponent(paymentMemo)}`;
+        payLink.textContent = `💠 Step 1: Pay $${grandTotal.toFixed(2)} on Venmo ↗`;
+        payInstr.innerHTML = `Send <strong>$${grandTotal.toFixed(2)}</strong> to <strong>@themagicwalnutplantshoppe</strong> on Venmo. Your Order Note (<strong>${orderId}</strong>) has been copied to your clipboard!`;
+      } else if (provider === 'cashapp') {
+        payLink.href = `https://cash.app/$dartsilver/${grandTotal.toFixed(2)}`;
+        payLink.textContent = `💵 Step 1: Pay $${grandTotal.toFixed(2)} on Cash App ($dartsilver) ↗`;
+        payInstr.innerHTML = `Your exact total (<strong>$${grandTotal.toFixed(2)}</strong>) is pre-loaded for <strong>$dartsilver</strong>. Paste Order <strong>${orderId}</strong> in the "For" note!`;
+      } else if (provider === 'zelle') {
+        payLink.href = `mailto:themagicwalnutplantshoppe@gmail.com?subject=${encodeURIComponent('Zelle Order ' + orderId)}&body=${encodeURIComponent(paymentMemo)}`;
+        payLink.textContent = `🏦 Step 1: Send $${grandTotal.toFixed(2)} via Zelle to themagicwalnutplantshoppe@gmail.com`;
+        payInstr.innerHTML = `In your banking app's Zelle tab, send <strong>$${grandTotal.toFixed(2)}</strong> to <strong>themagicwalnutplantshoppe@gmail.com</strong> with memo <strong>${orderId}</strong>.`;
+      } else {
+        const customStripe = checkoutSettings.stripeCheckoutUrl;
+        payLink.href = customStripe || `mailto:themagicwalnutplantshoppe@gmail.com?subject=${encodeURIComponent('Card Invoice Request ' + orderId)}&body=${encodeURIComponent(paymentMemo)}`;
+        payLink.textContent = customStripe ? `💳 Step 1: Pay $${grandTotal.toFixed(2)} via Stripe Card Checkout ↗` : `💳 Step 1: Request Instant Card / Apple Pay Link for $${grandTotal.toFixed(2)}`;
+        payInstr.innerHTML = customStripe
+          ? `Click below to complete your secure card payment, then click Step 2 to lock in your Sanctuary packing ticket.`
+          : `Click Step 2 below to dispatch your Order Ticket to Dustin—we'll text/email your direct Stripe Apple Pay / Card link for <strong>$${grandTotal.toFixed(2)}</strong> right away!`;
+      }
+
+      document.getElementById('cart-drawer').classList.add('hidden');
+      document.getElementById('cart-drawer').classList.remove('flex');
+      const invModal = document.getElementById('order-invoice-modal');
+      invModal.classList.remove('hidden');
+      invModal.classList.add('flex');
+    }
+
+    async function finalizeAndDispatchOrder() {
+      if (!activeInvoiceOrder) return;
+      const statusEl = document.getElementById('invoice-webhook-status');
+      statusEl.textContent = '⏳ Dispatching your Sanctuary Packing Ticket...';
+
+      // 1. Save to local orders log (for Pirate Ship CSV export)
+      orders.unshift(activeInvoiceOrder);
+      localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(orders));
+
+      // 2. Mark 1-of-1 WYSIWYG plants as SOLD in catalog
+      activeInvoiceOrder.items.forEach(cartItem => {
+        if (cartItem.kind === 'plant') {
+          const p = catalog.plants.find(x => x.id === cartItem.id);
+          if (p && p.type === 'WYSIWYG') {
+            p.status = 'sold';
+          }
+        }
+      });
+      saveCatalog();
+
+      // 3. Fire Make.com Webhook if configured
+      if (checkoutSettings.makeWebhookUrl) {
+        try {
+          await fetch(checkoutSettings.makeWebhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(activeInvoiceOrder)
+          });
+        } catch (e) {
+          console.warn('Make webhook error:', e);
+        }
+      }
+
+      // 4. Fire FormSubmit AJAX email to themagicwalnutplantshoppe@gmail.com
+      try {
+        await fetch('https://formsubmit.co/ajax/themagicwalnutplantshoppe@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: `🌿 New Sanctuary Order ${activeInvoiceOrder.orderId} ($${activeInvoiceOrder.grandTotal.toFixed(2)} via ${activeInvoiceOrder.provider.toUpperCase()})`,
+            Order_ID: activeInvoiceOrder.orderId,
+            Buyer_Name: activeInvoiceOrder.buyerName,
+            Buyer_Email: activeInvoiceOrder.buyerEmail,
+            Stream_Handle: activeInvoiceOrder.buyerHandle || 'N/A',
+            Shipping_Address: `${activeInvoiceOrder.street}, ${activeInvoiceOrder.city}, ${activeInvoiceOrder.state} ${activeInvoiceOrder.zip}`,
+            Shipping_Method: activeInvoiceOrder.shippingMethod,
+            Items: activeInvoiceOrder.itemsSummary,
+            Total_USD: `$${activeInvoiceOrder.grandTotal.toFixed(2)}`,
+            Payment_Provider: activeInvoiceOrder.provider.toUpperCase(),
+            Notes: activeInvoiceOrder.notes || 'None'
+          })
+        });
+      } catch (e) {}
+
+      // 5. Clear cart and confirm
+      cart = [];
+      saveCart();
+      statusEl.textContent = `✅ Order ${activeInvoiceOrder.orderId} Locked In! Confirmation sent.`;
+      setTimeout(() => {
+        document.getElementById('order-invoice-modal').classList.add('hidden');
+        document.getElementById('order-invoice-modal').classList.remove('flex');
+        alert(`🎉 Thank you, ${activeInvoiceOrder.buyerName}! Order ${activeInvoiceOrder.orderId} is locked in. Dustin will email your tracking number as soon as your Sanctuary crate ships!`);
+      }, 600);
+    }
+
+    function bindEvents() {
+      // Filter buttons
+      document.querySelectorAll('.shop-filter-btn').forEach(btn => {
+        btn.onclick = () => {
+          currentFilter = btn.dataset.filter;
+          document.querySelectorAll('.shop-filter-btn').forEach(b => {
+            b.className = 'shop-filter-btn bg-zinc-800 hover:bg-zinc-700 text-gray-200 text-xs mono-font px-3.5 py-2 rounded-lg';
+          });
+          btn.className = 'shop-filter-btn bg-[#E05A37] text-black font-bold text-xs mono-font px-3.5 py-2 rounded-lg';
+          renderShoppe();
+        };
+      });
+
+      // Modal close buttons
+      document.getElementById('close-specimen-modal').onclick = () => {
+        document.getElementById('specimen-modal').classList.add('hidden');
+        document.getElementById('specimen-modal').classList.remove('flex');
+      };
+      document.getElementById('open-cart-btn').onclick = openCartDrawer;
+      document.getElementById('close-cart-btn').onclick = () => {
+        document.getElementById('cart-drawer').classList.add('hidden');
+        document.getElementById('cart-drawer').classList.remove('flex');
+      };
+      document.getElementById('shipping-method-select').onchange = renderCart;
+      document.getElementById('heat-pack-checkbox').onchange = renderCart;
+
+      // Checkout buttons
+      document.getElementById('checkout-stripe-btn').onclick = () => handleCheckout('stripe');
+      document.getElementById('checkout-paypal-btn').onclick = () => handleCheckout('paypal');
+      document.getElementById('checkout-venmo-btn').onclick = () => handleCheckout('venmo');
+      document.getElementById('checkout-cashapp-btn').onclick = () => handleCheckout('cashapp');
+      document.getElementById('checkout-zelle-btn').onclick = () => handleCheckout('zelle');
+
+      // Order Invoice Modal buttons
+      document.getElementById('close-invoice-modal').onclick = () => {
+        document.getElementById('order-invoice-modal').classList.add('hidden');
+        document.getElementById('order-invoice-modal').classList.remove('flex');
+      };
+      document.getElementById('copy-order-note-btn').onclick = () => {
+        if (!activeInvoiceOrder) return;
+        const memo = `Order ${activeInvoiceOrder.orderId} - ${activeInvoiceOrder.buyerName} (${activeInvoiceOrder.itemsSummary})`;
+        navigator.clipboard.writeText(memo);
+        document.getElementById('copy-order-note-btn').textContent = '✓ Copied Order Note to Clipboard!';
+      };
+      document.getElementById('confirm-order-sent-btn').onclick = finalizeAndDispatchOrder;
+
+      // Make.com Webhook & Stripe settings in Admin Studio
+      document.getElementById('make-webhook-input').oninput = (e) => {
+        checkoutSettings.makeWebhookUrl = e.target.value.trim();
+        localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(checkoutSettings));
+      };
+      document.getElementById('stripe-link-input').oninput = (e) => {
+        checkoutSettings.stripeCheckoutUrl = e.target.value.trim();
+        localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(checkoutSettings));
+      };
+      document.getElementById('export-pirateship-csv-btn').onclick = () => {
+        if (orders.length === 0) {
+          alert('No orders recorded yet! Try placing a test order in the Sanctuary Crate first.');
+          return;
+        }
+        let csv = 'Order ID,Name,Email,Address 1,City,State,Zip,Country,Shipping Method,Total USD,Payment Method,Items & Notes\n';
+        orders.forEach(o => {
+          csv += `"${o.orderId}","${o.buyerName}","${o.buyerEmail}","${o.street}","${o.city}","${o.state}","${o.zip}","US","${o.shippingMethod}","${o.grandTotal.toFixed(2)}","${o.provider}","${o.itemsSummary.replace(/"/g, '""')} | ${o.notes || ''}"\n`;
+        });
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `pirateship-magic-walnut-orders-${new Date().toISOString().slice(0,10)}.csv`;
+        a.click();
+      };
+
+      // Arcade Tabs
+      const iframe = document.getElementById('arcade-iframe');
+      const gameTitle = document.getElementById('active-game-title');
+      const fullLink = document.getElementById('open-fullscreen-game');
+      const tabPull = document.getElementById('tab-game-pull');
+      const tabBox = document.getElementById('tab-game-box');
+      const tabDarts = document.getElementById('tab-game-darts');
+      const inactiveTabClass = 'bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs md:text-sm mono-font px-4 py-2.5 rounded-xl border border-white/15';
+
+      tabPull.onclick = () => {
+        iframe.src = 'google-sites-embeds/mystery-pull-embed.html';
+        gameTitle.textContent = 'ACTIVE ARCADE CABINET: PLANT MYSTERY PULL (PRE-LOADED WITH YOUR CSV POOLS)';
+        fullLink.href = 'google-sites-embeds/mystery-pull-embed.html';
+        tabPull.className = 'bg-amber-500 text-black font-black text-xs md:text-sm mono-font px-4 py-2.5 rounded-xl shadow';
+        tabBox.className = inactiveTabClass;
+        tabDarts.className = inactiveTabClass;
+      };
+
+      tabBox.onclick = () => {
+        iframe.src = 'google-sites-embeds/plant-box-8bit-embed.html';
+        gameTitle.textContent = 'ACTIVE ARCADE CABINET: 8-BIT SANCTUARY CRATE BOX GAME (CHIPTUNE EDITION)';
+        fullLink.href = 'google-sites-embeds/plant-box-8bit-embed.html';
+        tabBox.className = 'bg-emerald-500 text-black font-black text-xs md:text-sm mono-font px-4 py-2.5 rounded-xl shadow';
+        tabPull.className = inactiveTabClass;
+        tabDarts.className = inactiveTabClass;
+      };
+
+      tabDarts.onclick = () => {
+        iframe.src = 'google-sites-embeds/pixel-carnival-darts-embed.html';
+        gameTitle.textContent = 'ACTIVE ARCADE CABINET: PIXEL CARNIVAL BALLOON DARTS (CSV PRIZE EDITION)';
+        fullLink.href = 'google-sites-embeds/pixel-carnival-darts-embed.html';
+        tabDarts.className = 'bg-[#E05A37] text-black font-black text-xs md:text-sm mono-font px-4 py-2.5 rounded-xl shadow';
+        tabPull.className = inactiveTabClass;
+        tabBox.className = inactiveTabClass;
+      };
+
+      // Google Sites Embed Helper
+      document.getElementById('open-embed-helper-btn').onclick = () => {
+        document.getElementById('embed-helper-modal').classList.remove('hidden');
+        document.getElementById('embed-helper-modal').classList.add('flex');
+      };
+      document.getElementById('close-embed-helper').onclick = () => {
+        document.getElementById('embed-helper-modal').classList.add('hidden');
+        document.getElementById('embed-helper-modal').classList.remove('flex');
+      };
+
+      // Sanctuary Admin Studio
+      const studioModal = document.getElementById('admin-studio-modal');
+      document.getElementById('open-admin-btn').onclick = () => {
+        studioModal.classList.remove('hidden');
+        studioModal.classList.add('flex');
+      };
+      document.getElementById('close-admin-studio').onclick = () => {
+        studioModal.classList.add('hidden');
+        studioModal.classList.remove('flex');
+      };
+
+      // Add new plant visually
+      document.getElementById('add-plant-submit-btn').onclick = async () => {
+        const name = document.getElementById('new-plant-name').value.trim();
+        const price = Number(document.getElementById('new-plant-price').value || 45);
+        const category = document.getElementById('new-plant-cat').value;
+        const potSize = document.getElementById('new-plant-pot').value.trim();
+        const description = document.getElementById('new-plant-desc').value.trim() || 'Exact sanctuary plant pictured.';
+        const files = document.getElementById('new-plant-files').files;
+
+        if (!name) {
+          alert('Please enter a plant name!');
+          return;
+        }
+
+        const images = [];
+        for (const file of files) {
+          const dataUrl = await new Promise(res => {
+            const r = new FileReader();
+            r.onload = (e) => res(e.target.result);
+            r.readAsDataURL(file);
+          });
+          images.push(dataUrl);
+        }
+        if (images.length === 0) images.push('assets/plants/IMG_1670.JPG');
+
+        catalog.plants.unshift({
+          id: 'mw-' + Date.now(),
+          name,
+          botanical: category + ' cultivar',
+          price,
+          type: 'WYSIWYG',
+          category,
+          status: 'available',
+          stock: 1,
+          potSize,
+          rootStatus: 'Established in Sanctuary Mix',
+          light: 'Bright Indirect',
+          badge: '1-OF-1 EXACT PLANT',
+          description,
+          images
+        });
+
+        document.getElementById('new-plant-name').value = '';
+        document.getElementById('new-plant-price').value = '';
+        document.getElementById('new-plant-files').value = '';
+        saveCatalog();
+        alert(`Added "${name}" to the live shoppe!`);
+      };
+
+      document.getElementById('wipe-drop-btn').onclick = () => {
+        if (confirm('Clear all plants from the current drop so you can start a fresh weekly batch?')) {
+          catalog.plants = [];
+          saveCatalog();
+        }
+      };
+
+      document.getElementById('restore-sample-drop-btn').onclick = () => {
+        catalog = JSON.parse(JSON.stringify(defaultCatalog));
+        saveCatalog();
+      };
+
+      document.getElementById('edit-announcement-input').oninput = (e) => {
+        document.getElementById('announcement-bar-text').textContent = e.target.value;
+      };
+
+      document.getElementById('toggle-wall-theme-btn').onclick = () => {
+        document.body.classList.toggle('theme-brick');
+      };
+
+      document.getElementById('export-catalog-json-btn').onclick = () => {
+        const blob = new Blob([JSON.stringify(catalog, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'catalog.json';
+        a.click();
+      };
+    }
+
+    initApp();
+  </script>
+</body>
+</html>

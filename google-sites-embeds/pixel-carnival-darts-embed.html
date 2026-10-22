@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Magic Walnut — 8-Bit Pixel Carnival Balloon Darts</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Space Mono', monospace;
+      background-color: #111315;
+      background-image: radial-gradient(circle at 50% 20%, rgba(46, 158, 91, 0.16), transparent 65%);
+      color: #f4f1ea;
+      min-height: 100vh;
+    }
+    .pixel-font { font-family: 'Press Start 2P', monospace; }
+    canvas {
+      image-rendering: pixelated;
+      background: #062814;
+      border: 4px solid #E05A37;
+      box-shadow: 0 0 28px rgba(224, 90, 55, 0.35), inset 0 0 24px rgba(0,0,0,0.7);
+      cursor: crosshair;
+    }
+  </style>
+</head>
+<body class="p-4 md:p-6">
+  <div class="max-w-5xl mx-auto space-y-5">
+    <!-- Top Header -->
+    <div class="flex flex-wrap items-center justify-between gap-3 bg-zinc-900/90 border-2 border-white/15 px-4 py-3 rounded-xl">
+      <div class="flex items-center gap-3">
+        <img src="../assets/logos/mystery_logo.jpg" alt="Mystery Plant Games" class="w-12 h-12 rounded-lg object-cover border border-emerald-500/50" />
+        <div>
+          <h1 class="pixel-font text-sm md:text-lg text-amber-400">🎯 PIXEL CARNIVAL: BALLOON DARTS</h1>
+          <p class="text-xs text-gray-300 mt-1">Move with Mouse / Touch or ← → Arrows • Click or SPACE to Throw Dart • Pop 6+ Balloons to Win a Plant Prize!</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="add-tokens-btn" class="bg-zinc-800 hover:bg-zinc-700 border border-amber-500/40 text-amber-300 text-xs font-bold px-3 py-2 rounded-lg">
+          +5 Stream Tokens
+        </button>
+        <label class="bg-emerald-800/70 hover:bg-emerald-700 text-emerald-200 border border-emerald-500/40 text-xs font-bold px-3 py-2 rounded-lg cursor-pointer">
+          📄 Load CSV Prizes
+          <input type="file" id="darts-csv-input" accept=".csv" class="hidden" />
+        </label>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-6 items-start">
+      <!-- Left 8 Cols: Pixel Canvas & HUD -->
+      <div class="lg:col-span-8 flex flex-col items-center bg-zinc-900/80 border border-white/15 rounded-2xl p-5">
+        <div class="w-full flex flex-wrap items-center justify-between gap-2 mb-3 text-xs font-bold">
+          <div class="flex items-center gap-4">
+            <span class="bg-black px-3 py-1.5 rounded-lg border border-amber-500/40 text-amber-300">🎟️ TOKENS: <strong id="tokens">5</strong></span>
+            <span class="bg-black px-3 py-1.5 rounded-lg border border-orange-500/40 text-orange-300">🎯 DARTS LEFT: <strong id="darts-left">3</strong></span>
+            <span class="bg-black px-3 py-1.5 rounded-lg border border-emerald-500/40 text-emerald-300">🎈 POPPED: <strong id="popped-count">0</strong> / 6</span>
+          </div>
+          <span class="bg-black px-3 py-1.5 rounded-lg border border-white/15 text-white">🏆 WINS: <strong id="wins">0</strong></span>
+        </div>
+
+        <canvas id="game" width="420" height="250" class="w-full max-w-[640px] rounded-xl"></canvas>
+
+        <div class="w-full flex flex-wrap items-center justify-between gap-3 mt-4">
+          <div class="flex gap-2">
+            <button id="btnPlay" class="bg-[#E05A37] hover:bg-[#f26742] text-black font-black text-xs uppercase px-4 py-2.5 rounded-xl shadow">
+              ▶ New Round (1 Token)
+            </button>
+            <button id="btnThrow" class="bg-amber-400 hover:bg-amber-300 text-black font-black text-xs uppercase px-4 py-2.5 rounded-xl shadow">
+              🎯 Throw Dart (Space)
+            </button>
+          </div>
+          <button id="btnRedeem" disabled class="bg-emerald-500 disabled:bg-zinc-800 disabled:text-gray-500 text-black font-black text-xs uppercase px-5 py-2.5 rounded-xl shadow transition">
+            🎁 Spin & Claim Plant Prize!
+          </button>
+        </div>
+
+        <div id="win-banner" class="hidden w-full mt-4 bg-emerald-950/90 border-2 border-emerald-400 rounded-xl p-4 text-center">
+          <p class="text-xs text-emerald-300 uppercase font-bold">🎉 CARNIVAL WINNER REWARD UNLOCKED!</p>
+          <p id="won-prize-text" class="pixel-font text-base md:text-lg text-amber-300 mt-2"></p>
+        </div>
+      </div>
+
+      <!-- Right 4 Cols: Active CSV Prize Pool -->
+      <div class="lg:col-span-4 bg-zinc-900/90 border border-white/15 rounded-2xl p-5 space-y-3">
+        <div class="flex items-center justify-between">
+          <h2 class="pixel-font text-xs text-emerald-400">🌿 DART PRIZE POOL</h2>
+          <span id="pool-count" class="text-xs bg-black px-2 py-0.5 rounded text-amber-400">20 Plants</span>
+        </div>
+        <p class="text-[11px] text-gray-400">Pre-loaded from your <code class="text-amber-300">plant_list.csv</code>. Upload any CSV above to swap prizes!</p>
+        <ul id="dart-prize-list" class="text-xs space-y-1.5 max-h-80 overflow-y-auto pr-1 divide-y divide-white/5"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const c = document.getElementById('game');
+    const ctx = c.getContext('2d');
+    const W = c.width, H = c.height;
+
+    const state = {
+      tokens: 5,
+      wins: 0,
+      darts: 3,
+      playing: true,
+      aimX: W / 2,
+      balloons: [],
+      prizeUnlocked: false,
+      prizes: [
+        "Monstera Albo (Chase)",
+        "Monstera Thai Constellation (Top Prize)",
+        "Philodendron Florida Ghost",
+        "Anthurium Crystallinum",
+        "Hoya Polyneura",
+        "Syngonium Albo",
+        "Philodendron Pink Princess",
+        "Alocasia Frydek",
+        "Scindapsus Treubii Moonlight",
+        "Calathea White Fusion",
+        "Hoya Carnosa Compacta",
+        "Monstera Adansonii",
+        "Philodendron Micans",
+        "String of Pearls",
+        "Hoya Kerrii (Single Leaf)",
+        "Pilea Peperomioides",
+        "Succulent Mix",
+        "Pothos Cuttings",
+        "Zz Plant",
+        "Snake Plant"
+      ]
+    };
+
+    function playBeep(freq = 520, dur = 0.08, type = 'square') {
+      try {
+        const ac = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ac.createOscillator();
+        const gain = ac.createGain();
+        osc.type = type;
+        osc.frequency.value = freq;
+        gain.gain.setValueAtTime(0.12, ac.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + dur);
+        osc.connect(gain);
+        gain.connect(ac.destination);
+        osc.start();
+        osc.stop(ac.currentTime + dur);
+      } catch (e) {}
+    }
+
+    function resetRound() {
+      state.darts = 3;
+      state.playing = true;
+      state.prizeUnlocked = false;
+      document.getElementById('btnRedeem').disabled = true;
+      document.getElementById('win-banner').classList.add('hidden');
+      state.balloons = [];
+      const colors = ['#2E9E5B', '#E05A37', '#FACC15', '#38BDF8', '#A855F7'];
+      for (let r = 0; r < 3; r++) {
+        for (let col = 0; col < 6; col++) {
+          state.balloons.push({
+            x: 48 + col * 64 + (Math.random() * 8 - 4),
+            y: 42 + r * 52 + (Math.random() * 6 - 3),
+            r: 14,
+            color: colors[(r + col) % colors.length],
+            pop: false
+          });
+        }
+      }
+      updateHUD();
+    }
+
+    function drawPixCircle(x, y, r, color) {
+      ctx.fillStyle = color;
+      for (let i = -r; i <= r; i++) {
+        for (let j = -r; j <= r; j++) {
+          if (i * i + j * j <= r * r) {
+            ctx.fillRect(Math.floor(x + i), Math.floor(y + j), 1, 1);
+          }
+        }
+      }
+    }
+
+    function draw() {
+      ctx.fillStyle = '#072212';
+      ctx.fillRect(0, 0, W, H);
+
+      // Carnival Booth Stripes at top
+      for (let i = 0; i < W; i += 20) {
+        ctx.fillStyle = (i / 20) % 2 === 0 ? '#E05A37' : '#F4F1EA';
+        ctx.fillRect(i, 0, 20, 10);
+      }
+
+      // Draw balloons
+      state.balloons.forEach(b => {
+        if (!b.pop) {
+          drawPixCircle(b.x, b.y, b.r, b.color);
+          drawPixCircle(b.x - 4, b.y - 4, 3, '#ffffff');
+          ctx.fillStyle = '#86efac';
+          for (let k = 0; k < 12; k++) {
+            ctx.fillRect(Math.floor(b.x), Math.floor(b.y + b.r + k), 1, 1);
+          }
+        }
+      });
+
+      // Aim reticle + Dart at bottom
+      ctx.fillStyle = '#FACC15';
+      ctx.fillRect(state.aimX - 10, H - 24, 20, 4);
+      ctx.fillStyle = '#E05A37';
+      ctx.fillRect(state.aimX - 2, H - 38, 4, 14);
+
+      requestAnimationFrame(draw);
+    }
+
+    function updateHUD() {
+      document.getElementById('tokens').textContent = state.tokens;
+      document.getElementById('wins').textContent = state.wins;
+      document.getElementById('darts-left').textContent = state.darts;
+      const popped = state.balloons.filter(b => b.pop).length;
+      document.getElementById('popped-count').textContent = popped;
+    }
+
+    function renderPrizeList() {
+      document.getElementById('pool-count').textContent = `${state.prizes.length} Plants`;
+      document.getElementById('dart-prize-list').innerHTML = state.prizes.map((p, i) => `
+        <li class="py-1.5 flex items-center gap-2">
+          <span class="text-orange-400 font-bold">#${i + 1}</span>
+          <span class="text-gray-200">${p}</span>
+        </li>
+      `).join('');
+    }
+
+    function throwDart() {
+      if (!state.playing || state.darts <= 0) return;
+      state.darts--;
+      playBeep(360, 0.06, 'triangle');
+
+      const x = state.aimX;
+      let hitCount = 0;
+      state.balloons.forEach(b => {
+        if (!b.pop && Math.abs(b.x - x) <= b.r + 6) {
+          b.pop = true;
+          hitCount++;
+        }
+      });
+      if (hitCount > 0) playBeep(680, 0.12, 'square');
+
+      const popped = state.balloons.filter(b => b.pop).length;
+      if (popped >= 6 && !state.prizeUnlocked) {
+        state.playing = false;
+        state.wins++;
+        state.prizeUnlocked = true;
+        document.getElementById('btnRedeem').disabled = false;
+        playBeep(880, 0.25, 'square');
+      } else if (state.darts === 0 && !state.prizeUnlocked) {
+        state.playing = false;
+      }
+      updateHUD();
+    }
+
+    // Controls: Mouse / Touch / Keyboard
+    c.addEventListener('mousemove', e => {
+      const rect = c.getBoundingClientRect();
+      const relX = ((e.clientX - rect.left) / rect.width) * W;
+      state.aimX = Math.max(20, Math.min(W - 20, relX));
+    });
+    c.addEventListener('click', () => throwDart());
+
+    const keys = { left: false, right: false };
+    window.addEventListener('keydown', e => {
+      if (e.code === 'ArrowLeft') keys.left = true;
+      if (e.code === 'ArrowRight') keys.right = true;
+      if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); throwDart(); }
+      if (e.code === 'KeyR') resetRound();
+    });
+    window.addEventListener('keyup', e => {
+      if (e.code === 'ArrowLeft') keys.left = false;
+      if (e.code === 'ArrowRight') keys.right = false;
+    });
+
+    setInterval(() => {
+      if (state.playing) {
+        if (keys.left) state.aimX = Math.max(20, state.aimX - 4);
+        if (keys.right) state.aimX = Math.min(W - 20, state.aimX + 4);
+      }
+    }, 16);
+
+    document.getElementById('btnThrow').onclick = throwDart;
+    document.getElementById('btnPlay').onclick = () => {
+      if (state.tokens <= 0) {
+        alert('Out of tokens! Click "+5 Stream Tokens" at the top right.');
+        return;
+      }
+      state.tokens--;
+      resetRound();
+    };
+    document.getElementById('add-tokens-btn').onclick = () => {
+      state.tokens += 5;
+      updateHUD();
+    };
+    document.getElementById('btnRedeem').onclick = () => {
+      if (!state.prizeUnlocked) return;
+      const prize = state.prizes[Math.floor(Math.random() * state.prizes.length)];
+      const banner = document.getElementById('win-banner');
+      document.getElementById('won-prize-text').textContent = `🌿 ${prize}`;
+      banner.classList.remove('hidden');
+      document.getElementById('btnRedeem').disabled = true;
+      playBeep(980, 0.3, 'square');
+    };
+
+    document.getElementById('darts-csv-input').onchange = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const lines = ev.target.result.split(/\r?\n/).map(l => l.replace(/"/g, '').trim()).filter(Boolean);
+        const parsed = [];
+        lines.forEach(line => {
+          const lower = line.toLowerCase();
+          if (lower.includes('plant_name') || lower.includes('prizename') || lower.startsWith('game,description')) return;
+          const parts = line.split(',').map(s => s.trim()).filter(Boolean);
+          if (parts.length >= 2 && /^\d+$/.test(parts[0])) {
+            parsed.push(parts.slice(1).join(', '));
+          } else if (parts.length >= 1) {
+            parsed.push(parts[0]);
+          }
+        });
+        if (parsed.length > 0) {
+          state.prizes = parsed;
+          renderPrizeList();
+          alert(`Loaded ${parsed.length} prizes from CSV!`);
+        }
+      };
+      reader.readAsText(file);
+    };
+
+    renderPrizeList();
+    resetRound();
+    draw();
+  </script>
+</body>
+</html>

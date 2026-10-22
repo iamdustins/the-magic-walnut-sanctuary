@@ -1,0 +1,233 @@
+{
+  "shopInfo": {
+    "name": "The Magic Walnut Plant Shoppe",
+    "domain": "themagicwalnutplantshoppe.com",
+    "tagline": "NOT A STOREFRONT. A SANCTUARY.",
+    "subTagline": "rare and unique plants for regular people that think they are rare and unique",
+    "dropBatchName": "Sample Sanctuary Drop (Batch #08-20)",
+    "dropDate": "2026-10-21",
+    "announcement": "🔥 LIVE SANCTUARY DROP ACTIVE • FREE LOCAL PICKUP OR NATIONWIDE INSULATED SHIPPING • CHECK OUT THE CARNIVAL ARCADE FOR PALMSTREET LIVE GAMES!",
+    "payments": {
+      "paypal": "@themagicwalnutplantshoppe",
+      "venmo": "@themagicwalnutplantshoppe",
+      "cashapp": "$dartsilver",
+      "zelle": "themagicwalnutplantshoppe@gmail.com",
+      "stripeEnabled": true
+    },
+    "shippingRates": {
+      "localPickup": 0,
+      "standardGround": 14,
+      "priorityExpress": 24,
+      "heatPackAddon": 6
+    },
+    "socials": {
+      "palmstreet": "https://palmstreet.app/u/themagicwalnut?pr=gPBMNjrm",
+      "palmstreetHandle": "@themagicwalnut",
+      "palmstreetTagline": "Discover unique finds curated by @themagicwalnut—surprises unfold live on Palmstreet.",
+      "whatnot": "https://www.whatnot.com/s/CDDTW1SX",
+      "instagramMain": "https://www.instagram.com/themagicwalnutplantshoppe",
+      "instagramBotanist": "https://www.instagram.com/the_hobby_botanist/",
+      "facebookPage": "https://www.facebook.com/themagicwalnutplantshoppe",
+      "facebookGroup": "https://www.facebook.com/groups/thehobbybotanist",
+      "etsy": "https://www.etsy.com/shop/TheMagicWalnutCo",
+      "ebay": "https://www.ebay.com/usr/themagicwalnutplantshoppe",
+      "googleSiteGames": "https://sites.google.com/view/plantmysterypull/home"
+    },
+    "ecosystem": [
+      {
+        "name": "iamdustin.com",
+        "url": "https://iamdustin.com",
+        "role": "Main Command Hub & Creative Universe",
+        "badge": "HUB"
+      },
+      {
+        "name": "themagicwalnutplantshoppe.com",
+        "url": "https://themagicwalnutplantshoppe.com",
+        "role": "Rare Botanical Sanctuary & Live Drops",
+        "badge": "ACTIVE"
+      },
+      {
+        "name": "fuckwhattheytoldyou.com",
+        "url": "https://fuckwhattheytoldyou.com",
+        "role": "Unfiltered Truth & Counter-Narrative",
+        "badge": "ECOSYSTEM"
+      },
+      {
+        "name": "The Hobby Astronaut",
+        "url": "https://iamdustin.com#hobby-astronaut",
+        "role": "Cosmos, Stargazing & Deep Space Exploration",
+        "badge": "PROJECT"
+      },
+      {
+        "name": "timefoldstatic.com",
+        "url": "https://timefoldstatic.com",
+        "role": "Temporal Audio, Art & Frequency Experiments",
+        "badge": "ECOSYSTEM"
+      }
+    ]
+  },
+  "plants": [
+    {
+      "id": "mw-001",
+      "name": "Monstera Deliciosa 'Albo Borsigiana' — High Variegation",
+      "botanical": "Monstera deliciosa var. borsigiana 'Albo'",
+      "price": 115,
+      "type": "WYSIWYG",
+      "category": "Monstera",
+      "status": "available",
+      "stock": 1,
+      "potSize": "4\" Clear Sanctuary Cup",
+      "rootStatus": "Visible Explosive Root System",
+      "light": "Bright Indirect",
+      "badge": "1-OF-1 EXACT PLANT",
+      "description": "Heavy marbled snow-white and emerald sectoral variegation across mature fenestrated leaves. Actively pushing new growth in our custom chunky aroid sanctuary mix.",
+      "images": [
+        "assets/plants/IMG_1670.JPG",
+        "assets/plants/IMG_1662.JPG",
+        "assets/plants/IMG_1664.JPG",
+        "assets/plants/IMG_1680.JPG"
+      ]
+    },
+    {
+      "id": "mw-002",
+      "name": "Monstera 'Thai Constellation' — Crème Brûlée Splash",
+      "botanical": "Monstera deliciosa 'Thai Constellation'",
+      "price": 75,
+      "type": "WYSIWYG",
+      "category": "Monstera",
+      "status": "available",
+      "stock": 1,
+      "potSize": "4\" Nursery Pot",
+      "rootStatus": "Fully Established",
+      "light": "Bright Indirect",
+      "badge": "1-OF-1 EXACT PLANT",
+      "description": "High-contrast constellation speckling with large creamy yellow-gold splashes on every leaf. Stable genetics that never revert.",
+      "images": [
+        "assets/plants/IMG_1686.JPG"
+      ]
+    },
+    {
+      "id": "mw-003",
+      "name": "Philodendron 'Mint / Ghost' Variegated Collector Specimen",
+      "botanical": "Philodendron hybrid 'Mint Variegated'",
+      "price": 68,
+      "type": "WYSIWYG",
+      "category": "Philodendron",
+      "status": "available",
+      "stock": 1,
+      "potSize": "3.5\" Clear Root Cup",
+      "rootStatus": "Chunky Bark Mix • Rooted",
+      "light": "Medium-Bright Indirect",
+      "badge": "1-OF-1 EXACT PLANT",
+      "description": "Silvery-mint frosted reticulated leaves emerging with ghost-white variegation that deepens to emerald-mint. Grown in our signature chunky bark & perlite blend.",
+      "images": [
+        "assets/plants/IMG_1668.JPG",
+        "assets/plants/IMG_1674.JPG"
+      ]
+    },
+    {
+      "id": "mw-004",
+      "name": "Philodendron Pedatum / Oak-Leaf Sanctuary Climber",
+      "botanical": "Philodendron pedatum",
+      "price": 38,
+      "type": "WYSIWYG",
+      "category": "Philodendron",
+      "status": "available",
+      "stock": 1,
+      "potSize": "3\" Nursery Pot",
+      "rootStatus": "Climbing & Aerial Rooting",
+      "light": "Medium-Bright",
+      "badge": "1-OF-1 EXACT PLANT",
+      "description": "Sculptural deeply-lobed oak-shaped leaves on strong petioles. Photographed next to our studio ruler so you know the exact span.",
+      "images": [
+        "assets/plants/IMG_2128.JPG"
+      ]
+    },
+    {
+      "id": "mw-005",
+      "name": "Philodendron 'Billietiae / Long-Leaf' Sanctuary Juvenile",
+      "botanical": "Philodendron sp. 'Sanctuary Strap'",
+      "price": 55,
+      "type": "WYSIWYG",
+      "category": "Philodendron",
+      "status": "available",
+      "stock": 1,
+      "potSize": "4\" Square Sanctuary Pot",
+      "rootStatus": "Heavy Root Ball",
+      "light": "Bright Indirect",
+      "badge": "SANCTUARY PICK",
+      "description": "Elongated glossy strap-shaped foliage with bright petioles. Tough, fast-growing aroid that commands attention on any plant shelf.",
+      "images": [
+        "assets/plants/IMG_1692.JPG",
+        "assets/plants/IMG_1690.JPG"
+      ]
+    },
+    {
+      "id": "mw-006",
+      "name": "Syngonium / Arrowhead Vine — Multi-Node Sanctuary Starter",
+      "botanical": "Syngonium podophyllum cultivar",
+      "price": 28,
+      "type": "STOCK",
+      "category": "Syngonium & Starters",
+      "status": "available",
+      "stock": 3,
+      "potSize": "3\" Pot",
+      "rootStatus": "Multi-Node Active Runner",
+      "light": "Easy / Adaptable",
+      "badge": "3 AVAILABLE",
+      "description": "Vigorous multi-node vining specimen with crisp hastate leaves. Perfect for a moss pole or trailing from a top shelf.",
+      "images": [
+        "assets/plants/IMG_2145.JPG",
+        "assets/plants/IMG_2135.JPG"
+      ]
+    }
+  ],
+  "merch": [
+    {
+      "id": "merch-001",
+      "name": "'Queen of the Street' Anthurium Warocqueanum Heavyweight Tee",
+      "type": "Streetwear / POD Ready",
+      "price": 34,
+      "badge": "STREET FLASH",
+      "image": "assets/merch/queen_street_flash.jpg",
+      "description": "Original Magic Walnut street-flash art featuring dual Queen Anthurium strap leaves, gorilla, boombox, skull, and spray can. Designed for Make.com / Printful automated fulfillment."
+    },
+    {
+      "id": "merch-002",
+      "name": "Grower's Notebook Zentangle Queen Anthurium Tee & Tote Art",
+      "type": "Apparel & Art Print",
+      "price": 32,
+      "badge": "NOTEBOOK SERIES",
+      "image": "assets/merch/queen_anthurium_doodle.jpg",
+      "description": "Hand-drawn lined-notebook zentangle Anthurium warocqueanum illustration. Available as a vintage cream tee, canvas plant-haul tote, or studio art print."
+    },
+    {
+      "id": "merch-003",
+      "name": "Lined-Notebook Zentangle Monstera Stool Sketch Tee",
+      "type": "Apparel & Art Print",
+      "price": 32,
+      "badge": "NOTEBOOK SERIES",
+      "image": "assets/merch/monstera_doodle.jpg",
+      "description": "Intricate patterned Monstera deliciosa perched on a wooden stool over lined notebook paper with street doodle accents."
+    },
+    {
+      "id": "merch-004",
+      "name": "Graphite Botanical Study — Velvet Anthurium & Queen Prints",
+      "type": "Fine Art Print / Box Insert",
+      "price": 24,
+      "badge": "BOTANICAL STUDY",
+      "image": "assets/merch/velvet_anthurium_sketch.jpg",
+      "imageSecondary": "assets/merch/queen_anthurium_sketch.jpg",
+      "description": "Detailed graphite pencil botanical studies on ruled paper. Every plant order includes a mini collector care-card print!"
+    },
+    {
+      "id": "merch-005",
+      "name": "'I ❤️ MONSTERA' Bleeding-Eye Robot Sanctuary Tee",
+      "type": "Signature Merch",
+      "price": 35,
+      "badge": "CULT CLASSIC",
+      "image": "assets/logos/ChatGPT Image Sep 13, 2025, 10_28_32 PM.png",
+      "description": "The iconic Magic Walnut bleeding-eye robot watering a Monstera with a broken-heart watering can."
+    }
+  ]
+}

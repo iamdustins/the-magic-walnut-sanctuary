@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Magic Walnut — Plant Mystery Pull (Live Show Edition)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Special+Elite&family=Space+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ember: #E05A37;
+      --emerald: #2E9E5B;
+      --concrete: #1C1D1F;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #18191b;
+      background-image: 
+        radial-gradient(circle at 50% 20%, rgba(224, 90, 55, 0.12), transparent 60%),
+        url('https://www.transparenttextures.com/patterns/concrete-wall.png');
+      color: #f3f4f6;
+      min-height: 100vh;
+    }
+    .stencil-font { font-family: 'Permanent Marker', cursive; letter-spacing: 0.03em; }
+    .typewriter-font { font-family: 'Special Elite', monospace; }
+    .mono-font { font-family: 'Space Mono', monospace; }
+    .slot-card {
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      background: rgba(24, 25, 28, 0.88);
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .slot-card:hover:not(.claimed) {
+      transform: translateY(-4px) scale(1.03);
+      border-color: var(--ember);
+      box-shadow: 0 0 22px rgba(224, 90, 55, 0.45);
+    }
+    .slot-card.available {
+      border-color: rgba(46, 158, 91, 0.55);
+      background: linear-gradient(145deg, rgba(25, 45, 34, 0.85), rgba(18, 22, 20, 0.92));
+    }
+    .slot-card.pending {
+      border-color: #facc15;
+      background: linear-gradient(145deg, rgba(113, 63, 18, 0.85), rgba(45, 28, 10, 0.92));
+      animation: pulsePending 1.6s infinite;
+    }
+    .slot-card.claimed {
+      border-color: var(--ember);
+      background: linear-gradient(145deg, rgba(127, 29, 29, 0.85), rgba(40, 15, 15, 0.95));
+    }
+    @keyframes pulsePending {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.4); }
+      50% { box-shadow: 0 0 18px 4px rgba(250, 204, 21, 0.65); }
+    }
+    .robot-eyes {
+      display: inline-flex;
+      gap: 8px;
+      background: #0d0d0d;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 2px solid #333;
+    }
+    .robot-eye {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--ember);
+      box-shadow: 0 0 10px var(--ember), 0 0 20px var(--ember);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-6">
+  <div class="max-w-7xl mx-auto">
+    <!-- Top Streamer Bar -->
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-4 bg-black/60 border border-white/10 px-4 py-2.5 rounded-xl">
+      <div class="flex items-center gap-3">
+        <div class="robot-eyes" title="The Magic Walnut Sanctuary">
+          <span class="robot-eye"></span>
+          <span class="robot-eye"></span>
+        </div>
+        <div>
+          <span class="text-xs uppercase tracking-widest text-orange-400 font-bold block">The Magic Walnut Plant Shoppe</span>
+          <span class="text-xs text-gray-400 typewriter-font">NOT A STOREFRONT. A SANCTUARY. • LIVE CARNIVAL PULL</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span id="save-indicator" class="text-xs mono-font text-emerald-400 bg-emerald-950/60 border border-emerald-700/50 px-2.5 py-1 rounded">✓ AUTO-SAVED</span>
+        <button id="toggle-admin-btn" class="text-xs mono-font bg-zinc-800 hover:bg-zinc-700 text-white border border-white/20 px-3 py-1.5 rounded-lg transition">
+          🎥 Streamer Mode: Hide Admin
+        </button>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="text-center mb-6">
+      <h1 class="text-4xl md:text-6xl stencil-font text-white tracking-wide" style="text-shadow: 3px 3px 0 #E05A37;">
+        PLANT MYSTERY PULL
+      </h1>
+      <div class="mt-3 inline-flex flex-wrap items-center justify-center gap-3 bg-zinc-900/90 border-2 border-orange-500/60 px-5 py-2 rounded-full shadow-lg">
+        <span id="price-badge" class="text-xl md:text-2xl font-extrabold text-amber-400">$15 per Pull</span>
+        <span class="text-gray-500">•</span>
+        <span id="note-badge" class="text-sm md:text-base text-gray-200 typewriter-font">Shipping not included • Claim your spot live!</span>
+      </div>
+    </header>
+
+    <!-- Admin Panel (Collapsible for Palmstreet Stream) -->
+    <section id="admin-panel" class="bg-zinc-900/90 border border-white/15 rounded-2xl p-5 mb-8 shadow-2xl">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3 mb-4">
+        <h2 class="text-xl stencil-font text-orange-400">⚙️ SANCTUARY HOST CONTROLS (AUTO-SAVES TO BROWSER)</h2>
+        <div class="flex flex-wrap gap-2">
+          <button id="load-dustin-csv1-btn" class="text-xs bg-amber-600 hover:bg-amber-500 text-black font-extrabold px-3 py-1.5 rounded-lg">
+            📄 Preset: plant_list.csv (Albo Chase + Thai Con)
+          </button>
+          <button id="load-dustin-csv2-btn" class="text-xs bg-emerald-700 hover:bg-emerald-600 text-white font-semibold px-3 py-1.5 rounded-lg">
+            📦 Preset: Dec 8th Box CSV
+          </button>
+          <button id="load-sample-prizes-btn" class="text-xs bg-zinc-700 hover:bg-zinc-600 text-white font-semibold px-3 py-1.5 rounded-lg">
+            🌱 Sanctuary Rare Pool
+          </button>
+          <button id="reset-game-btn" class="text-xs bg-red-800/80 hover:bg-red-700 text-white font-semibold px-3 py-1.5 rounded-lg">
+            🗑️ Reset Board
+          </button>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        <!-- Col 1: Slots & Pricing -->
+        <div class="space-y-3 bg-black/40 p-4 rounded-xl border border-white/10">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-gray-300">1. Board Size & Price</h3>
+          <div class="flex items-center gap-2">
+            <label class="text-xs text-gray-400 w-20">Total Slots:</label>
+            <input type="number" id="slot-count" value="20" min="2" max="100" class="w-24 px-3 py-1.5 bg-zinc-800 border border-white/20 rounded text-white font-bold">
+            <button id="apply-slots-btn" class="bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold px-3 py-2 rounded">Apply Slots</button>
+          </div>
+          <div>
+            <label class="text-xs text-gray-400 block mb-1">Price Banner:</label>
+            <input type="text" id="game-price" value="$15 per Pull" class="w-full px-3 py-1.5 bg-zinc-800 border border-white/20 rounded text-white text-sm">
+          </div>
+          <div>
+            <label class="text-xs text-gray-400 block mb-1">Stream Note:</label>
+            <input type="text" id="game-note" value="Shipping not included • Claim your spot live!" class="w-full px-3 py-1.5 bg-zinc-800 border border-white/20 rounded text-white text-sm">
+          </div>
+        </div>
+
+        <!-- Col 2: Paste Prizes or CSV -->
+        <div class="space-y-2 bg-black/40 p-4 rounded-xl border border-white/10">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-gray-300">2. Prize Pool (Paste or CSV)</h3>
+            <span id="prize-count-pill" class="text-xs mono-font bg-zinc-800 px-2 py-0.5 rounded text-amber-400">0 prizes</span>
+          </div>
+          <textarea id="prize-textarea" rows="4" placeholder="Paste 1 plant prize per line (e.g.&#10;Monstera Albo Cutting&#10;Thai Constellation 4&quot;&#10;Anthurium Warocqueanum Seedling...)" class="w-full p-2.5 bg-zinc-800 border border-white/20 rounded text-xs text-white font-mono"></textarea>
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+            <button id="save-prizes-btn" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded">
+              ✓ Sync Prize List (Auto-Fills to Match Slots)
+            </button>
+            <label class="text-xs text-gray-400 cursor-pointer hover:text-white underline">
+              Or Upload CSV
+              <input type="file" id="csv-upload" accept=".csv" class="hidden">
+            </label>
+          </div>
+        </div>
+
+        <!-- Col 3: Spin & Export -->
+        <div class="flex flex-col justify-between bg-black/40 p-4 rounded-xl border border-white/10">
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-gray-300 mb-2">3. Spin & Reveal Actions</h3>
+            <p class="text-xs text-gray-400 mb-3">
+              Click any slot on the board to mark a buyer as <strong>Pending (60s timer)</strong> or <strong>Confirmed Paid</strong>. You can spin prizes one-by-one or reveal all at once!
+            </p>
+          </div>
+          <div class="space-y-2">
+            <button id="reveal-all-btn" class="w-full bg-amber-500 hover:bg-amber-400 text-black stencil-font text-xl py-2.5 px-4 rounded-xl shadow-lg transition transform hover:scale-[1.02]">
+              🎰 RANDOMIZE & SPIN ALL WINNERS!
+            </button>
+            <button id="download-csv-btn" class="w-full bg-zinc-800 hover:bg-zinc-700 border border-white/20 text-white text-xs font-bold py-2 px-4 rounded-lg">
+              📥 Download Winners CSV
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Game Layout -->
+    <div class="grid lg:grid-cols-3 gap-6">
+      <!-- Left 2 Cols: Numbered Slots Board -->
+      <div class="lg:col-span-2">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-2xl stencil-font text-amber-400">CHOOSE YOUR SANCTUARY SLOT</h2>
+          <div class="flex items-center gap-3 text-xs mono-font">
+            <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> Open</span>
+            <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-yellow-400 inline-block"></span> Pending (60s)</span>
+            <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-orange-600 inline-block"></span> Claimed</span>
+          </div>
+        </div>
+        <div id="game-board" class="grid grid-cols-4 sm:grid-cols-5 gap-3"></div>
+      </div>
+
+      <!-- Right Col: Prize Pool & Payment Handles -->
+      <div class="space-y-5">
+        <div class="bg-zinc-900/90 border border-white/15 rounded-2xl p-5">
+          <h3 class="text-xl stencil-font text-emerald-400 mb-3 flex items-center justify-between">
+            <span>🌿 MYSTERY PRIZE POOL</span>
+            <span id="pool-total-badge" class="text-xs mono-font bg-emerald-950 text-emerald-300 px-2.5 py-1 rounded-full border border-emerald-700/50">0 Plants</span>
+          </h3>
+          <ul id="prize-list" class="space-y-1.5 max-h-72 overflow-y-auto pr-1 text-sm text-gray-200 font-mono"></ul>
+        </div>
+
+        <div class="bg-zinc-900/90 border border-white/15 rounded-2xl p-5">
+          <h3 class="text-xl stencil-font text-orange-400 mb-3">💸 INSTANT PAYMENT HANDLES</h3>
+          <div class="space-y-2.5 text-sm">
+            <div class="p-2.5 rounded-lg bg-black/50 border border-white/10 flex justify-between items-center">
+              <span class="text-gray-400 font-semibold">PayPal:</span>
+              <span class="mono-font text-white font-bold select-all">@themagicwalnutplantshoppe</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-black/50 border border-white/10 flex justify-between items-center">
+              <span class="text-gray-400 font-semibold">Venmo:</span>
+              <span class="mono-font text-white font-bold select-all">@themagicwalnutplantshoppe</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-black/50 border border-white/10 flex justify-between items-center">
+              <span class="text-gray-400 font-semibold">Cash App:</span>
+              <span class="mono-font text-emerald-400 font-bold select-all">$dartsilver</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-black/50 border border-white/10 flex flex-col gap-1">
+              <span class="text-gray-400 font-semibold text-xs">Zelle:</span>
+              <span class="mono-font text-white text-xs font-bold select-all">themagicwalnutplantshoppe@gmail.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slot Claim Modal -->
+  <div id="claim-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+    <div class="bg-zinc-900 border-2 border-orange-500/70 rounded-2xl max-w-md w-full p-6 shadow-2xl">
+      <div class="flex justify-between items-center mb-3">
+        <h3 id="modal-title" class="text-2xl stencil-font text-amber-400">Slot #1</h3>
+        <button id="close-modal-x" class="text-gray-400 hover:text-white text-xl">&times;</button>
+      </div>
+      <p id="modal-status-text" class="text-xs text-gray-400 mb-4"></p>
+      <label class="block text-xs uppercase tracking-wider text-gray-300 font-bold mb-1">Buyer / Claimer Username:</label>
+      <input type="text" id="claimer-name" placeholder="@plantlover99" class="w-full px-3.5 py-2.5 bg-black border border-white/25 rounded-lg text-white font-bold mb-4 focus:outline-none focus:border-orange-500">
+      <div id="modal-buttons" class="flex flex-wrap justify-end gap-2"></div>
+    </div>
+  </div>
+
+  <!-- Slot Machine Reel Modal -->
+  <div id="spinner-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden items-center justify-center z-50 p-4">
+    <div class="text-center max-w-xl w-full bg-zinc-900 border-2 border-amber-400 rounded-2xl p-8 shadow-2xl">
+      <p id="spinner-slot-number" class="text-sm mono-font text-orange-400 uppercase tracking-widest mb-1">SLOT #1</p>
+      <h2 id="spinner-winner-name" class="text-4xl md:text-5xl stencil-font text-white mb-4">WINNER</h2>
+      <div class="h-24 overflow-hidden relative border-y-2 border-amber-500/60 bg-black/80 rounded-xl my-4 flex items-center justify-center">
+        <div id="spinner-reel" class="text-2xl md:text-3xl font-extrabold text-amber-300 px-4 typewriter-font"></div>
+      </div>
+      <div id="spinner-final-box" class="mt-4 hidden">
+        <p class="text-xs uppercase tracking-widest text-emerald-400 mono-font">🎉 SANCTUARY SPECIMEN WON:</p>
+        <h3 id="spinner-final-prize" class="text-3xl stencil-font text-emerald-400 mt-1"></h3>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'magic_walnut_mystery_pull_v3';
+    const DUSTIN_PLANT_LIST_CSV = [
+      "Monstera Albo (Chase)",
+      "Philodendron Florida Ghost",
+      "Hoya Polyneura",
+      "Succulent Mix",
+      "Anthurium Crystallinum",
+      "String of Pearls",
+      "Syngonium Albo",
+      "Philodendron Pink Princess",
+      "Monstera Adansonii",
+      "Pothos Cuttings",
+      "Monstera Thai Constellation (Top Prize)",
+      "Scindapsus Treubii Moonlight",
+      "Hoya Carnosa Compacta",
+      "Alocasia Frydek",
+      "Calathea White Fusion",
+      "Zz Plant",
+      "Snake Plant",
+      "Philodendron Micans",
+      "Hoya Kerrii (Single Leaf)",
+      "Pilea Peperomioides"
+    ];
+    const DUSTIN_DEC8_BOX_CSV = [
+      "Monstera Albo", "Pink Princess Philodendron", "Golden Pothos", "ZZ Plant",
+      "Monstera Albo", "Pink Princess Philodendron", "Golden Pothos", "ZZ Plant",
+      "Monstera Albo", "Pink Princess Philodendron", "Golden Pothos", "ZZ Plant",
+      "Monstera Albo", "Pink Princess Philodendron", "Golden Pothos", "ZZ Plant",
+      "Monstera Albo", "Pink Princess Philodendron", "Golden Pothos", "ZZ Plant",
+      "Monstera Albo", "Pink Princess Philodendron", "Golden Pothos", "ZZ Plant"
+    ];
+    const DEFAULT_SAMPLE_PRIZES = [...DUSTIN_PLANT_LIST_CSV];
+    const RARE_AROID_POOL = [
+      "Monstera Albo Borsigiana (High Variegation)",
+      "Monstera Thai Constellation 4\" Pot",
+      "Anthurium Warocqueanum (Queen) Starter",
+      "Philodendron Florida Beauty Variegated",
+      "Philodendron Caramel Marble Node",
+      "Anthurium Crystallinum Silver Blush",
+      "Philodendron Billietiae Sanctuary Pot",
+      "Monstera Aurea Variegated Cutting",
+      "Syngonium Albo Variegated Full Plant",
+      "Philodendron Pink Princess High Color",
+      "Scindapsus Jade Satin Marble",
+      "Hoya Carnosa Compacta Variegated",
+      "Philodendron Spiritus Sancti Tissue Acclimated",
+      "Anthurium Clarinervium Velvet Heart",
+      "Philodendron Paraiso Verde 4\" Pot",
+      "Monstera Burle Marx Flame Starter",
+      "Philodendron Glorious (Melano x Gloriosum)",
+      "Alocasia Frydek Variegated Corm Sprout",
+      "Philodendron Strawberry Shake Rooted",
+      "EPIPREMNUM Pinnatum Marble King"
+    ];
+
+    const timers = {};
+
+    let state = {
+      totalSlots: 20,
+      price: '$15 per Pull',
+      note: 'Shipping not included • Claim your spot live!',
+      prizes: [...DEFAULT_SAMPLE_PRIZES],
+      slots: [],
+      isRevealed: false,
+      adminHidden: false
+    };
+
+    function initSlots(count) {
+      const next = [];
+      for (let i = 1; i <= count; i++) {
+        const existing = state.slots.find(s => s.number === i);
+        next.push(existing || { number: i, status: 'available', owner: '', prize: '' });
+      }
+      state.slots = next;
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      const ind = document.getElementById('save-indicator');
+      if (ind) {
+        ind.textContent = '✓ SAVED ' + new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+      }
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          state = { ...state, ...parsed };
+        }
+      } catch (e) {}
+      if (!state.slots || state.slots.length !== state.totalSlots) {
+        initSlots(state.totalSlots);
+      }
+    }
+
+    function syncPrizesFromTextarea() {
+      const raw = document.getElementById('prize-textarea').value;
+      let lines = raw.split('\n').map(s => s.trim()).filter(Boolean);
+      if (lines.length === 0) lines = [...DEFAULT_SAMPLE_PRIZES];
+      // Auto-pad or trim to match totalSlots so host never gets blocked by count mismatch!
+      const padded = [];
+      for (let i = 0; i < state.totalSlots; i++) {
+        padded.push(lines[i % lines.length]);
+      }
+      state.prizes = padded;
+      document.getElementById('prize-textarea').value = state.prizes.join('\n');
+      saveState();
+      render();
+    }
+
+    function render() {
+      document.getElementById('slot-count').value = state.totalSlots;
+      document.getElementById('game-price').value = state.price;
+      document.getElementById('game-note').value = state.note;
+      document.getElementById('price-badge').textContent = state.price;
+      document.getElementById('note-badge').textContent = state.note;
+      document.getElementById('prize-textarea').value = state.prizes.join('\n');
+      document.getElementById('prize-count-pill').textContent = `${state.prizes.length} / ${state.totalSlots} slots`;
+      document.getElementById('pool-total-badge').textContent = `${state.prizes.length} Prizes`;
+
+      const adminPanel = document.getElementById('admin-panel');
+      adminPanel.style.display = state.adminHidden ? 'none' : 'block';
+      document.getElementById('toggle-admin-btn').textContent = state.adminHidden
+        ? '⚙️ Show Host Controls'
+        : '🎥 Streamer Mode: Hide Admin';
+
+      // Render Prize List
+      const prizeListEl = document.getElementById('prize-list');
+      prizeListEl.innerHTML = state.prizes.map((p, idx) => `
+        <li class="flex items-center gap-2 py-1 border-b border-white/5">
+          <span class="text-orange-400 font-bold">#${idx + 1}</span>
+          <span>${p}</span>
+        </li>
+      `).join('');
+
+      // Render Board
+      const board = document.getElementById('game-board');
+      board.innerHTML = '';
+      state.slots.forEach(slot => {
+        const div = document.createElement('div');
+        div.className = `slot-card rounded-xl p-3 min-h-[112px] flex flex-col items-center justify-center text-center ${slot.status}`;
+        if (slot.status === 'available') {
+          div.innerHTML = `
+            <span class="text-xs uppercase tracking-widest text-emerald-400 mono-font">OPEN</span>
+            <span class="text-3xl md:text-4xl stencil-font text-white mt-0.5">#${slot.number}</span>
+          `;
+        } else if (slot.status === 'pending') {
+          div.innerHTML = `
+            <span class="text-xs uppercase tracking-widest text-yellow-300 font-bold">⏳ PENDING</span>
+            <span class="text-sm font-bold text-white truncate max-w-full mt-0.5">${slot.owner}</span>
+            <span id="timer-${slot.number}" class="text-lg mono-font text-yellow-300 font-bold mt-1">00:60</span>
+          `;
+        } else if (slot.status === 'claimed') {
+          div.innerHTML = `
+            <span class="text-xs mono-font text-orange-300 font-bold">SLOT #${slot.number}</span>
+            <span class="text-base font-extrabold text-white truncate max-w-full">${slot.owner}</span>
+            ${slot.prize ? `<span class="mt-1.5 text-xs bg-black/70 border border-emerald-500/60 text-emerald-300 px-2 py-0.5 rounded-full font-semibold">${slot.prize}</span>` : `<span class="mt-1 text-[11px] text-orange-200/80 mono-font">✓ PAID • READY</span>`}
+          `;
+        }
+        div.addEventListener('click', () => openSlotModal(slot.number));
+        board.appendChild(div);
+      });
+    }
+
+    function openSlotModal(slotNumber) {
+      const slot = state.slots.find(s => s.number === slotNumber);
+      if (!slot) return;
+      const modal = document.getElementById('claim-modal');
+      modal.dataset.slot = slotNumber;
+      document.getElementById('modal-title').textContent = `Manage Slot #${slotNumber}`;
+      document.getElementById('claimer-name').value = slot.owner || '';
+      document.getElementById('modal-status-text').textContent =
+        slot.status === 'available' ? 'Assign a viewer from chat to hold (60s timer) or confirm payment.' :
+        slot.status === 'pending' ? `Currently held for ${slot.owner}. Confirm payment or release slot.` :
+        `Claimed by ${slot.owner}. You can spin their prize right now or release the slot.`;
+
+      const btns = document.getElementById('modal-buttons');
+      btns.innerHTML = '';
+
+      if (slot.status !== 'available') {
+        const releaseBtn = document.createElement('button');
+        releaseBtn.className = 'bg-zinc-700 hover:bg-zinc-600 text-white text-xs font-bold px-3 py-2 rounded-lg';
+        releaseBtn.textContent = 'Release Slot';
+        releaseBtn.onclick = () => updateSlot(slotNumber, 'available');
+        btns.appendChild(releaseBtn);
+      }
+
+      const pendingBtn = document.createElement('button');
+      pendingBtn.className = 'bg-yellow-500 hover:bg-yellow-400 text-black text-xs font-bold px-3 py-2 rounded-lg';
+      pendingBtn.textContent = '⏳ 60s Hold';
+      pendingBtn.onclick = () => updateSlot(slotNumber, 'pending');
+      btns.appendChild(pendingBtn);
+
+      const confirmBtn = document.createElement('button');
+      confirmBtn.className = 'bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3 py-2 rounded-lg';
+      confirmBtn.textContent = '✓ Confirm Paid';
+      confirmBtn.onclick = () => updateSlot(slotNumber, 'claimed');
+      btns.appendChild(confirmBtn);
+
+      if (slot.status === 'claimed') {
+        const spinOneBtn = document.createElement('button');
+        spinOneBtn.className = 'bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold px-3 py-2 rounded-lg';
+        spinOneBtn.textContent = '🎰 Spin Single Prize';
+        spinOneBtn.onclick = () => {
+          closeSlotModal();
+          spinSingleWinner(slot);
+        };
+        btns.appendChild(spinOneBtn);
+      }
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.getElementById('claimer-name').focus();
+    }
+
+    function closeSlotModal() {
+      const modal = document.getElementById('claim-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function updateSlot(slotNumber, status) {
+      const nameInput = document.getElementById('claimer-name').value.trim();
+      if (status !== 'available' && !nameInput) {
+        alert('Please enter the buyer username first!');
+        return;
+      }
+      const slot = state.slots.find(s => s.number === slotNumber);
+      if (!slot) return;
+
+      if (timers[slotNumber]) {
+        clearInterval(timers[slotNumber]);
+        delete timers[slotNumber];
+      }
+
+      slot.status = status;
+      slot.owner = status === 'available' ? '' : nameInput;
+      if (status === 'available') slot.prize = '';
+
+      saveState();
+      closeSlotModal();
+      render();
+
+      if (status === 'pending') {
+        let sec = 60;
+        timers[slotNumber] = setInterval(() => {
+          sec--;
+          const el = document.getElementById(`timer-${slotNumber}`);
+          if (el) el.textContent = `00:${String(sec).padStart(2, '0')}`;
+          if (sec <= 0) {
+            clearInterval(timers[slotNumber]);
+            if (slot.status === 'pending') {
+              slot.status = 'available';
+              slot.owner = '';
+              saveState();
+              render();
+            }
+          }
+        }, 1000);
+      }
+    }
+
+    async function spinSingleWinner(slot) {
+      if (!slot.prize) {
+        // Pick an unassigned prize
+        const used = state.slots.map(s => s.prize).filter(Boolean);
+        const availablePool = state.prizes.filter(p => !used.includes(p));
+        const pool = availablePool.length > 0 ? availablePool : state.prizes;
+        slot.prize = pool[Math.floor(Math.random() * pool.length)];
+      }
+      await runReelAnimation(slot);
+      saveState();
+      render();
+    }
+
+    function runReelAnimation(slot) {
+      return new Promise(resolve => {
+        const modal = document.getElementById('spinner-modal');
+        const reel = document.getElementById('spinner-reel');
+        const finalBox = document.getElementById('spinner-final-box');
+        document.getElementById('spinner-slot-number').textContent = `SLOT #${slot.number}`;
+        document.getElementById('spinner-winner-name').textContent = slot.owner;
+        document.getElementById('spinner-final-prize').textContent = slot.prize;
+        finalBox.classList.add('hidden');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+
+        let ticks = 0;
+        const maxTicks = 24;
+        const interval = setInterval(() => {
+          const randPrize = state.prizes[Math.floor(Math.random() * state.prizes.length)];
+          reel.textContent = randPrize;
+          ticks++;
+          if (ticks >= maxTicks) {
+            clearInterval(interval);
+            reel.textContent = slot.prize;
+            finalBox.classList.remove('hidden');
+            setTimeout(() => {
+              modal.classList.add('hidden');
+              modal.classList.remove('flex');
+              resolve();
+            }, 2200);
+          }
+        }, 90);
+      });
+    }
+
+    // Event bindings
+    document.getElementById('close-modal-x').onclick = closeSlotModal;
+    document.getElementById('toggle-admin-btn').onclick = () => {
+      state.adminHidden = !state.adminHidden;
+      saveState();
+      render();
+    };
+    document.getElementById('apply-slots-btn').onclick = () => {
+      const count = parseInt(document.getElementById('slot-count').value) || 20;
+      state.totalSlots = Math.min(100, Math.max(2, count));
+      initSlots(state.totalSlots);
+      syncPrizesFromTextarea();
+    };
+    document.getElementById('game-price').oninput = (e) => {
+      state.price = e.target.value;
+      document.getElementById('price-badge').textContent = state.price;
+      saveState();
+    };
+    document.getElementById('game-note').oninput = (e) => {
+      state.note = e.target.value;
+      document.getElementById('note-badge').textContent = state.note;
+      saveState();
+    };
+    document.getElementById('save-prizes-btn').onclick = syncPrizesFromTextarea;
+    document.getElementById('load-dustin-csv1-btn').onclick = () => {
+      state.totalSlots = 20;
+      initSlots(20);
+      document.getElementById('prize-textarea').value = DUSTIN_PLANT_LIST_CSV.join('\n');
+      syncPrizesFromTextarea();
+    };
+    document.getElementById('load-dustin-csv2-btn').onclick = () => {
+      state.totalSlots = 24;
+      initSlots(24);
+      document.getElementById('prize-textarea').value = DUSTIN_DEC8_BOX_CSV.join('\n');
+      syncPrizesFromTextarea();
+    };
+    document.getElementById('load-sample-prizes-btn').onclick = () => {
+      document.getElementById('prize-textarea').value = RARE_AROID_POOL.join('\n');
+      syncPrizesFromTextarea();
+    };
+    document.getElementById('reset-game-btn').onclick = () => {
+      if (confirm('Reset all claimed slots and start a fresh board?')) {
+        state.slots = [];
+        state.isRevealed = false;
+        initSlots(state.totalSlots);
+        saveState();
+        render();
+      }
+    };
+    document.getElementById('csv-upload').onchange = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const rawLines = ev.target.result.split(/\r?\n/).map(l => l.replace(/"/g, '').trim()).filter(Boolean);
+        const parsed = [];
+        rawLines.forEach(line => {
+          const lower = line.toLowerCase();
+          if (lower.includes('plant_name') || lower.includes('prizename') || lower.startsWith('game,description')) return;
+          // Handle "1,Monstera Albo (Chase)" or "Monstera Albo,https://..." or plain "Monstera Albo"
+          const parts = line.split(',').map(s => s.trim()).filter(Boolean);
+          if (parts.length >= 2 && /^\d+$/.test(parts[0])) {
+            parsed.push(parts.slice(1).join(', '));
+          } else if (parts.length >= 1) {
+            parsed.push(parts[0]);
+          }
+        });
+        if (parsed.length > 0) {
+          state.totalSlots = parsed.length;
+          initSlots(parsed.length);
+          document.getElementById('prize-textarea').value = parsed.join('\n');
+          syncPrizesFromTextarea();
+        }
+      };
+      reader.readAsText(file);
+    };
+    document.getElementById('reveal-all-btn').onclick = async () => {
+      const claimed = state.slots.filter(s => s.status === 'claimed');
+      if (claimed.length === 0) {
+        alert('Mark at least 1 slot as Confirmed Paid before spinning winners!');
+        return;
+      }
+      const shuffled = [...state.prizes].sort(() => Math.random() - 0.5);
+      state.slots.forEach((slot, idx) => {
+        if (!slot.prize) slot.prize = shuffled[idx % shuffled.length];
+      });
+      for (const winner of claimed) {
+        await runReelAnimation(winner);
+      }
+      saveState();
+      render();
+    };
+    document.getElementById('download-csv-btn').onclick = () => {
+      const claimed = state.slots.filter(s => s.status === 'claimed');
+      if (claimed.length === 0) {
+        alert('No claimed winners yet!');
+        return;
+      }
+      let csv = 'Slot,Buyer,Prize\n';
+      claimed.forEach(s => {
+        csv += `${s.number},"${s.owner}","${s.prize || 'Unassigned'}"\n`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `magic-walnut-pull-winners-${new Date().toISOString().slice(0,10)}.csv`;
+      a.click();
+    };
+
+    loadState();
+    render();
+  </script>
+</body>
+</html>
