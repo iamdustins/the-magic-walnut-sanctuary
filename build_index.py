@@ -1,0 +1,1271 @@
+# -*- coding: utf-8 -*-
+import os
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>the magic walnut plant shoppe // sanctuary ledger</title>
+  <meta name="description" content="rare and unique plants for regular people that think they are rare and unique. weekly wysiwyg drops, street-flash apparel, and live stream interactive carnival games.">
+  <meta property="og:title" content="the magic walnut plant shoppe // not a storefront. a sanctuary.">
+  <meta property="og:description" content="rare and unique plants for regular people that think they are rare and unique. weekly wysiwyg drops, authentic greenhouse ledger.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0b0c0f">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Floating Mascot Background Layer -->
+  <div class="floating-bg-logo-wrap" aria-hidden="true">
+    <img src="assets/logos/logoRobotWatering.png" alt="" class="floating-bg-logo">
+  </div>
+
+  <!-- Interactive Flashlight Mouse Glow -->
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- Main Smoky Glass Container -->
+  <div class="glass-viewport">
+    <article class="typewriter-sheet">
+
+      <!-- Red Street Graffiti Tag Corner -->
+      <div class="graffiti-tag-corner" aria-hidden="true">THE MAGIC WALNUT&copy;</div>
+
+      <!-- Top Sheet Header & Live Date Bar -->
+      <header class="sheet-header">
+        <div class="header-left">
+          <span class="stamp-red">[ DISPATCH ]</span>
+          <span id="live-date">OCTOBER 2026</span>
+          <span class="status-indicator">
+            <span class="status-dot"></span>
+            <span id="header-status-text">sanctuary batch live // wysiwyg</span>
+          </span>
+        </div>
+        <div class="header-right">
+          <button id="open-admin-btn" class="btn-type text-xs" title="Sanctuary Studio / Hermes Drop">
+            [ drop studio ]
+          </button>
+          <button id="open-cart-btn" class="btn-type btn-crate" title="Open Sanctuary Crate">
+            <span>[ crate:</span>
+            <span id="cart-count-badge">0</span>
+            <span>]</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero Dispatch Section -->
+      <section class="hero-dispatch">
+        <h1 class="typed-headline">the magic walnut plant shoppe</h1>
+        <p class="typed-slug">
+          "rare and unique plants for regular people that think they are rare and unique _"
+        </p>
+
+        <!-- Balanced 3-Part Trust Pillars -->
+        <div class="trust-grid">
+          <div class="trust-pill">
+            <span class="dot-green"></span>
+            <strong>[ 01 ] 100% WYSIWYG</strong>
+            <p>exact specimen in photo is the exact root-established plant arriving at your door.</p>
+          </div>
+          <div class="trust-pill">
+            <span class="dot-amber"></span>
+            <strong>[ 02 ] $0 BS DIRECT</strong>
+            <p>transparent direct payments via PayPal, Venmo, Cash App, Zelle or Stripe with no marketplace fees.</p>
+          </div>
+          <div class="trust-pill">
+            <span class="dot-red"></span>
+            <strong>[ 03 ] THERMAL TRANSIT</strong>
+            <p>packed in custom heavy-duty insulated corrugated boxes with 72-hour UniHeat packs when required.</p>
+          </div>
+        </div>
+
+        <!-- Balanced 6-Section Quick Jump Navigation Grid -->
+        <div class="hero-actions-grid">
+          <a href="#shoppe" class="btn-type">[ 01: specimens ]</a>
+          <a href="#arcade" class="btn-type">[ 02: arcade ]</a>
+          <a href="#streams" class="btn-type">[ 03: live streams ]</a>
+          <a href="#merch" class="btn-type">[ 04: apparel ]</a>
+          <a href="#care" class="btn-type">[ 05: albo field guide ]</a>
+          <a href="#about" class="btn-type">[ 06: sanctuary ledger ]</a>
+        </div>
+      </section>
+
+      <hr class="type-divider">
+
+      <!-- Section 01: Weekly Specimen Drop // WYSIWYG -->
+      <section id="shoppe">
+        <div class="section-header-row">
+          <div>
+            <span class="section-label">[ 01 ] WEEKLY SPECIMEN DROP // WYSIWYG</span>
+            <span class="section-subnote">1-of-1 authentic rooted plants &bull; what you see is what you get</span>
+          </div>
+          <span class="stamp-red" id="batch-title-tag">BATCH #08-20</span>
+        </div>
+
+        <!-- Balanced 6-Button Category Filter Bar -->
+        <div class="filter-bar" id="category-filters">
+          <button class="btn-type active" data-cat="ALL">[ all specimens ]</button>
+          <button class="btn-type" data-cat="Monstera">[ monstera ]</button>
+          <button class="btn-type" data-cat="Philodendron">[ philodendron ]</button>
+          <button class="btn-type" data-cat="Epipremnum">[ epipremnum ]</button>
+          <button class="btn-type" data-cat="Anthurium">[ anthurium ]</button>
+          <button class="btn-type" data-cat="Syngonium">[ syngonium ]</button>
+        </div>
+
+        <!-- Dynamic 3-Column Specimen Grid -->
+        <div class="specimen-grid" id="plants-grid">
+          <!-- Rendered via JavaScript -->
+        </div>
+      </section>
+
+      <hr class="type-divider">
+
+      <!-- Section 02: Live Carnival Arcade // Stream Interactive -->
+      <section id="arcade">
+        <div class="section-header-row">
+          <div>
+            <span class="section-label">[ 02 ] THE LIVE CARNIVAL ARCADE // STREAM INTERACTIVE</span>
+            <span class="section-subnote">custom arcade cabinets &bull; play live during palmstreet &amp; whatnot shows</span>
+          </div>
+          <span class="stamp-red">[ 8-BIT LIVE ]</span>
+        </div>
+
+        <!-- Balanced 3-Cabinet Game Selector Tabs -->
+        <div class="game-tabs-grid">
+          <button id="tab-game-pull" class="btn-type active">[ game 01: mystery pull ]</button>
+          <button id="tab-game-box" class="btn-type">[ game 02: 8-bit prize box ]</button>
+          <button id="tab-game-darts" class="btn-type">[ game 03: pixel balloon darts ]</button>
+        </div>
+
+        <div class="arcade-cabinet-frame">
+          <div class="arcade-screen-header">
+            <span id="current-game-title">ACTIVE CABINET: THE MAGIC WALNUT PLANT MYSTERY PULL</span>
+            <div class="arcade-screen-dots">
+              <span class="dot-red"></span>
+              <span class="dot-amber"></span>
+              <span class="dot-green"></span>
+            </div>
+          </div>
+          <div class="arcade-iframe-wrap">
+            <iframe id="arcade-iframe" src="google-sites-embeds/mystery-pull-embed.html" title="Sanctuary Carnival Arcade" loading="lazy"></iframe>
+          </div>
+          <div class="arcade-footer-bar">
+            <span>&bull; stream interactive &bull; claims logged directly in ledger</span>
+            <a id="arcade-fullscreen-link" href="google-sites-embeds/mystery-pull-embed.html" target="_blank" class="manifest-link">[ open full cabinet &nearr; ]</a>
+          </div>
+        </div>
+      </section>
+
+      <hr class="type-divider">
+
+      <!-- Section 03: Live Streams & Outbound Sanctuary Channels (Balanced 3x2 Grid) -->
+      <section id="streams">
+        <div class="section-header-row">
+          <div>
+            <span class="section-label">[ 03 ] LIVE STREAMS &amp; SANCTUARY OUTPOSTS</span>
+            <span class="section-subnote">watch weekly live unboxings, claims, plant games, and auctions</span>
+          </div>
+          <span class="stamp-red">[ BROADCASTS ]</span>
+        </div>
+
+        <div class="streams-grid">
+          <a href="https://palmstreet.app/u/themagicwalnut?pr=gPBMNjrm" target="_blank" rel="noopener noreferrer" class="stream-pill featured">
+            <span class="dot-green"></span>
+            <span>[ 01 ] Palmstreet Live (@themagicwalnut) &nearr;</span>
+          </a>
+          <a href="https://www.whatnot.com/s/CDDTW1SX" target="_blank" rel="noopener noreferrer" class="stream-pill featured">
+            <span class="dot-amber"></span>
+            <span>[ 02 ] Whatnot Live (@themagicwalnut) &nearr;</span>
+          </a>
+          <a href="https://www.facebook.com/groups/thehobbybotanist" target="_blank" rel="noopener noreferrer" class="stream-pill">
+            <span class="dot-red"></span>
+            <span>[ 03 ] Facebook Sanctuary Community &nearr;</span>
+          </a>
+          <a href="https://www.etsy.com/shop/TheMagicWalnutCo" target="_blank" rel="noopener noreferrer" class="stream-pill">
+            <span>[ 04 ] Etsy Official Vault &nearr;</span>
+          </a>
+          <a href="https://www.ebay.com/usr/themagicwalnutplantshoppe" target="_blank" rel="noopener noreferrer" class="stream-pill">
+            <span>[ 05 ] eBay Specimen Auctions &nearr;</span>
+          </a>
+          <a href="https://www.instagram.com/themagicwalnutplantshoppe" target="_blank" rel="noopener noreferrer" class="stream-pill">
+            <span>[ 06 ] Instagram Greenhouse Drops &nearr;</span>
+          </a>
+        </div>
+      </section>
+
+      <hr class="type-divider">
+
+      <!-- Section 04: Street-Flash Merch & Botanical Art -->
+      <section id="merch">
+        <div class="section-header-row">
+          <div>
+            <span class="section-label">[ 04 ] STREET-FLASH APPAREL &amp; GROWER SKETCHES</span>
+            <span class="section-subnote">limited batch botanical wear &bull; hand-screened heavy cotton</span>
+          </div>
+          <span class="stamp-red">[ FIELD WEAR ]</span>
+        </div>
+
+        <div class="specimen-grid" id="merch-grid">
+          <!-- Rendered via JavaScript -->
+        </div>
+      </section>
+
+      <hr class="type-divider">
+
+      <!-- Section 05: Monstera Albo Field Manual (Balanced 6-Part Care Grid) -->
+      <section id="care">
+        <div class="section-header-row">
+          <div>
+            <span class="section-label">[ 05 ] MONSTERA ALBO FIELD MANUAL</span>
+            <span class="section-subnote">grower notes &bull; no fluff, just what keeps variegation pristine</span>
+          </div>
+          <span class="stamp-red">[ CULTIVATION ]</span>
+        </div>
+
+        <div class="care-grid">
+          <div class="care-card">
+            <div class="care-step">[ 01: lighting ]</div>
+            <h4>Bright Indirect Foot-Candles</h4>
+            <p>Variegated white sectors contain zero chlorophyll and cannot convert light. Give them 400&ndash;800 foot candles of indirect sun or a 24W Sansi LED 12" away. Low light causes white tissue to brown off.</p>
+          </div>
+          <div class="care-card">
+            <div class="care-step">[ 02: hydration ]</div>
+            <h4>Chunky Substrate Cycle</h4>
+            <p>Never keep your Albo sitting in wet muck. Water thoroughly until water drains freely through the pot bottom, then allow top 50&ndash;60% of the chunky mix to dry before watering again.</p>
+          </div>
+          <div class="care-card">
+            <div class="care-step">[ 03: soil recipe ]</div>
+            <h4>Sanctuary Aroid Mix</h4>
+            <p>Our mix: 40% coarse pine bark nuggets, 25% chunky perlite (#3/#4), 20% coconut husk chunks, 10% worm castings, 5% horticultural charcoal. Roots breathe freely with maximum aeration.</p>
+          </div>
+          <div class="care-card">
+            <div class="care-step">[ 04: browning ]</div>
+            <h4>White Tissue Preservation</h4>
+            <p>White browning is almost always caused by uneven root moisture or lack of airflow. Maintain 50&ndash;65% ambient humidity with a small oscillating fan. Do not mist the white leaves directly.</p>
+          </div>
+          <div class="care-card">
+            <div class="care-step">[ 05: acclimation ]</div>
+            <h4>Arrival Protocol</h4>
+            <p>Upon unboxing, do not repot immediately. Place the specimen in medium ambient light for 7 days. Give it a gentle drink if the moss or substrate feels dry to the touch.</p>
+          </div>
+          <div class="care-card">
+            <div class="care-step">[ 06: propagation ]</div>
+            <h4>Node &amp; Aerial Root Care</h4>
+            <p>Always preserve the aerial root on each node. Root in damp stratum or perlite/chunky moss with gentle bottom heat until secondary feeder roots reach 2&ndash;3 inches.</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="type-divider">
+
+      <!-- Section 06: Behind The Sanctuary (Dustin's Ledger) -->
+      <section id="about">
+        <div class="section-header-row">
+          <div>
+            <span class="section-label">[ 06 ] BEHIND THE SANCTUARY // DUSTIN'S LEDGER</span>
+            <span class="section-subnote">independent greenhouse &bull; rooted with intention</span>
+          </div>
+          <span class="stamp-red">[ ARCHIVE ]</span>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <span class="card-tag">[ THE SANCTUARY ORIGIN ]</span>
+            <h3 class="about-heading">Not a commercial nursery. A living sanctuary.</h3>
+            <p class="about-p">
+              The Magic Walnut Plant Shoppe started from a simple obsession: growing exceptional, highly-variegated tropicals without the sterile commercial markup or deceptive photos.
+            </p>
+            <p class="about-p">
+              Every specimen in our drops is nurtured individually. We don't ship bare-root tissue-culture plugs and call them established plants. Every single cutting has hardened off, rooted deeply in our custom chunky aroid mix, and grown its own new growth point before being offered.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <span class="card-tag">[ THE ONE-MAN SHOW DISCLAIMER ]</span>
+            <h3 class="about-heading">Grown, packed, &amp; shipped by one human.</h3>
+            <p class="about-p">
+              When you purchase a plant here, you're not dealing with an anonymous third-party warehouse or automated drop-shipper. Every plant is packed by hand, insulated with thermal foil, and cushioned with fiberfill by Dustin.
+            </p>
+            <p class="about-p">
+              If a cold front blows through your delivery route, we monitor the weather before releasing the box. We hold packages for ideal transit windows so your rare specimen arrives alive, lush, and unblemished.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="type-divider">
+
+      <!-- Section 07: Transit Protocol & Direct Policies (Balanced in 3s) -->
+      <section id="shipping">
+        <div class="section-header-row">
+          <div>
+            <span class="section-label">[ 07 ] TRANSIT PROTOCOL &amp; POLICIES</span>
+            <span class="section-subnote">safe winter delivery &bull; nationwide transit logistics</span>
+          </div>
+          <span class="stamp-red">[ LOGISTICS ]</span>
+        </div>
+
+        <div class="policy-grid">
+          <div class="policy-card">
+            <span class="dot-green"></span>
+            <strong>[ 01 ] PIRATE SHIP EXPRESS</strong>
+            <p>All crates ship via USPS Priority or UPS 2-Day with discounted commercial rates through Pirate Ship. Full tracking dispatched to your email immediately upon label creation.</p>
+          </div>
+          <div class="policy-card">
+            <span class="dot-amber"></span>
+            <strong>[ 02 ] WINTER HEAT PACKS</strong>
+            <p>If your local overnight temperature dips below 45&deg;F, we activate a 72-hour UniHeat shipping pack and line the box interior with double-walled thermal bubble foil.</p>
+          </div>
+          <div class="policy-card">
+            <span class="dot-red"></span>
+            <strong>[ 03 ] LIVE ARRIVAL COMMITMENT</strong>
+            <p>We guarantee healthy arrival. In the rare event of transit damage or delay, snap clear photos of the box and specimen within 6 hours of delivery, and we will make it right.</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="type-divider">
+
+      <!-- Section 08: Elsewhere // iamdustin.com Network -->
+      <section id="elsewhere">
+        <div class="section-header-row">
+          <div>
+            <span class="section-label">[ 08 ] ELSEWHERE // IAMDUSTIN.COM NETWORK</span>
+            <span class="section-subnote">connected creative universe &bull; sound, code, and sanctuaries</span>
+          </div>
+          <span class="stamp-red">[ NETWORK ]</span>
+        </div>
+
+        <ul class="manifest-list">
+          <li>
+            <a href="https://iamdustin.com" target="_blank" rel="noopener noreferrer" class="manifest-link">
+              <span>iamdustin.com</span>
+              <span class="manifest-desc">// main creative dispatch, sound archives &amp; translation diary &nearr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://fuckwhattheytoldyou.com" target="_blank" rel="noopener noreferrer" class="manifest-link">
+              <span>fuckwhattheytoldyou.com</span>
+              <span class="manifest-desc">// streetwear, philosophical essays &amp; unfiltered artifacts &nearr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://suno.com/@timefoldstatic" target="_blank" rel="noopener noreferrer" class="manifest-link">
+              <span>time fold static</span>
+              <span class="manifest-desc">// experimental sonic broadcasts &amp; audio transmissions &nearr;</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Footer -->
+      <footer class="sheet-footer">
+        <p>&copy; <span id="footer-year">2026</span> THE MAGIC WALNUT PLANT SHOPPE &bull; ALL RIGHTS RESERVED.</p>
+        <p class="footer-sub">
+          "rare and unique plants for regular people that think they are rare and unique" &bull; DUSTIN / INDEPENDENT SANCTUARY
+        </p>
+      </footer>
+
+    </article>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 01: SPECIMEN MULTI-ANGLE INSPECTION MODAL
+       ======================================================================== -->
+  <div id="specimen-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="typewriter-modal-sheet">
+      <div class="modal-header">
+        <div>
+          <span class="stamp-red">[ SPECIMEN DOSSIER ]</span>
+          <h2 id="modal-plant-name" class="modal-title">Specimen Name</h2>
+          <span id="modal-plant-botanical" class="modal-sub">Botanical classification</span>
+        </div>
+        <button id="close-specimen-modal" class="btn-type">[ close &times; ]</button>
+      </div>
+
+      <div class="modal-body-grid">
+        <div>
+          <div class="modal-main-img-wrap">
+            <img id="modal-main-img" src="" alt="Specimen inspection">
+          </div>
+          <div id="modal-thumbnails" class="modal-thumb-row"></div>
+        </div>
+
+        <div class="modal-details-col">
+          <div class="dossier-spec-box">
+            <div class="spec-row">
+              <span class="spec-label">TYPE:</span>
+              <span id="modal-plant-type" class="spec-val">100% WYSIWYG</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">CATEGORY:</span>
+              <span id="modal-plant-category" class="spec-val">Monstera</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">POT SIZE:</span>
+              <span id="modal-plant-pot" class="spec-val">4" Chunky Mix</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">ROOT STATUS:</span>
+              <span id="modal-plant-roots" class="spec-val">Fully Established</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">LIGHTING:</span>
+              <span id="modal-plant-light" class="spec-val">Bright Indirect</span>
+            </div>
+          </div>
+
+          <p id="modal-plant-desc" class="modal-desc-p"></p>
+
+          <div class="modal-action-bar">
+            <div>
+              <span class="spec-label">PRICE:</span>
+              <span id="modal-plant-price" class="modal-price-val">$0</span>
+            </div>
+            <button id="modal-add-to-cart-btn" class="btn-type btn-crate">
+              [ + claim this plant ]
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 02: SHOPPING CRATE DRAWER (Direct $0 Fee Checkout)
+       ======================================================================== -->
+  <div id="cart-drawer-overlay" class="drawer-overlay hidden">
+    <div id="cart-drawer" class="cart-drawer-panel">
+      <div class="drawer-header">
+        <div>
+          <span class="stamp-red">[ SANCTUARY CRATE ]</span>
+          <h3 class="drawer-title">your reserved specimens</h3>
+        </div>
+        <button id="close-cart-btn" class="btn-type">[ close &times; ]</button>
+      </div>
+
+      <!-- Items List -->
+      <div id="cart-items-list" class="cart-items-scroll">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Order Summary & Direct Checkout -->
+      <div class="drawer-footer">
+        <!-- Shipping Method Selector -->
+        <div class="checkout-row">
+          <label for="shipping-method-select" class="spec-label">DELIVERY METHOD:</label>
+          <select id="shipping-method-select" class="input-type">
+            <option value="standard">USPS Priority / UPS 2-Day ($14.00)</option>
+            <option value="express">Express Overnight Shipping ($24.00)</option>
+            <option value="local">Local Sanctuary Pickup ($0.00)</option>
+          </select>
+        </div>
+
+        <!-- Winter Heat Pack Add-On -->
+        <div class="heat-pack-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="heat-pack-checkbox">
+            <span>Add 72-Hour UniHeat Shipping Pack (+$6.00)</span>
+          </label>
+        </div>
+
+        <div class="cart-totals-box">
+          <div class="total-line">
+            <span>Subtotal:</span>
+            <span id="cart-subtotal-val">$0.00</span>
+          </div>
+          <div class="total-line">
+            <span>Transit / Handling:</span>
+            <span id="cart-shipping-val">$14.00</span>
+          </div>
+          <div class="total-line total-grand">
+            <span>Total Sanctuary Invoice:</span>
+            <span id="cart-total-val" class="stamp-red">$14.00</span>
+          </div>
+        </div>
+
+        <!-- Direct Customer Info Fields -->
+        <div class="customer-info-grid">
+          <input type="text" id="cust-name" class="input-type" placeholder="Your Name" required>
+          <input type="email" id="cust-email" class="input-type" placeholder="Your Email (for tracking)" required>
+          <input type="text" id="cust-address" class="input-type" placeholder="Shipping Address (Street, City, State, ZIP)">
+          <textarea id="cust-notes" class="input-type" rows="2" placeholder="Special delivery notes or handle (Palmstreet/IG)..."></textarea>
+        </div>
+
+        <!-- Checkout Buttons -->
+        <div class="checkout-actions">
+          <button id="generate-order-btn" class="btn-type btn-crate w-full">
+            [ complete direct checkout &nearr; ]
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 03: ORDER INVOICE & PAYMENT DISPATCH MODAL
+       ======================================================================== -->
+  <div id="order-invoice-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="typewriter-modal-sheet">
+      <div class="modal-header">
+        <div>
+          <span class="stamp-red">[ INVOICE DISPATCH ]</span>
+          <h2 class="modal-title">Order Reservation Complete</h2>
+          <span id="invoice-order-id" class="modal-sub">MW-ORDER-XXXX</span>
+        </div>
+        <button id="close-invoice-modal" class="btn-type">[ close &times; ]</button>
+      </div>
+
+      <div class="invoice-body">
+        <p class="mb-3">
+          Your specimens have been temporarily reserved! Because this is a direct, zero-fee sanctuary, you can send the exact balance via your preferred payment network below.
+        </p>
+
+        <div class="invoice-summary-box">
+          <div class="spec-row">
+            <span class="spec-label">TOTAL AMOUNT DUE:</span>
+            <strong id="invoice-total-amount" class="stamp-red text-lg">$0.00</strong>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">CUSTOMER:</span>
+            <span id="invoice-cust-name">-</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">DISPATCH TO:</span>
+            <span id="invoice-cust-address">-</span>
+          </div>
+        </div>
+
+        <h4 class="mt-4 mb-2 spec-label">[ DIRECT PAYMENT LINKS &amp; HANDLES ]</h4>
+        <div class="payment-links-grid">
+          <a href="https://paypal.me/themagicwalnutplantshoppe" target="_blank" class="btn-type">
+            PayPal: @themagicwalnutplantshoppe &nearr;
+          </a>
+          <a href="https://cash.app/$dartsilver" target="_blank" class="btn-type">
+            Cash App: $dartsilver &nearr;
+          </a>
+          <div class="btn-type cursor-text">
+            Venmo: @themagicwalnutplantshoppe
+          </div>
+          <div class="btn-type cursor-text">
+            Zelle: themagicwalnutplantshoppe@gmail.com
+          </div>
+        </div>
+
+        <div class="mt-4 pt-3 border-t border-dashed border-gray-400 flex flex-wrap gap-2 justify-between items-center">
+          <button id="download-pirate-ship-btn" class="btn-type text-xs">
+            [ download pirate ship csv ]
+          </button>
+          <span class="text-xs text-gray-500">Order logged &bull; receipt copied to clipboard</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 04: SANCTUARY STUDIO (Weekly Drop Manager)
+       ======================================================================== -->
+  <div id="admin-studio-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="typewriter-modal-sheet">
+      <div class="modal-header">
+        <div>
+          <span class="stamp-red">[ SANCTUARY STUDIO ]</span>
+          <h2 class="modal-title">Weekly Drop &amp; Batch Manager</h2>
+          <span class="modal-sub">add new specimens, update photos, or edit announcements</span>
+        </div>
+        <button id="close-admin-studio" class="btn-type">[ close &times; ]</button>
+      </div>
+
+      <div class="studio-body">
+        <div class="studio-form-grid">
+          <div>
+            <label class="spec-label">PLANT / SPECIMEN NAME:</label>
+            <input type="text" id="new-plant-name" class="input-type" placeholder="e.g. Monstera Albo Variegata (Top Cut)">
+          </div>
+          <div>
+            <label class="spec-label">PRICE ($ USD):</label>
+            <input type="number" id="new-plant-price" class="input-type" placeholder="185">
+          </div>
+          <div>
+            <label class="spec-label">CATEGORY:</label>
+            <select id="new-plant-cat" class="input-type">
+              <option value="Monstera">Monstera</option>
+              <option value="Philodendron">Philodendron</option>
+              <option value="Epipremnum">Epipremnum</option>
+              <option value="Anthurium">Anthurium</option>
+              <option value="Syngonium">Syngonium</option>
+            </select>
+          </div>
+          <div>
+            <label class="spec-label">POT SIZE / MEDIUM:</label>
+            <input type="text" id="new-plant-pot" class="input-type" placeholder="4 inch Chunky Mix">
+          </div>
+          <div class="col-span-full">
+            <label class="spec-label">NOTES / DESCRIPTION:</label>
+            <input type="text" id="new-plant-desc" class="input-type" placeholder="Exact plant pictured. High white sector with active aerial root.">
+          </div>
+          <div class="col-span-full">
+            <label class="spec-label">SPECIMEN PHOTOS (DROP MULTIPLE FILES):</label>
+            <input type="file" id="new-plant-files" class="input-type" multiple accept="image/*">
+          </div>
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-2 justify-between">
+          <button id="add-plant-submit-btn" class="btn-type btn-crate">
+            [ + add specimen to live drop ]
+          </button>
+          <div class="flex gap-2">
+            <button id="wipe-drop-btn" class="btn-type text-xs">
+              [ clear batch ]
+            </button>
+            <button id="restore-sample-drop-btn" class="btn-type text-xs">
+              [ restore default batch ]
+            </button>
+            <button id="export-catalog-json-btn" class="btn-type text-xs">
+              [ export catalog.json ]
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Logic -->
+  <script>
+    // Spotlight cursor effect
+    const glow = document.querySelector('.cursor-glow');
+    window.addEventListener('mousemove', (e) => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+
+    // Default Fallback Catalog Data
+    const defaultCatalog = {
+      plants: [
+        {
+          id: 'mw-albo-01',
+          name: 'Monstera Deliciosa Albo Variegata',
+          botanical: 'Monstera deliciosa var. borsigiana albo-variegata',
+          price: 185,
+          type: 'WYSIWYG',
+          category: 'Monstera',
+          status: 'available',
+          stock: 1,
+          potSize: '4" Chunky Mix',
+          rootStatus: 'Established in Chunky Mix',
+          light: 'Bright Indirect',
+          badge: '1-OF-1 WYSIWYG',
+          description: 'Authentic sectorial white marble variegation with high chlorophyll balance. Active aerial root tucked into our sanctuary chunky bark mix.',
+          images: [
+            'assets/logos/2.jpg',
+            'assets/logos/3.jpg'
+          ]
+        },
+        {
+          id: 'mw-albo-02',
+          name: 'Monstera Albo Half-Moon Specimen',
+          botanical: 'Monstera deliciosa albo-variegata',
+          price: 240,
+          type: 'WYSIWYG',
+          category: 'Monstera',
+          status: 'available',
+          stock: 1,
+          potSize: '5" Terracotta',
+          rootStatus: 'Heavy Secondary Feeder Roots',
+          light: 'Bright Filtered',
+          badge: 'HALF-MOON GENETICS',
+          description: 'Crisp 50/50 split leaf with pure white sectoring on both stem and petiole. Hardened off in ambient greenhouse conditions.',
+          images: [
+            'assets/logos/3.jpg',
+            'assets/logos/2.jpg'
+          ]
+        },
+        {
+          id: 'mw-philo-01',
+          name: 'Philodendron White Princess (Tricolor)',
+          botanical: 'Philodendron erubescens cv. White Princess',
+          price: 68,
+          type: 'WYSIWYG',
+          category: 'Philodendron',
+          status: 'available',
+          stock: 1,
+          potSize: '4" Nursery Pot',
+          rootStatus: 'Established in Chunky Mix',
+          light: 'Medium to Bright Indirect',
+          badge: 'TRICOLOR BLUSH',
+          description: 'White splashed foliage with emerging pink blush nodes on the sheath. Ready for moss pole ascension.',
+          images: [
+            'assets/logos/4.jpg',
+            'assets/logos/6.jpg'
+          ]
+        },
+        {
+          id: 'mw-epi-01',
+          name: 'Epipremnum Pinnatum Albo Variegata',
+          botanical: 'Epipremnum pinnatum albo',
+          price: 52,
+          type: 'WYSIWYG',
+          category: 'Epipremnum',
+          status: 'available',
+          stock: 1,
+          potSize: '4" Chunky Mix',
+          rootStatus: 'Vigorous Aerial Climber',
+          light: 'Bright Indirect',
+          badge: 'CLIMBING SPECIMEN',
+          description: 'Deep fenestrations already forming on juvenile leaves. Crisp snow-white streaks across emerald green tissue.',
+          images: [
+            'assets/logos/6.jpg',
+            'assets/logos/4.jpg'
+          ]
+        },
+        {
+          id: 'mw-anth-01',
+          name: 'Anthurium Crystallinum x Clarinervium',
+          botanical: 'Anthurium hybrid',
+          price: 95,
+          type: 'WYSIWYG',
+          category: 'Anthurium',
+          status: 'available',
+          stock: 1,
+          potSize: '4" Net Pot in Moss/Bark',
+          rootStatus: 'Thick White Feeder Roots',
+          light: 'Indirect / Shaded Humid',
+          badge: 'VELVET VEINS',
+          description: 'Deep shimmering velvet cardboard-textured leaves with electric silver veining. Potted in coarse moss and perlite.',
+          images: [
+            'assets/logos/2.jpg',
+            'assets/logos/4.jpg'
+          ]
+        },
+        {
+          id: 'mw-syng-01',
+          name: 'Syngonium Podophyllum Albo Variegatum',
+          botanical: 'Syngonium podophyllum albo',
+          price: 38,
+          type: 'WYSIWYG',
+          category: 'Syngonium',
+          status: 'available',
+          stock: 1,
+          potSize: '3.5" Pot',
+          rootStatus: 'Fast-Growing Root System',
+          light: 'Bright Indirect',
+          badge: 'HIGH VARIEGATION',
+          description: 'Panda-style high contrast white patches. Hardy grower and forgiving for first-time variegated collectors.',
+          images: [
+            'assets/logos/3.jpg',
+            'assets/logos/6.jpg'
+          ]
+        }
+      ],
+      merch: [
+        {
+          id: 'mw-merch-01',
+          name: 'Plant Puppet Master Heavyweight Tee',
+          type: 'Street-Flash Merch',
+          price: 36,
+          badge: 'LIMITED SCREENPRINT',
+          image: 'assets/logos/1.2.jpg',
+          description: 'Vintage-washed 6.5oz heavy cotton with front pocket mechanical puppet sketch & back sanctuary typewriter statement.'
+        },
+        {
+          id: 'mw-merch-02',
+          name: 'Skeleton Botanist & Robot Watering Tee',
+          type: 'Sanctuary Apparel',
+          price: 36,
+          badge: 'COMMUNITY FAVORITE',
+          image: 'assets/logos/1.jpg',
+          description: 'Signature dripping wood-cut emblem on charcoal combed ring-spun cotton. Discharge print that softens with every wash.'
+        },
+        {
+          id: 'mw-merch-03',
+          name: 'Sanctuary Chunky Aroid Mix (2-Gallon Bag)',
+          type: 'Grower Soil',
+          price: 22,
+          badge: 'HOUSE RECIPE',
+          image: 'assets/logos/1.1.png',
+          description: 'Coarse Monterey pine bark, horticultural charcoal, jumbo perlite #4, coconut husk chips, and worm castings.'
+        }
+      ]
+    };
+
+    let catalog = null;
+    let cart = [];
+    let currentFilter = 'ALL';
+
+    // Initialize application
+    async function initApp() {
+      // Date stamps
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }).toUpperCase();
+      document.getElementById('live-date').textContent = dateStr;
+      document.getElementById('footer-year').textContent = now.getFullYear();
+
+      // Load Catalog from JSON or LocalStorage
+      const saved = localStorage.getItem('mw_sanctuary_catalog');
+      if (saved) {
+        try { catalog = JSON.parse(saved); } catch (e) { catalog = defaultCatalog; }
+      } else {
+        try {
+          const res = await fetch('catalog.json');
+          if (res.ok) {
+            catalog = await res.json();
+          } else {
+            catalog = defaultCatalog;
+          }
+        } catch (e) {
+          catalog = defaultCatalog;
+        }
+      }
+
+      // Load Saved Cart
+      const savedCart = localStorage.getItem('mw_sanctuary_cart');
+      if (savedCart) {
+        try { cart = JSON.parse(savedCart); } catch (e) { cart = []; }
+      }
+
+      renderShoppe();
+      renderMerch();
+      renderCart();
+      bindEvents();
+    }
+
+    function saveCatalog() {
+      localStorage.setItem('mw_sanctuary_catalog', JSON.stringify(catalog));
+      renderShoppe();
+    }
+
+    function saveCart() {
+      localStorage.setItem('mw_sanctuary_cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    // Render Specimen Grid (Symmetrical 3 Columns)
+    function renderShoppe() {
+      if (!catalog || !catalog.plants) return;
+      const grid = document.getElementById('plants-grid');
+      const filtered = catalog.plants.filter(p => {
+        if (currentFilter === 'ALL') return true;
+        return p.category === currentFilter;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align:center; padding: 3rem 1rem; border: 1px dashed var(--paper-border);">
+            <p class="stamp-red">[ NEXT SANCTUARY BATCH LOADING ]</p>
+            <p class="text-xs" style="color:var(--ink-faded); margin-top:0.5rem;">
+              No specimens currently listed under this category filter. Check back during weekly live streams.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(plant => {
+        const isSold = plant.status === 'sold' || plant.stock <= 0;
+        const mainImg = (plant.images && plant.images[0]) ? plant.images[0] : 'assets/logos/2.jpg';
+
+        return `
+          <article class="specimen-card ${isSold ? 'sold' : ''}">
+            <div>
+              <div class="specimen-img-wrap" onclick="openSpecimenModal('${plant.id}')">
+                <img src="${mainImg}" alt="${plant.name}" class="specimen-img" loading="lazy">
+                <span class="specimen-badge">${plant.badge || '1-OF-1 WYSIWYG'}</span>
+              </div>
+
+              <div class="specimen-meta-row">
+                <span>${plant.category}</span>
+                <span>${plant.potSize || '4" Chunky Mix'}</span>
+              </div>
+
+              <h3 class="specimen-title" onclick="openSpecimenModal('${plant.id}')">
+                ${plant.name}
+              </h3>
+
+              <div class="specimen-botanical">${plant.botanical || ''}</div>
+              <p class="specimen-desc">${plant.description}</p>
+            </div>
+
+            <div class="specimen-footer">
+              <div class="specimen-price">$${plant.price}.00</div>
+              <div class="specimen-card-btns">
+                <button onclick="openSpecimenModal('${plant.id}')" class="btn-type text-xs">
+                  inspect
+                </button>
+                <button ${isSold ? 'disabled' : ''} onclick="addToCart('${plant.id}', 'plant')" class="btn-type btn-crate">
+                  ${isSold ? 'claimed' : '+ crate'}
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Render Merch Grid
+    function renderMerch() {
+      if (!catalog || !catalog.merch) return;
+      const grid = document.getElementById('merch-grid');
+      grid.innerHTML = catalog.merch.map(item => `
+        <article class="specimen-card">
+          <div>
+            <div class="specimen-img-wrap">
+              <img src="${item.image}" alt="${item.name}" class="specimen-img" loading="lazy">
+              <span class="specimen-badge">${item.badge}</span>
+            </div>
+
+            <div class="specimen-meta-row">
+              <span>${item.type}</span>
+              <span>Sanctuary Batch</span>
+            </div>
+
+            <h3 class="specimen-title">${item.name}</h3>
+            <p class="specimen-desc">${item.description}</p>
+          </div>
+
+          <div class="specimen-footer">
+            <div class="specimen-price">$${item.price}.00</div>
+            <button onclick="addToCart('${item.id}', 'merch')" class="btn-type btn-crate">
+              + crate
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    // Add Item to Crate
+    window.addToCart = function(id, type) {
+      let item = null;
+      if (type === 'plant') {
+        item = catalog.plants.find(p => p.id === id);
+      } else {
+        item = catalog.merch.find(m => m.id === id);
+      }
+      if (!item) return;
+
+      cart.push({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        type: type,
+        image: (item.images && item.images[0]) ? item.images[0] : item.image || 'assets/logos/2.jpg'
+      });
+
+      saveCart();
+      openCartDrawer();
+    };
+
+    window.removeFromCart = function(idx) {
+      cart.splice(idx, 1);
+      saveCart();
+    };
+
+    // Render Crate Items & Calculate Totals
+    function renderCart() {
+      const countBadge = document.getElementById('cart-count-badge');
+      if (countBadge) countBadge.textContent = cart.length;
+
+      const list = document.getElementById('cart-items-list');
+      if (!list) return;
+
+      if (cart.length === 0) {
+        list.innerHTML = `
+          <div style="text-align:center; padding:3rem 1rem; color:var(--ink-dim); font-size:0.85rem;">
+            [ sanctuary crate is empty ]
+          </div>
+        `;
+      } else {
+        list.innerHTML = cart.map((item, idx) => `
+          <div class="cart-item-row">
+            <div class="cart-item-left">
+              <img src="${item.image}" alt="" class="cart-thumb">
+              <div>
+                <strong class="cart-item-name">${item.name}</strong>
+                <span class="cart-item-type">${item.type}</span>
+              </div>
+            </div>
+            <div class="cart-item-right">
+              <span class="cart-item-price">$${item.price}.00</span>
+              <button onclick="removeFromCart(${idx})" class="cart-del-btn" title="Remove">&times;</button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      calculateCartTotals();
+    }
+
+    function calculateCartTotals() {
+      const subtotal = cart.reduce((sum, item) => sum + Number(item.price), 0);
+      const shippingSelect = document.getElementById('shipping-method-select');
+      const heatPackCheck = document.getElementById('heat-pack-checkbox');
+
+      let shippingCost = 14;
+      if (shippingSelect) {
+        if (shippingSelect.value === 'express') shippingCost = 24;
+        else if (shippingSelect.value === 'local') shippingCost = 0;
+      }
+
+      let heatPackCost = (heatPackCheck && heatPackCheck.checked) ? 6 : 0;
+      const total = subtotal + shippingCost + heatPackCost;
+
+      const subtotalEl = document.getElementById('cart-subtotal-val');
+      const shippingEl = document.getElementById('cart-shipping-val');
+      const totalEl = document.getElementById('cart-total-val');
+
+      if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+      if (shippingEl) shippingEl.textContent = `$${(shippingCost + heatPackCost).toFixed(2)}`;
+      if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+    }
+
+    // Specimen Modal
+    window.openSpecimenModal = function(id) {
+      const plant = catalog.plants.find(p => p.id === id);
+      if (!plant) return;
+
+      document.getElementById('modal-plant-name').textContent = plant.name;
+      document.getElementById('modal-plant-botanical').textContent = plant.botanical || '';
+      document.getElementById('modal-plant-category').textContent = plant.category;
+      document.getElementById('modal-plant-pot').textContent = plant.potSize || '4" Chunky Mix';
+      document.getElementById('modal-plant-roots').textContent = plant.rootStatus || 'Established in Mix';
+      document.getElementById('modal-plant-light').textContent = plant.light || 'Bright Indirect';
+      document.getElementById('modal-plant-desc').textContent = plant.description;
+      document.getElementById('modal-plant-price').textContent = `$${plant.price}.00`;
+
+      const mainImg = (plant.images && plant.images[0]) ? plant.images[0] : 'assets/logos/2.jpg';
+      const mainImgEl = document.getElementById('modal-main-img');
+      mainImgEl.src = mainImg;
+
+      const thumbsEl = document.getElementById('modal-thumbnails');
+      thumbsEl.innerHTML = (plant.images || [mainImg]).map(img => `
+        <img src="${img}" class="modal-thumb ${img === mainImg ? 'active' : ''}" onclick="document.getElementById('modal-main-img').src='${img}'">
+      `).join('');
+
+      const addBtn = document.getElementById('modal-add-to-cart-btn');
+      addBtn.onclick = () => {
+        addToCart(plant.id, 'plant');
+        closeSpecimenModal();
+      };
+
+      document.getElementById('specimen-modal').classList.remove('hidden');
+    };
+
+    function closeSpecimenModal() {
+      document.getElementById('specimen-modal').classList.add('hidden');
+    }
+
+    function openCartDrawer() {
+      document.getElementById('cart-drawer-overlay').classList.remove('hidden');
+    }
+
+    function closeCartDrawer() {
+      document.getElementById('cart-drawer-overlay').classList.add('hidden');
+    }
+
+    // Bind All User Events
+    function bindEvents() {
+      // Cart drawer buttons
+      document.getElementById('open-cart-btn').onclick = openCartDrawer;
+      document.getElementById('close-cart-btn').onclick = closeCartDrawer;
+      document.getElementById('close-specimen-modal').onclick = closeSpecimenModal;
+
+      // Close modal on background click
+      document.getElementById('cart-drawer-overlay').onclick = (e) => {
+        if (e.target.id === 'cart-drawer-overlay') closeCartDrawer();
+      };
+      document.getElementById('specimen-modal').onclick = (e) => {
+        if (e.target.id === 'specimen-modal') closeSpecimenModal();
+      };
+      document.getElementById('order-invoice-modal').onclick = (e) => {
+        if (e.target.id === 'order-invoice-modal') document.getElementById('order-invoice-modal').classList.add('hidden');
+      };
+      document.getElementById('close-invoice-modal').onclick = () => {
+        document.getElementById('order-invoice-modal').classList.add('hidden');
+      };
+
+      // Filter category pills
+      const filterBtns = document.querySelectorAll('#category-filters button');
+      filterBtns.forEach(btn => {
+        btn.onclick = () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentFilter = btn.dataset.cat;
+          renderShoppe();
+        };
+      });
+
+      // Shipping & Heat Pack recalculation
+      document.getElementById('shipping-method-select').onchange = calculateCartTotals;
+      document.getElementById('heat-pack-checkbox').onchange = calculateCartTotals;
+
+      // Arcade Cabinet Tab Switching (Balanced in 3s)
+      const tabPull = document.getElementById('tab-game-pull');
+      const tabBox = document.getElementById('tab-game-box');
+      const tabDarts = document.getElementById('tab-game-darts');
+      const iframe = document.getElementById('arcade-iframe');
+      const gameTitle = document.getElementById('current-game-title');
+      const fullLink = document.getElementById('arcade-fullscreen-link');
+
+      tabPull.onclick = () => {
+        iframe.src = 'google-sites-embeds/mystery-pull-embed.html';
+        gameTitle.textContent = 'ACTIVE CABINET: THE MAGIC WALNUT PLANT MYSTERY PULL';
+        fullLink.href = 'google-sites-embeds/mystery-pull-embed.html';
+        tabPull.classList.add('active');
+        tabBox.classList.remove('active');
+        tabDarts.classList.remove('active');
+      };
+
+      tabBox.onclick = () => {
+        iframe.src = 'google-sites-embeds/plant-box-8bit-embed.html';
+        gameTitle.textContent = 'ACTIVE CABINET: 8-BIT SANCTUARY MYSTERY PRIZE BOX';
+        fullLink.href = 'google-sites-embeds/plant-box-8bit-embed.html';
+        tabBox.classList.add('active');
+        tabPull.classList.remove('active');
+        tabDarts.classList.remove('active');
+      };
+
+      tabDarts.onclick = () => {
+        iframe.src = 'google-sites-embeds/pixel-carnival-darts-embed.html';
+        gameTitle.textContent = 'ACTIVE CABINET: PIXEL CARNIVAL BALLOON DARTS';
+        fullLink.href = 'google-sites-embeds/pixel-carnival-darts-embed.html';
+        tabDarts.classList.add('active');
+        tabPull.classList.remove('active');
+        tabBox.classList.remove('active');
+      };
+
+      // Complete Direct Checkout
+      document.getElementById('generate-order-btn').onclick = () => {
+        if (cart.length === 0) {
+          alert('Your crate is empty. Please select a specimen before proceeding.');
+          return;
+        }
+
+        const name = document.getElementById('cust-name').value.trim();
+        const email = document.getElementById('cust-email').value.trim();
+        const address = document.getElementById('cust-address').value.trim() || 'Sanctuary Pickup';
+
+        if (!name || !email) {
+          alert('Please enter your name and email for shipping notifications.');
+          return;
+        }
+
+        const orderId = 'MW-' + Math.floor(100000 + Math.random() * 900000);
+        const total = document.getElementById('cart-total-val').textContent;
+
+        document.getElementById('invoice-order-id').textContent = orderId;
+        document.getElementById('invoice-total-amount').textContent = total;
+        document.getElementById('invoice-cust-name').textContent = name + ' (' + email + ')';
+        document.getElementById('invoice-cust-address').textContent = address;
+
+        closeCartDrawer();
+        document.getElementById('order-invoice-modal').classList.remove('hidden');
+
+        // Optional Pirate Ship CSV creation
+        window.lastOrder = { orderId, name, email, address, total, items: [...cart] };
+      };
+
+      // Pirate Ship CSV Export
+      document.getElementById('download-pirate-ship-btn').onclick = () => {
+        if (!window.lastOrder) return;
+        const o = window.lastOrder;
+        const csv = `Order Number,Recipient Name,Address,Email,Note\\n"${o.orderId}","${o.name}","${o.address}","${o.email}","${o.items.map(i=>i.name).join('; ')}"`;
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `pirateship_${o.orderId}.csv`;
+        a.click();
+      };
+
+      // Sanctuary Studio Admin Modal
+      const studioModal = document.getElementById('admin-studio-modal');
+      document.getElementById('open-admin-btn').onclick = () => {
+        studioModal.classList.remove('hidden');
+      };
+      document.getElementById('close-admin-studio').onclick = () => {
+        studioModal.classList.add('hidden');
+      };
+
+      // Studio: Add plant
+      document.getElementById('add-plant-submit-btn').onclick = async () => {
+        const name = document.getElementById('new-plant-name').value.trim();
+        const price = Number(document.getElementById('new-plant-price').value || 75);
+        const category = document.getElementById('new-plant-cat').value;
+        const potSize = document.getElementById('new-plant-pot').value.trim();
+        const description = document.getElementById('new-plant-desc').value.trim() || 'Sanctuary specimen.';
+        const files = document.getElementById('new-plant-files').files;
+
+        if (!name) {
+          alert('Please enter a specimen name.');
+          return;
+        }
+
+        const images = [];
+        for (const file of files) {
+          const dataUrl = await new Promise(res => {
+            const r = new FileReader();
+            r.onload = (e) => res(e.target.result);
+            r.readAsDataURL(file);
+          });
+          images.push(dataUrl);
+        }
+        if (images.length === 0) images.push('assets/logos/2.jpg');
+
+        catalog.plants.unshift({
+          id: 'mw-' + Date.now(),
+          name,
+          botanical: category + ' cultivar',
+          price,
+          type: 'WYSIWYG',
+          category,
+          status: 'available',
+          stock: 1,
+          potSize,
+          rootStatus: 'Established in Chunky Mix',
+          light: 'Bright Indirect',
+          badge: '1-OF-1 WYSIWYG',
+          description,
+          images
+        });
+
+        document.getElementById('new-plant-name').value = '';
+        document.getElementById('new-plant-price').value = '';
+        saveCatalog();
+        alert(`Added "${name}" to the live shoppe!`);
+      };
+
+      document.getElementById('wipe-drop-btn').onclick = () => {
+        if (confirm('Clear all specimens from the active drop?')) {
+          catalog.plants = [];
+          saveCatalog();
+        }
+      };
+
+      document.getElementById('restore-sample-drop-btn').onclick = () => {
+        catalog = JSON.parse(JSON.stringify(defaultCatalog));
+        saveCatalog();
+      };
+
+      document.getElementById('export-catalog-json-btn').onclick = () => {
+        const blob = new Blob([JSON.stringify(catalog, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'catalog.json';
+        a.click();
+      };
+    }
+
+    initApp();
+  </script>
+</body>
+</html>
+'''
+
+target_path = r'H:\The Magic Walnut Plants Sales\website\index.html'
+with open(target_path, 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("Successfully written index.html with mechanical typewriter and smoky glass aesthetic.")
