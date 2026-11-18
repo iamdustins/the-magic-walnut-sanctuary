@@ -357,9 +357,14 @@
           </div>
 
           <div class="policy-card">
-            <span class="policy-step">05: winter heat packs</span>
-            <h4>72-hour thermal protection</h4>
-            <p>when forecasts along your shipping route drop below 45&deg;f, a 72-hour uniheat shipping pack is included to keep the root ball and foliage warm throughout the journey.</p>
+            <span class="policy-step">05: weather &amp; heat packs</span>
+            <h4>check local temps &bull; add insulation</h4>
+            <p>buyers must be aware of their own local weather conditions. if temperatures in your area or along the transit route will be below 45&deg;f, you must purchase the added thermal insulation and 72-hour uniheat pack to protect your plant from cold damage.</p>
+            <div style="margin-top:0.65rem;">
+              <button onclick="addHeatPackToCart()" class="btn-type text-xs" style="padding:0.25rem 0.6rem;">
+                [ + add 72h heat pack &amp; insulation ($6) ]
+              </button>
+            </div>
           </div>
 
           <div class="policy-card">
@@ -421,9 +426,9 @@
           </div>
 
           <div class="faq-card">
-            <span class="faq-num">04: shipping options</span>
+            <span class="faq-num">04: shipping &amp; weather</span>
             <h4>what are your shipping policies?</h4>
-            <p>we carefully package each plant to ensure it arrives in great condition. we offer standard priority and expedited shipping options within the continental united states, with thermal insulation and heat packs in winter.</p>
+            <p>we offer standard priority and expedited shipping options within the continental united states. live plants are packed with care. please be aware of your local weather: if temperatures will be below 45&deg;f, you must purchase the added insulation and 72-hour heat pack add-on to protect your plant from freeze damage.</p>
           </div>
 
           <div class="faq-card">
@@ -571,11 +576,16 @@
           </select>
         </div>
 
-        <!-- Winter Heat Pack Add-On -->
-        <div class="heat-pack-row">
-          <label class="checkbox-label">
-            <input type="checkbox" id="heat-pack-checkbox">
-            <span>Add 72-Hour UniHeat Shipping Pack (+$6.00)</span>
+        <!-- Winter Heat Pack & Insulation Add-On -->
+        <div class="heat-pack-row" style="background:var(--paper-card-bg); border:1px solid var(--paper-border); padding:0.6rem; margin:0.4rem 0;">
+          <label class="checkbox-label" style="display:flex; align-items:flex-start; gap:0.5rem; cursor:pointer;">
+            <input type="checkbox" id="heat-pack-checkbox" style="margin-top:0.2rem;">
+            <div>
+              <strong style="display:block; font-size:0.78rem; color:var(--ink-black);">add 72-hour heat pack &amp; thermal insulation (+$6.00)</strong>
+              <span style="font-size:0.7rem; color:var(--ink-slate); line-height:1.35; display:block; margin-top:0.15rem;">
+                buyers must check local weather: if temperatures in your area or along transit will be below 45&deg;f, please check this box to protect your plant from cold damage.
+              </span>
+            </div>
           </label>
         </div>
 
@@ -1115,6 +1125,15 @@
     window.removeFromCart = function(idx) {
       cart.splice(idx, 1);
       saveCart();
+    };
+
+    window.addHeatPackToCart = function() {
+      const hpCheck = document.getElementById('heat-pack-checkbox');
+      if (hpCheck) {
+        hpCheck.checked = true;
+        calculateCartTotals();
+      }
+      openCartDrawer();
     };
 
     // Render Crate Items & Calculate Totals
