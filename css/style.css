@@ -663,50 +663,52 @@ html, body {
 /* ==========================================================================
    CARE GUIDE & MONSTERA ALBO MYTHS (Balanced 6 Parts: 3x2 Grid)
    ========================================================================== */
-.care-grid {
+.care-grid, .faq-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
 @media (max-width: 820px) {
-  .care-grid {
+  .care-grid, .faq-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 520px) {
-  .care-grid {
+  .care-grid, .faq-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.care-card {
+.care-card, .faq-card {
   background: var(--paper-card-bg);
   border: 1px solid var(--paper-border);
   padding: 1rem;
   transition: all 0.15s ease;
 }
 
-.care-card:hover {
+.care-card:hover, .faq-card:hover {
   background: var(--paper-card-hover);
   border-color: var(--ink-charcoal);
 }
 
-.care-step {
+.care-step, .faq-num {
   font-size: 0.7rem;
   font-weight: 700;
   color: var(--ink-slate);
   margin-bottom: 0.25rem;
+  display: block;
 }
 
-.care-card h4 {
+.care-card h4, .faq-card h4 {
   font-size: 0.86rem;
   margin-bottom: 0.4rem;
   color: var(--ink-black);
+  line-height: 1.35;
 }
 
-.care-card p {
+.care-card p, .faq-card p {
   font-size: 0.76rem;
   color: var(--ink-faded);
   line-height: 1.55;
