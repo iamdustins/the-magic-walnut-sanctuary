@@ -6,10 +6,10 @@ html_content = '''<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>the magic walnut plant shoppe // home plant nursery</title>
-  <meta name="description" content="rare and unique plants for regular people that think they are rare and unique. rooted cuttings and established plants grown by one guy in a home nursery.">
+  <title>the magic walnut plant shoppe // unique houseplants &amp; home nursery</title>
+  <meta name="description" content="we just like dope ass plants. think of us as an exclusive plant boutique that welcomes everyone. rare, unique, and classic houseplants grown with love in san antonio, texas.">
   <meta property="og:title" content="the magic walnut plant shoppe">
-  <meta property="og:description" content="rare and unique plants for regular people that think they are rare and unique.">
+  <meta property="og:description" content="we just like dope ass plants. think of us as an exclusive plant boutique that welcomes everyone.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#0b0c0f">
 
@@ -43,7 +43,7 @@ html_content = '''<!DOCTYPE html>
           <span id="live-date">NOVEMBER 2026</span>
           <span class="status-indicator">
             <span class="status-dot"></span>
-            <span id="header-status-text">plants from my home nursery</span>
+            <span id="header-status-text">an exclusive plant boutique that welcomes everyone</span>
           </span>
         </div>
         <div class="header-right">
@@ -58,14 +58,14 @@ html_content = '''<!DOCTYPE html>
         </div>
       </header>
 
-      <!-- Hero Section (Warm, Grounded, Authentic) -->
+      <!-- Hero Section (Using Dustin's Authentic Voice & Words) -->
       <section class="hero-dispatch">
-        <h1 class="typed-headline">the magic walnut plant shoppe</h1>
+        <h1 class="typed-headline">we just like dope ass plants.</h1>
         <p class="typed-slug">
-          "rare and unique plants for regular people that think they are rare and unique"
+          "think of us as an exclusive plant boutique that welcomes everyone."
         </p>
         <p class="typed-intro-p">
-          i'm just a guy growing plants in my home nursery. rooted cuttings, established plants in chunky aroid mix, and a few plant shirts. they're not all perfect—some might have a battle scar from real greenhouse life—but they have strong roots and honest genetics.
+          we offer a wide variety of houseplants, from rare and unique to classic and common varieties. from spiny, quirky caudex and rare succulents to vibrantly variegated tropical foliage that seems from another world &mdash; we've got it all. our one goal? to make you smile when you see your new plant.
         </p>
 
         <!-- Balanced 3-Part Trust Pillars in Muted Grays -->
@@ -102,7 +102,7 @@ html_content = '''<!DOCTYPE html>
         <div class="section-header-row">
           <div>
             <span class="section-label">[ 01 ] plants available right now</span>
-            <span class="section-subnote">rooted cuttings and established plants &bull; what you see is what you get</span>
+            <span class="section-subnote">they grow up so fast &bull; rooted cuttings &amp; established plants ready to ship</span>
           </div>
           <span class="stamp-tag" id="batch-title-tag">fresh drop</span>
         </div>
@@ -261,36 +261,36 @@ html_content = '''<!DOCTYPE html>
 
       <hr class="type-divider">
 
-      <!-- Section 06: About The Shop & Why I'm Here -->
+      <!-- Section 06: About The Shop & Why I'm Here (Direct from Dustin's Story) -->
       <section id="about">
         <div class="section-header-row">
           <div>
             <span class="section-label">[ 06 ] about the shop &amp; why i'm here</span>
-            <span class="section-subnote">just a guy growing plants in my home nursery</span>
+            <span class="section-subnote">dedicated plant enthusiast &bull; san antonio, texas</span>
           </div>
-          <span class="stamp-tag">[ about ]</span>
+          <span class="stamp-tag">[ our story ]</span>
         </div>
 
         <div class="about-grid">
           <div class="about-card">
-            <span class="card-tag">[ how it started ]</span>
-            <h3 class="about-heading">just a plant guy with a home nursery.</h3>
+            <span class="card-tag">[ an exclusive boutique that welcomes everyone ]</span>
+            <h3 class="about-heading">we just like dope ass plants.</h3>
             <p class="about-p">
-              The Magic Walnut Plant Shoppe started from a simple obsession: hunting down rare cuttings, getting them rooted in healthy chunky mix, and passing them along to other plant people who love them.
+              The Magic Walnut Plant Shoppe is an independent home nursery in San Antonio, Texas. We offer a wide variety of houseplants, from rare and quirky cultivars to classic favorites.
             </p>
             <p class="about-p">
-              They aren't mass-produced tissue-culture plugs in sterile cages. Each one is cared for by hand. Sometimes a leaf has a minor cosmetic imperfection or a battle scar from growing in a real greenhouse, but it has strong, healthy roots and honest genetics.
+              From spiny caudex and rare succulents to vibrantly variegated tropical foliage that seems from another world &mdash; each plant is selected, nurtured, and rooted with intention. Our one goal? To make you smile when you see your new plant.
             </p>
           </div>
 
           <div class="about-card">
             <span class="card-tag">[ grown &amp; packed by one guy ]</span>
-            <h3 class="about-heading">packed with care, sent from my home to yours.</h3>
+            <h3 class="about-heading">cared for by a dedicated plant enthusiast.</h3>
             <p class="about-p">
-              When you buy a plant here, you're dealing directly with me. I'm the one who takes the photos, answers your messages, wraps the pots, packs the thermal boxes, and brings them to the post office.
+              When you buy a plant here, you're dealing directly with Dustin (<a href="https://instagram.com/the_hobby_botanist" target="_blank" style="color:var(--ink-black); font-weight:bold;">@the_hobby_botanist</a>). All plants leave the nursery healthy, rooted, and thriving.
             </p>
             <p class="about-p">
-              I check the weather forecast along your entire shipping route before releasing a package. If a freeze is blowing through, I'll hold the box or add extra thermal insulation so your plant arrives healthy.
+              I'm the one who answers your messages, wraps the pots, packs the thermal boxes, and checks the weather across your entire transit route before dropping it off at the post office.
             </p>
           </div>
         </div>
@@ -298,33 +298,45 @@ html_content = '''<!DOCTYPE html>
 
       <hr class="type-divider">
 
-      <!-- Section 07: Shipping & How I Pack Your Plants (Balanced in 3s) -->
+      <!-- Section 07: Shipping & How I Pack Your Plants (Authentic Terms & Policies) -->
       <section id="shipping">
         <div class="section-header-row">
           <div>
-            <span class="section-label">[ 07 ] shipping &amp; how i pack your plants</span>
-            <span class="section-subnote">careful packing so your plant arrives safe and happy</span>
+            <span class="section-label">[ 07 ] shipping &amp; healthy plant policy</span>
+            <span class="section-subnote">how we ensure your plants arrive healthy &amp; thriving</span>
           </div>
-          <span class="stamp-tag">[ shipping ]</span>
+          <span class="stamp-tag">[ shipping &amp; guarantee ]</span>
         </div>
 
         <div class="policy-grid">
           <div class="policy-card">
             <strong>[ 01 ] careful insulated packing</strong>
-            <p>all plants are shipped via usps priority or ups 2-day. pots are secured, soil is taped down, foliage is cushioned in soft polyfill, and boxes are lined with thermal bubble insulation.</p>
+            <p>shipping is inherently stressful for plants, which may cause minor cosmetic leaf stress. we wrap the soil securely, cushion all foliage with soft polyfill, and line the boxes with thermal insulation.</p>
           </div>
           <div class="policy-card">
             <strong>[ 02 ] 72-hour winter heat packs</strong>
-            <p>when temperatures along your delivery route drop below 45&deg;f, a 72-hour uniheat pack is included to keep the box warm during its journey.</p>
+            <p>when delivery route forecasts dip below 45&deg;f, a 72-hour uniheat pack is included to keep the box warm throughout its journey.</p>
           </div>
           <div class="policy-card">
-            <strong>[ 03 ] live arrival guarantee</strong>
-            <p>i want you to be happy with your plant. if an issue happens in transit, simply send me a photo within 24 hours of delivery and i will work with you to make it right.</p>
+            <strong>[ 03 ] healthy plant guarantee</strong>
+            <p>all plants leave the nursery healthy and thriving. if a plant arrives dead or damaged due to a packaging error, reach out with photos immediately and we will replace it or issue store credit to make it right.</p>
           </div>
         </div>
       </section>
 
       <hr class="type-divider">
+
+      <!-- Drop Alerts / Don't Miss A Thing Block (From Dustin's Squarespace Home Page) -->
+      <section class="personal-link-box" style="margin-bottom: 2rem;">
+        <div class="personal-link-left">
+          <strong>they grow up so fast. don&rsquo;t miss a thing!</strong>
+          <p>sign up to receive discount codes, giveaway info, plant drops, and greenhouse updates directly from dustin.</p>
+        </div>
+        <div style="display:flex; gap:0.4rem; flex-wrap:wrap;">
+          <input type="email" id="newsletter-email" class="input-type" placeholder="enter your email..." style="width: 220px; margin-bottom:0;">
+          <button onclick="subscribeNewsletter()" class="btn-type btn-crate">[ stay in the loop ]</button>
+        </div>
+      </section>
 
       <!-- Section 08: Personal Projects (Clean, Understated Link) -->
       <section id="elsewhere">
@@ -349,9 +361,9 @@ html_content = '''<!DOCTYPE html>
 
       <!-- Footer -->
       <footer class="sheet-footer">
-        <p>&copy; <span id="footer-year">2026</span> the magic walnut plant shoppe &bull; all rights reserved.</p>
+        <p>&copy; <span id="footer-year">2026</span> the magic walnut plant shoppe &bull; san antonio, texas &bull; all rights reserved.</p>
         <p class="footer-sub">
-          just a guy selling plants from home &bull; dustin
+          an exclusive plant boutique that welcomes everyone &bull; dustin (@the_hobby_botanist)
         </p>
       </footer>
 
@@ -451,7 +463,7 @@ html_content = '''<!DOCTYPE html>
           <select id="shipping-method-select" class="input-type">
             <option value="standard">USPS Priority / UPS 2-Day ($14.00)</option>
             <option value="express">Express Overnight Shipping ($24.00)</option>
-            <option value="local">Local Pickup ($0.00)</option>
+            <option value="local">Local Pickup (San Antonio, TX) ($0.00)</option>
           </select>
         </div>
 
@@ -658,6 +670,17 @@ html_content = '''<!DOCTYPE html>
         scrollBtn.classList.remove('visible');
       }
     });
+
+    // Newsletter signup simulation
+    window.subscribeNewsletter = function() {
+      const email = document.getElementById('newsletter-email').value.trim();
+      if (!email || !email.includes('@')) {
+        alert('please enter a valid email address.');
+        return;
+      }
+      alert('thank you! you are on the list for new plant drops and updates.');
+      document.getElementById('newsletter-email').value = '';
+    };
 
     // Default Fallback Catalog Data
     const defaultCatalog = {
@@ -868,7 +891,6 @@ html_content = '''<!DOCTYPE html>
       
       let filtered = [];
       if (currentFilter === 'ALL') {
-        // Show available first, then sold
         filtered = [...catalog.plants].sort((a, b) => {
           const aSold = (a.status === 'sold' || a.stock <= 0) ? 1 : 0;
           const bSold = (b.status === 'sold' || b.stock <= 0) ? 1 : 0;
@@ -885,7 +907,7 @@ html_content = '''<!DOCTYPE html>
           <div style="grid-column: 1 / -1; text-align:center; padding: 3rem 1rem; border: 1px dashed var(--paper-border);">
             <p class="stamp-tag">[ ${currentFilter === 'SOLD' ? 'sold archive empty' : 'no plants listed in this category right now'} ]</p>
             <p class="text-xs" style="color:var(--ink-faded); margin-top:0.5rem;">
-              cuttings are actively rooting in the home nursery. check back soon or during live sales.
+              they grow up so fast! cuttings are actively rooting in the nursery. check back soon or during live sales.
             </p>
           </div>
         `;
@@ -1225,7 +1247,7 @@ html_content = '''<!DOCTYPE html>
         const name = document.getElementById('cust-name').value.trim();
         const email = document.getElementById('cust-email').value.trim();
         const phone = document.getElementById('cust-phone').value.trim();
-        const address = document.getElementById('cust-address').value.trim() || 'local pickup';
+        const address = document.getElementById('cust-address').value.trim() || 'local pickup (san antonio, tx)';
         const notes = document.getElementById('cust-notes').value.trim();
 
         if (!name || !email || !phone) {
@@ -1352,4 +1374,4 @@ target_path = r'H:\The Magic Walnut Plants Sales\website\index.html'
 with open(target_path, 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("Successfully written index.html with refined human, approachable typewriter aesthetic.")
+print("Successfully rebuilt index.html with Dustin's authentic Squarespace copy.")
