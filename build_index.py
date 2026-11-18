@@ -324,29 +324,57 @@ html_content = '''<!DOCTYPE html>
 
       <hr class="type-divider">
 
-      <!-- Section 07: Shipping & How I Pack Your Plants (Authentic Terms & Policies) -->
+      <!-- Section 07: Shipping & Processing Policies (From Dustin's Terms & Etsy Policies) -->
       <section id="shipping">
         <div class="section-header-row">
           <div>
-            <span class="section-label">[ 07 ] shipping &amp; healthy plant policy</span>
-            <span class="section-subnote">how we ensure your plants arrive healthy &amp; thriving</span>
+            <span class="section-label">[ 07 ] shipping &amp; processing policies</span>
+            <span class="section-subnote">processing timelines, careful insulated transit, and plant guarantees</span>
           </div>
-          <span class="stamp-tag">[ shipping &amp; guarantee ]</span>
+          <span class="stamp-tag">[ terms &amp; transit ]</span>
         </div>
 
         <div class="policy-grid">
           <div class="policy-card">
-            <strong>[ 01 ] careful insulated packing</strong>
-            <p>shipping is inherently stressful for plants, which may cause minor cosmetic leaf stress. we wrap the soil securely, cushion all foliage with soft polyfill, and line the boxes with thermal insulation.</p>
+            <span class="policy-step">01: processing timeline</span>
+            <h4>5&ndash;10 business days estimation</h4>
+            <p>our goal is to have orders ready for shipment within 5&ndash;10 business days. each plant is individually inspected, soil moisture checked, and packed by hand. conversely, there are times when we can ship sooner than expected!</p>
           </div>
+
           <div class="policy-card">
-            <strong>[ 02 ] 72-hour winter heat packs</strong>
-            <p>when delivery route forecasts dip below 45&deg;f, a 72-hour uniheat pack is included to keep the box warm throughout its journey.</p>
+            <span class="policy-step">02: tracking &amp; dispatch</span>
+            <h4>automatic tracking verification</h4>
+            <p>tracking numbers are sent automatically via email/phone as soon as the shipping label is purchased. if you haven't received a tracking number yet, your plant is still being prepped in the home nursery.</p>
           </div>
+
           <div class="policy-card">
-            <strong>[ 03 ] healthy plant guarantee</strong>
-            <p>all plants leave the nursery healthy and thriving. if a plant arrives dead or damaged due to a packaging error, reach out with photos immediately and we will replace it or issue store credit to make it right.</p>
+            <span class="policy-step">03: weather &amp; volume delays</span>
+            <h4>holding shipments for safe weather</h4>
+            <p>processing times may extend during cold snaps, holidays, or high-order drops. we monitor weather along your entire transit route and hold boxes if temperatures pose a threat so plants never freeze in transit.</p>
           </div>
+
+          <div class="policy-card">
+            <span class="policy-step">04: insulated thermal packing</span>
+            <h4>safe, cushioned delivery</h4>
+            <p>shipping is stressful for live plants. we secure the pot bases, tape down the chunky mix, cushion all leaves with soft polyfill, and line each heavy-duty corrugated box with thermal bubble insulation.</p>
+          </div>
+
+          <div class="policy-card">
+            <span class="policy-step">05: winter heat packs</span>
+            <h4>72-hour thermal protection</h4>
+            <p>when forecasts along your shipping route drop below 45&deg;f, a 72-hour uniheat shipping pack is included to keep the root ball and foliage warm throughout the journey.</p>
+          </div>
+
+          <div class="policy-card">
+            <span class="policy-step">06: healthy plant guarantee</span>
+            <h4>48-hour arrival window</h4>
+            <p>all plants leave the nursery healthy and thriving. if a plant arrives damaged or dead from a packaging error, reach out with clear photos within 48 hours and we will work with you on a replacement or store credit.</p>
+          </div>
+        </div>
+
+        <!-- Friendly Grower Note from Dustin's Policy -->
+        <div class="policy-callout">
+          <strong>a gentle note on status updates:</strong> contacting for order status updates will not expedite processing time. we understand the excitement and anticipation, but as a one-man show, repeated status messages pull me away from fulfilling orders and packing boxes efficiently! questions regarding plant health, care, and growing conditions are always welcome and answered gladly as soon as concerns arise.
         </div>
       </section>
 
