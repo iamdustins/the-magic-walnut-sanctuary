@@ -714,15 +714,15 @@ html, body {
 }
 
 /* ==========================================================================
-   ABOUT THE SHOP (HONEST HUMAN STORY)
+   ABOUT THE SHOP (HONEST HUMAN STORY — BALANCED IN 3s)
    ========================================================================== */
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.15rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .about-grid {
     grid-template-columns: 1fr;
   }

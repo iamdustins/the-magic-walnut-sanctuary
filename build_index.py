@@ -266,31 +266,54 @@ html_content = '''<!DOCTYPE html>
         <div class="section-header-row">
           <div>
             <span class="section-label">[ 06 ] about the shop &amp; why i'm here</span>
-            <span class="section-subnote">dedicated plant enthusiast &bull; san antonio, texas</span>
+            <span class="section-subnote">dedicated plant enthusiast &bull; san antonio, texas &bull; class 2 registered nursery</span>
           </div>
           <span class="stamp-tag">[ our story ]</span>
         </div>
 
         <div class="about-grid">
+          <!-- Card 1: Dustin's Background & Passion -->
           <div class="about-card">
-            <span class="card-tag">[ an exclusive boutique that welcomes everyone ]</span>
-            <h3 class="about-heading">we just like dope ass plants.</h3>
+            <span class="card-tag">[ who's behind the magic walnut ]</span>
+            <h3 class="about-heading">my name's dustin, the guy behind the shoppe.</h3>
             <p class="about-p">
-              The Magic Walnut Plant Shoppe is an independent home nursery in San Antonio, Texas. We offer a wide variety of houseplants, from rare and quirky cultivars to classic favorites.
+              husband, father of three, piano teacher, and dedicated plant enthusiast.
             </p>
             <p class="about-p">
-              From spiny caudex and rare succulents to vibrantly variegated tropical foliage that seems from another world &mdash; each plant is selected, nurtured, and rooted with intention. Our one goal? To make you smile when you see your new plant.
+              20+ years ago in Northern California, I discovered the magic of growing plants. Ultimately leading to The Magic Walnut Plant Shoppe in San Antonio, Texas (Class 2 registered nursery) &mdash; a place for regular people to find rare and unique plants.
+            </p>
+            <p class="about-p" style="font-style: italic; color: var(--ink-charcoal);">
+              "here's to growth, grace, and finding that dope ass plant that speaks to your soul."
             </p>
           </div>
 
+          <!-- Card 2: Plant Addict Enabler & Humor -->
           <div class="about-card">
-            <span class="card-tag">[ grown &amp; packed by one guy ]</span>
-            <h3 class="about-heading">cared for by a dedicated plant enthusiast.</h3>
+            <span class="card-tag">[ the plant addict enabler ]</span>
+            <h3 class="about-heading">i'm not just selling plants...</h3>
             <p class="about-p">
-              When you buy a plant here, you're dealing directly with Dustin (<a href="https://instagram.com/the_hobby_botanist" target="_blank" style="color:var(--ink-black); font-weight:bold;">@the_hobby_botanist</a>). All plants leave the nursery healthy, rooted, and thriving.
+              at The Magic Walnut, I'm not just selling plants &mdash; I'm a full fledged plant addict enabler.
             </p>
             <p class="about-p">
-              I'm the one who answers your messages, wraps the pots, packs the thermal boxes, and checks the weather across your entire transit route before dropping it off at the post office.
+              so don't come here trying to save money, or asking me to save plants for you without a deposit!
+            </p>
+            <p class="about-p">
+              ask me to ship the plant with a special note on the tracking that says <em>"hide behind the big flower pot on the side of the house so that my spouse doesn't see it."</em> just playing of course (wink-wink).
+            </p>
+          </div>
+
+          <!-- Card 3: The Real One-Man Show -->
+          <div class="about-card">
+            <span class="card-tag">[ the one-man show ]</span>
+            <h3 class="about-heading">grown, packed &amp; shipped by one human.</h3>
+            <p class="about-p">
+              as a one-man show, I handle everything from growing and propagating plants, mixing chunky soil, listing plants, managing and designing the website, customer service, reading the lovely reviews, and running social media.
+            </p>
+            <p class="about-p">
+              don't be a stranger &mdash; drop me a line, request a special t-shirt color, or suggest a new plant design. if I miss an email or message, it's because I'm up to my elbows in soil, don&rsquo;t hesitate to follow up!
+            </p>
+            <p class="about-p" style="font-size: 0.76rem; color: var(--ink-slate);">
+              follow along on instagram <a href="https://instagram.com/themagicwalnutplantshoppe" target="_blank" style="color:var(--ink-black); font-weight:bold;">@themagicwalnutplantshoppe</a> &amp; <a href="https://instagram.com/the_hobby_botanist" target="_blank" style="color:var(--ink-black); font-weight:bold;">@the_hobby_botanist</a>, or join our community on FB: <em>"the hobby botanist plant group"</em>.
             </p>
           </div>
         </div>
@@ -496,7 +519,7 @@ html_content = '''<!DOCTYPE html>
           <input type="email" id="cust-email" class="input-type" placeholder="your email (for tracking) *" required>
           <input type="tel" id="cust-phone" class="input-type field-full" placeholder="your phone number (for shipping weather updates / texts) *" required>
           <input type="text" id="cust-address" class="input-type field-full" placeholder="shipping address (street, city, state, zip)">
-          <textarea id="cust-notes" class="input-type field-full" rows="2" placeholder="special notes or social handle (palmstreet / ig / facebook)..."></textarea>
+          <textarea id="cust-notes" class="input-type field-full" rows="2" placeholder="special notes, social handle, or delivery note (e.g. 'hide behind the big flower pot')..."></textarea>
         </div>
         <p style="font-size:0.72rem; color:var(--ink-slate); line-height:1.4; margin-top:-0.2rem;">
           * i ask for your phone and email so i can reach out directly if there are any weather delays, cold snaps, or questions about your plant before shipping.
