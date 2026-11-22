@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sanctuary brain // the magic walnut listing studio</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b0c0f">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    /* Dedicated Listing Studio & Brain Styling */
+    .studio-viewport {
+      max-width: 1180px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .studio-card {
+      background: var(--paper-sheet);
+      border: 1px solid var(--paper-border);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.45);
+      border-radius: 4px;
+      padding: 2.2rem;
+      color: var(--ink-black);
+      position: relative;
+    }
+
+    /* Password Lock Screen */
+    #lock-screen {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 12, 15, 0.94);
+      backdrop-filter: blur(12px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .lock-box {
+      background: var(--paper-sheet);
+      border: 1px solid var(--paper-border);
+      max-width: 440px;
+      width: 100%;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+      border-radius: 4px;
+    }
+
+    .lock-logo {
+      width: 72px;
+      height: auto;
+      margin: 0 auto 1.2rem;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+    }
+
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      margin-top: 1.8rem;
+    }
+
+    @media (max-width: 900px) {
+      .studio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel-box {
+      background: var(--paper-card-bg);
+      border: 1px solid var(--paper-border);
+      border-radius: 4px;
+      padding: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .panel-box h3 {
+      font-size: 1.05rem;
+      font-family: var(--font-typewriter);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px dashed var(--paper-border);
+      padding-bottom: 0.4rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+      color: var(--ink-slate);
+    }
+
+    .input-field, .select-field, .textarea-field {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--paper-border);
+      border-radius: 3px;
+      padding: 0.65rem 0.8rem;
+      font-family: var(--font-typewriter);
+      font-size: 0.95rem;
+      color: var(--ink-black);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .input-field:focus, .select-field:focus, .textarea-field:focus {
+      border-color: var(--accent-green);
+      background: #fff;
+      box-shadow: 0 0 0 2px rgba(46, 102, 72, 0.15);
+    }
+
+    .drop-zone {
+      border: 2px dashed var(--paper-border);
+      border-radius: 4px;
+      padding: 1.5rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .drop-zone:hover, .drop-zone.dragover {
+      border-color: var(--accent-green);
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .preview-thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+
+    .thumb-item {
+      position: relative;
+      width: 68px;
+      height: 68px;
+      border-radius: 3px;
+      overflow: hidden;
+      border: 1px solid var(--paper-border);
+    }
+
+    .thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumb-item .remove-btn {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 11px;
+      line-height: 18px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    /* Market Comps Breakdown */
+    .comps-badge-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
+      margin: 0.8rem 0;
+    }
+
+    .comp-pill {
+      background: rgba(0, 0, 0, 0.04);
+      border: 1px solid var(--paper-border);
+      padding: 0.5rem 0.7rem;
+      border-radius: 3px;
+      font-size: 0.82rem;
+    }
+
+    .comp-pill strong {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ink-slate);
+      text-transform: uppercase;
+    }
+
+    .sweet-spot-banner {
+      background: rgba(46, 102, 72, 0.08);
+      border: 1px solid rgba(46, 102, 72, 0.3);
+      border-radius: 4px;
+      padding: 1rem;
+      margin: 1rem 0;
+      text-align: center;
+    }
+
+    .sweet-spot-price {
+      font-size: 2rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--accent-green);
+      margin: 0.2rem 0;
+    }
+
+    .tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+    }
+
+    .tag-choice {
+      padding: 0.25rem 0.55rem;
+      font-size: 0.78rem;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--paper-border);
+      border-radius: 2px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .tag-choice.selected {
+      background: var(--accent-dark);
+      color: #fff;
+      border-color: var(--accent-dark);
+    }
+
+    .action-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+
+    .btn-action-primary {
+      background: var(--accent-green);
+      color: #fff;
+      border: 1px solid var(--accent-green);
+      padding: 0.7rem 1.2rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 3px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      transition: all 0.2s ease;
+    }
+
+    .btn-action-primary:hover {
+      background: #25533a;
+      box-shadow: 0 4px 10px rgba(46, 102, 72, 0.3);
+    }
+
+    .btn-action-secondary {
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--ink-black);
+      border: 1px solid var(--paper-border);
+      padding: 0.7rem 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      border-radius: 3px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .btn-action-secondary:hover {
+      background: #fff;
+      border-color: var(--ink-slate);
+    }
+
+    /* Live Inventory Table */
+    .inventory-section {
+      margin-top: 2.5rem;
+      border-top: 2px dashed var(--paper-border);
+      padding-top: 1.5rem;
+    }
+
+    .inv-table-wrap {
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+
+    .inv-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .inv-table th {
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      padding: 0.6rem 0.8rem;
+      border-bottom: 2px solid var(--paper-border);
+      color: var(--ink-slate);
+    }
+
+    .inv-table td {
+      padding: 0.75rem 0.8rem;
+      border-bottom: 1px solid var(--paper-border);
+      vertical-align: middle;
+    }
+
+    .inv-thumb {
+      width: 44px;
+      height: 44px;
+      border-radius: 2px;
+      object-fit: cover;
+      border: 1px solid var(--paper-border);
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      border-radius: 2px;
+    }
+
+    .status-available {
+      background: rgba(46, 102, 72, 0.15);
+      color: var(--accent-green);
+      border: 1px solid rgba(46, 102, 72, 0.3);
+    }
+
+    .status-sold {
+      background: rgba(180, 50, 50, 0.15);
+      color: #9c2828;
+      border: 1px solid rgba(180, 50, 50, 0.3);
+    }
+
+    .btn-inv-action {
+      background: none;
+      border: 1px solid var(--paper-border);
+      padding: 0.25rem 0.5rem;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      border-radius: 2px;
+      margin-right: 0.3rem;
+    }
+
+    .btn-inv-action:hover {
+      background: #fff;
+      border-color: var(--ink-black);
+    }
+
+    .btn-danger {
+      color: #9c2828;
+    }
+    .btn-danger:hover {
+      border-color: #9c2828;
+      background: rgba(180, 50, 50, 0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Mascot Background Layer -->
+  <div class="floating-bg-logo-wrap" aria-hidden="true">
+    <img src="../assets/logos/logoRobotWatering.png" alt="" class="floating-bg-logo">
+  </div>
+
+  <!-- PASSWORD GATE MODAL -->
+  <div id="lock-screen">
+    <div class="lock-box">
+      <img src="../assets/logos/logoRobotWatering.png" alt="Sanctuary Logo" class="lock-logo">
+      <h2 style="font-family: var(--font-typewriter); font-size: 1.35rem; margin-bottom: 0.4rem;">the magic walnut plant shoppe</h2>
+      <p style="font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 1.5rem;">[ sanctuary brain // listing studio ]</p>
+      
+      <p style="font-size: 0.88rem; margin-bottom: 1.2rem; color: var(--ink-slate);">
+        private dispatcher &bull; enter your sanctuary passcode to unlock the listing desk:
+      </p>
+
+      <form id="auth-form" onsubmit="event.preventDefault(); handleUnlock();">
+        <input type="password" id="passcode-input" class="input-field" placeholder="sanctuary passcode..." style="text-align: center; letter-spacing: 0.2em; font-size: 1.1rem; margin-bottom: 1rem;" autofocus>
+        <button type="submit" class="btn-action-primary" style="width: 100%;">[ unlock studio ]</button>
+      </form>
+
+      <p id="auth-error" style="color: #9c2828; font-size: 0.8rem; margin-top: 0.8rem; display: none; font-family: var(--font-mono);">
+        [ invalid passcode &bull; try again ]
+      </p>
+    </div>
+  </div>
+
+  <!-- MAIN STUDIO CONTAINER -->
+  <main class="studio-viewport" id="studio-main" style="display: none;">
+    <article class="studio-card">
+      
+      <!-- Sheet Top Bar -->
+      <header class="sheet-header" style="margin-bottom: 1.5rem;">
+        <div class="header-left">
+          <span class="stamp-tag">[ sanctuary listing brain ]</span>
+          <span id="live-stamp" style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-dim);"></span>
+          <span class="status-indicator">
+            <span class="status-dot"></span>
+            <span>low overhead &bull; mid/low pricing &bull; priced to move</span>
+          </span>
+        </div>
+        <div class="header-right">
+          <a href="../index.html" target="_blank" class="btn-type text-xs" title="Open Public Website">[ view live site ]</a>
+          <button onclick="lockStudio()" class="btn-type text-xs" title="Lock Studio">[ lock ]</button>
+        </div>
+      </header>
+
+      <!-- Subtitle dispatch -->
+      <div style="margin-bottom: 1.8rem; border-bottom: 1px solid var(--paper-border); padding-bottom: 1rem;">
+        <h1 style="font-family: var(--font-typewriter); font-size: 1.6rem; margin-bottom: 0.3rem;">
+          we just like dope ass plants.
+        </h1>
+        <p style="color: var(--ink-slate); font-size: 0.92rem;">
+          intake plant photos &bull; evaluate real market comps &bull; generate fair sanctuary pricing &bull; post to live catalog without touching code or terminal.
+        </p>
+      </div>
+
+      <!-- Studio Work Grid -->
+      <div class="studio-grid">
+
+        <!-- LEFT COLUMN: PLANT INTAKE & RESEARCH FORM -->
+        <section>
+          
+          <!-- 01: PHOTOS -->
+          <div class="panel-box">
+            <h3>
+              <span>[ 01: plant photos ]</span>
+              <span style="font-size: 0.7rem; font-family: var(--font-mono); color: var(--ink-dim);">wysiwyg exact plant</span>
+            </h3>
+
+            <div class="drop-zone" id="drop-zone" onclick="document.getElementById('plant-files').click()">
+              <input type="file" id="plant-files" multiple accept="image/*" style="display: none;" onchange="handleFileSelect(event)">
+              <p style="font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 0.3rem;">
+                [ click or drop plant photos here ]
+              </p>
+              <p style="font-size: 0.78rem; color: var(--ink-dim);">
+                phone photos, camera roll, full leaf & root shots
+              </p>
+            </div>
+
+            <div class="preview-thumbs" id="preview-thumbs"></div>
+          </div>
+
+          <!-- 02: SPECS & PLANT IDENTITY -->
+          <div class="panel-box">
+            <h3>
+              <span>[ 02: plant identity &amp; specs ]</span>
+            </h3>
+
+            <div class="form-group">
+              <label>Plant Name / Cultivar</label>
+              <input type="text" id="plant-name" class="input-field" placeholder="e.g. Monstera Albo, Philodendron Pink Princess..." oninput="autoDetectBotanical()">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
+              <div class="form-group">
+                <label>Category</label>
+                <select id="plant-cat" class="select-field" onchange="autoDetectBotanical()">
+                  <option value="Monstera">Monstera</option>
+                  <option value="Philodendron">Philodendron</option>
+                  <option value="Epipremnum">Epipremnum</option>
+                  <option value="Anthurium">Anthurium</option>
+                  <option value="Syngonium">Syngonium</option>
+                  <option value="Scindapsus">Scindapsus</option>
+                  <option value="Succulent">Succulent / Caudex</option>
+                  <option value="Rare">Rare Exotic Foliage</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Pot Size / Setup</label>
+                <input type="text" id="plant-pot" class="input-field" value="4&quot; chunky mix">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
+              <div class="form-group">
+                <label>Root Status</label>
+                <input type="text" id="plant-root" class="input-field" value="established in chunky mix">
+              </div>
+
+              <div class="form-group">
+                <label>Light Preference</label>
+                <input type="text" id="plant-light" class="input-field" value="bright indirect">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Sanctuary Badge</label>
+              <div class="tag-grid" id="badge-selector">
+                <span class="tag-choice selected" data-badge="1-of-1 plant">[ 1-of-1 plant ]</span>
+                <span class="tag-choice" data-badge="high variegation">[ high variegation ]</span>
+                <span class="tag-choice" data-badge="mint variegation">[ mint variegation ]</span>
+                <span class="tag-choice" data-badge="top cutting">[ top cutting ]</span>
+                <span class="tag-choice" data-badge="established mother">[ established mother ]</span>
+              </div>
+            </div>
+
+            <button type="button" class="btn-action-primary" style="width: 100%; margin-top: 0.5rem;" onclick="runMarketBrain()">
+              [ ⚡ analyze market comps &amp; price ]
+            </button>
+          </div>
+
+        </section>
+
+        <!-- RIGHT COLUMN: THE BRAIN PRICING & COPY ENGINE -->
+        <section>
+
+          <!-- 03: PRICING INTELLIGENCE -->
+          <div class="panel-box">
+            <h3>
+              <span>[ 03: market comps &amp; pricing ]</span>
+              <span class="stamp-tag" style="font-size: 0.65rem;">mid-low strategy</span>
+            </h3>
+
+            <div id="comps-loading" style="display: none; padding: 1.5rem 0; text-align: center;">
+              <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-green);">
+                [ analyzing etsy, ebay, palmstreet &amp; local market comps... ]
+              </p>
+            </div>
+
+            <div id="comps-display">
+              <div class="comps-badge-row">
+                <div class="comp-pill">
+                  <strong>Commercial Boutique</strong>
+                  <span id="comp-retail">$120 – $160</span>
+                </div>
+                <div class="comp-pill">
+                  <strong>Etsy Nursery Avg</strong>
+                  <span id="comp-etsy">$85 – $120</span>
+                </div>
+                <div class="comp-pill">
+                  <strong>Palmstreet / Whatnot</strong>
+                  <span id="comp-palm">$60 – $85</span>
+                </div>
+                <div class="comp-pill">
+                  <strong>Local FB / San Antonio</strong>
+                  <span id="comp-fb">$50 – $75</span>
+                </div>
+              </div>
+
+              <!-- Sanctuary Sweet Spot Price -->
+              <div class="sweet-spot-banner">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--ink-slate);">
+                  [ recommended sanctuary price &bull; priced to move ]
+                </span>
+                <div class="sweet-spot-price" id="sweet-spot-price-tag">$58</div>
+                <p style="font-size: 0.78rem; color: var(--ink-slate); margin: 0;">
+                  no commercial retail markup &bull; low overhead &bull; fair to normal plant lovers
+                </p>
+              </div>
+
+              <div class="form-group" style="margin-top: 1rem;">
+                <label>Final Listing Price ($ USD)</label>
+                <input type="number" id="plant-price" class="input-field" value="58" style="font-size: 1.25rem; font-weight: 700; color: var(--accent-green);">
+              </div>
+            </div>
+          </div>
+
+          <!-- 04: SANCTUARY COPYWRITER -->
+          <div class="panel-box">
+            <h3>
+              <span>[ 04: description in your authentic voice ]</span>
+            </h3>
+
+            <div class="form-group">
+              <label>Botanical Name</label>
+              <input type="text" id="plant-botanical" class="input-field" value="Monstera deliciosa var. borsigiana albo-variegata">
+            </div>
+
+            <div class="form-group">
+              <label>Listing Copy</label>
+              <textarea id="plant-desc" class="textarea-field" rows="4"></textarea>
+            </div>
+
+            <div class="form-group" style="display: flex; align-items: center; gap: 0.6rem;">
+              <input type="checkbox" id="include-pickup-check" checked style="cursor: pointer;">
+              <label for="include-pickup-check" style="margin: 0; cursor: pointer; text-transform: none;">
+                attach local pickup line (near 3103 Rimrock Trail, San Antonio, TX)
+              </label>
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div class="action-row">
+              <button type="button" class="btn-action-primary" onclick="postToShoppe()" style="flex: 1.2;">
+                [ 🚀 post to live shoppe ]
+              </button>
+              <button type="button" class="btn-action-secondary" onclick="copyCrossListingAd()" style="flex: 1;">
+                [ 📋 copy fb / palm ad ]
+              </button>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+
+      <!-- BOTTOM SECTION: LIVE INVENTORY MANAGER -->
+      <section class="inventory-section">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 style="font-family: var(--font-typewriter); font-size: 1.25rem; margin-bottom: 0.2rem;">
+              [ live shoppe inventory manager ]
+            </h2>
+            <p style="font-size: 0.85rem; color: var(--ink-slate);">
+              active catalog listings &bull; 1-click status toggles &bull; export catalog.json
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button class="btn-action-secondary" onclick="exportCatalogJson()">[ 💾 export catalog.json ]</button>
+            <button class="btn-action-secondary" onclick="clearSoldPlants()">[ clear sold archive ]</button>
+          </div>
+        </div>
+
+        <div class="inv-table-wrap">
+          <table class="inv-table">
+            <thead>
+              <tr>
+                <th style="width: 60px;">Photo</th>
+                <th>Plant Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th style="text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="inventory-tbody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <script>
+    // =========================================================================
+    // THE MAGIC WALNUT PLANT SHOPPE â€” SANCTUARY BRAIN & LISTING STUDIO ENGINE
+    // =========================================================================
+
+    const DEFAULT_PASSCODE = 'walnut2026';
+    let currentBadge = '1-of-1 plant';
+    let uploadedImages = [];
+    let catalog = { plants: [] };
+
+    // Built-in Market Comp Knowledge Base for Rare & Classic Houseplants
+    // Strategy: Mid-to-Low Pricing (low overhead, priced to move, fair to regular people)
+    const MARKET_KNOWLEDGE = {
+      'monstera albo': {
+        retail: [130, 180],
+        etsy: [95, 140],
+        palm: [75, 110],
+        fb: [60, 90],
+        sweetSpot: 75,
+        botanical: "Monstera deliciosa var. borsigiana albo-variegata",
+        category: "Monstera",
+        desc: "authentic sectorial white marble variegation with high chlorophyll balance. active growth point established in our house chunky aroid bark mix. exact plant in photo."
+      },
+      'thai constellation': {
+        retail: [85, 120],
+        etsy: [65, 95],
+        palm: [50, 75],
+        fb: [45, 65],
+        sweetSpot: 52,
+        botanical: "Monstera deliciosa 'Thai Constellation'",
+        category: "Monstera",
+        desc: "high-contrast speckled constellation variegation with cream splashes. stable genetics that never revert. growing vigorously in our custom aroid blend."
+      },
+      'pink princess': {
+        retail: [45, 70],
+        etsy: [35, 55],
+        palm: [25, 40],
+        fb: [20, 35],
+        sweetSpot: 28,
+        botanical: "Philodendron erubescens 'Pink Princess'",
+        category: "Philodendron",
+        desc: "deep burgundy-black foliage with vibrant pink marbling and sectoral splashes. thick root system established in chunky nursery cup."
+      },
+      'white knight': {
+        retail: [55, 80],
+        etsy: [40, 65],
+        palm: [30, 48],
+        fb: [25, 42],
+        sweetSpot: 35,
+        botanical: "Philodendron hybrid 'White Knight'",
+        category: "Philodendron",
+        desc: "striking pure white splashes contrasted against deep green leaves and purple/burgundy stems. well rooted with active new leaf unfurling."
+      },
+      'florida beauty': {
+        retail: [90, 140],
+        etsy: [70, 110],
+        palm: [55, 85],
+        fb: [45, 70],
+        sweetSpot: 58,
+        botanical: "Philodendron 'Florida Beauty' variegata",
+        category: "Philodendron",
+        desc: "dramatic lobed oak-leaf silhouette with golden yellow and cream mottled variegation. established in coarse aroid mix."
+      },
+      'anthurium clarinervium': {
+        retail: [65, 95],
+        etsy: [48, 75],
+        palm: [38, 55],
+        fb: [30, 48],
+        sweetSpot: 42,
+        botanical: "Anthurium clarinervium",
+        category: "Anthurium",
+        desc: "deep emerald velvety heart leaves with brilliant crystal-white silver veins. compact, established root system ready for display."
+      },
+      'syngonium albo': {
+        retail: [40, 60],
+        etsy: [28, 45],
+        palm: [20, 35],
+        fb: [15, 28],
+        sweetSpot: 24,
+        botanical: "Syngonium podophyllum 'Albo Variegata'",
+        category: "Syngonium",
+        desc: "fast-growing arrowhead foliage featuring crisp white sectoral patches. vigorous root system, perfect low-maintenance showpiece."
+      },
+      'epipremnum albo': {
+        retail: [45, 65],
+        etsy: [30, 50],
+        palm: [22, 38],
+        fb: [18, 30],
+        sweetSpot: 26,
+        botanical: "Epipremnum pinnatum 'Albo Variegata'",
+        category: "Epipremnum",
+        desc: "slender juvenile foliage ready to climb and fenestrate with clean white marbling. established in chunky sanctuary mix."
+      }
+    };
+
+    // 1. Password Protection Check
+    function checkAuth() {
+      const isAuth = localStorage.getItem('mw_studio_auth') === 'true';
+      if (isAuth) {
+        document.getElementById('lock-screen').style.display = 'none';
+        document.getElementById('studio-main').style.display = 'block';
+        initStudio();
+      } else {
+        document.getElementById('lock-screen').style.display = 'flex';
+        document.getElementById('studio-main').style.display = 'none';
+      }
+    }
+
+    function handleUnlock() {
+      const entered = document.getElementById('passcode-input').value.trim();
+      const storedPass = localStorage.getItem('mw_custom_passcode') || DEFAULT_PASSCODE;
+
+      if (entered === storedPass) {
+        localStorage.setItem('mw_studio_auth', 'true');
+        document.getElementById('auth-error').style.display = 'none';
+        checkAuth();
+      } else {
+        document.getElementById('auth-error').style.display = 'block';
+        document.getElementById('passcode-input').value = '';
+        document.getElementById('passcode-input').focus();
+      }
+    }
+
+    function lockStudio() {
+      localStorage.removeItem('mw_studio_auth');
+      checkAuth();
+    }
+
+    // 2. Initialize Studio & Load Catalog
+    async function initStudio() {
+      const now = new Date();
+      document.getElementById('live-stamp').textContent = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
+
+      // Load Catalog from LocalStorage or ../catalog.json
+      const saved = localStorage.getItem('mw_sanctuary_catalog');
+      if (saved) {
+        try { catalog = JSON.parse(saved); } catch (e) { catalog = { plants: [] }; }
+      } else {
+        try {
+          const res = await fetch('../catalog.json');
+          if (res.ok) catalog = await res.json();
+        } catch (e) {
+          catalog = { plants: [] };
+        }
+      }
+
+      setupBadgeSelectors();
+      setupDragDrop();
+      autoDetectBotanical();
+      renderInventoryTable();
+    }
+
+    function setupBadgeSelectors() {
+      document.querySelectorAll('#badge-selector .tag-choice').forEach(el => {
+        el.onclick = () => {
+          document.querySelectorAll('#badge-selector .tag-choice').forEach(t => t.classList.remove('selected'));
+          el.classList.add('selected');
+          currentBadge = el.dataset.badge;
+        };
+      });
+    }
+
+    function setupDragDrop() {
+      const zone = document.getElementById('drop-zone');
+      ['dragenter', 'dragover'].forEach(e => {
+        zone.addEventListener(e, (evt) => { evt.preventDefault(); zone.classList.add('dragover'); });
+      });
+      ['dragleave', 'drop'].forEach(e => {
+        zone.addEventListener(e, (evt) => { evt.preventDefault(); zone.classList.remove('dragover'); });
+      });
+      zone.addEventListener('drop', (evt) => {
+        const dt = evt.dataTransfer;
+        if (dt && dt.files) {
+          processFiles(dt.files);
+        }
+      });
+    }
+
+    function handleFileSelect(e) {
+      if (e.target.files) {
+        processFiles(e.target.files);
+      }
+    }
+
+    async function processFiles(files) {
+      for (const file of files) {
+        const dataUrl = await new Promise(resolve => {
+          const reader = new FileReader();
+          reader.onload = (e) => resolve(e.target.result);
+          reader.readAsDataURL(file);
+        });
+        uploadedImages.push(dataUrl);
+      }
+      renderImagePreviews();
+    }
+
+    function renderImagePreviews() {
+      const wrap = document.getElementById('preview-thumbs');
+      wrap.innerHTML = uploadedImages.map((src, idx) => `
+        <div class="thumb-item">
+          <img src="${src}" alt="Plant preview">
+          <button type="button" class="remove-btn" onclick="removeImage(${idx})">&times;</button>
+        </div>
+      `).join('');
+    }
+
+    function removeImage(idx) {
+      uploadedImages.splice(idx, 1);
+      renderImagePreviews();
+    }
+
+    // 3. Auto-Detect Botanical Nomenclature & Market Comps
+    function autoDetectBotanical() {
+      const nameInput = document.getElementById('plant-name').value.trim().toLowerCase();
+      const cat = document.getElementById('plant-cat').value;
+      
+      let matchedKey = null;
+      for (const k in MARKET_KNOWLEDGE) {
+        if (nameInput.includes(k)) {
+          matchedKey = k;
+          break;
+        }
+      }
+
+      if (matchedKey) {
+        const info = MARKET_KNOWLEDGE[matchedKey];
+        document.getElementById('plant-botanical').value = info.botanical;
+        document.getElementById('plant-cat').value = info.category;
+      } else {
+        document.getElementById('plant-botanical').value = `${cat} cultivar`;
+      }
+    }
+
+    // 4. The Brain Market Comps & Pricing Calculator (Mid-to-Low Range Focus)
+    function runMarketBrain() {
+      const nameInput = document.getElementById('plant-name').value.trim();
+      const nameLower = nameInput.toLowerCase();
+      const cat = document.getElementById('plant-cat').value;
+
+      document.getElementById('comps-loading').style.display = 'block';
+      document.getElementById('comps-display').style.opacity = '0.3';
+
+      setTimeout(() => {
+        document.getElementById('comps-loading').style.display = 'none';
+        document.getElementById('comps-display').style.opacity = '1';
+
+        let match = null;
+        for (const k in MARKET_KNOWLEDGE) {
+          if (nameLower.includes(k)) {
+            match = MARKET_KNOWLEDGE[k];
+            break;
+          }
+        }
+
+        let retailRange, etsyRange, palmRange, fbRange, targetSweetSpot, defaultDesc;
+
+        if (match) {
+          retailRange = match.retail;
+          etsyRange = match.etsy;
+          palmRange = match.palm;
+          fbRange = match.fb;
+          targetSweetSpot = match.sweetSpot;
+          defaultDesc = match.desc;
+          document.getElementById('plant-botanical').value = match.botanical;
+        } else {
+          // General heuristic for rare aroids / house plants
+          retailRange = [65, 95];
+          etsyRange = [50, 75];
+          palmRange = [35, 55];
+          fbRange = [28, 45];
+          targetSweetSpot = 38;
+          defaultDesc = "healthy, well-rooted specimen pushing active new growth in our chunky sanctuary aroid mix. exact plant shown in the photos.";
+        }
+
+        // Display Comps
+        document.getElementById('comp-retail').textContent = `$${retailRange[0]} – $${retailRange[1]}`;
+        document.getElementById('comp-etsy').textContent = `$${etsyRange[0]} – $${etsyRange[1]}`;
+        document.getElementById('comp-palm').textContent = `$${palmRange[0]} – $${palmRange[1]}`;
+        document.getElementById('comp-fb').textContent = `$${fbRange[0]} – $${fbRange[1]}`;
+
+        // Set Sweet Spot
+        document.getElementById('sweet-spot-price-tag').textContent = `$${targetSweetSpot}`;
+        document.getElementById('plant-price').value = targetSweetSpot;
+
+        // Populate Authentic Copy
+        const pot = document.getElementById('plant-pot').value.trim() || '4" cup';
+        const root = document.getElementById('plant-root').value.trim() || 'chunky mix';
+        const fullDesc = `we just like dope ass plants. exact 1-of-1 plant pictured. ${defaultDesc} potted in ${pot} (${root}). grown with love in our san antonio home sanctuary.`;
+        document.getElementById('plant-desc').value = fullDesc;
+
+      }, 400);
+    }
+
+    // 5. Post Plant to Live Shoppe Catalog
+    function postToShoppe() {
+      const name = document.getElementById('plant-name').value.trim();
+      const botanical = document.getElementById('plant-botanical').value.trim();
+      const price = Number(document.getElementById('plant-price').value || 35);
+      const category = document.getElementById('plant-cat').value;
+      const potSize = document.getElementById('plant-pot').value.trim();
+      const rootStatus = document.getElementById('plant-root').value.trim();
+      const light = document.getElementById('plant-light').value.trim();
+      const description = document.getElementById('plant-desc').value.trim();
+
+      if (!name) {
+        alert('please enter a plant name first.');
+        return;
+      }
+
+      const images = uploadedImages.length > 0 ? [...uploadedImages] : ['assets/logos/2.jpg'];
+
+      const newPlant = {
+        id: 'mw-' + Date.now(),
+        name,
+        botanical,
+        price,
+        type: 'WYSIWYG',
+        category,
+        status: 'available',
+        stock: 1,
+        potSize: potSize || '4" chunky mix',
+        rootStatus: rootStatus || 'established in chunky mix',
+        light: light || 'bright indirect',
+        badge: currentBadge || '1-of-1 plant',
+        description: description || 'exact plant pictured in photos.',
+        images
+      };
+
+      if (!catalog.plants) catalog.plants = [];
+      catalog.plants.unshift(newPlant);
+
+      // Save to localStorage
+      localStorage.setItem('mw_sanctuary_catalog', JSON.stringify(catalog));
+
+      alert(`[ SUCCESS ] "${name}" posted to your live shoppe catalog at $${price}!`);
+
+      // Reset form
+      document.getElementById('plant-name').value = '';
+      uploadedImages = [];
+      renderImagePreviews();
+      renderInventoryTable();
+    }
+
+    // 6. Copy Cross-Listing Ad for Facebook / Palmstreet / Whatnot
+    function copyCrossListingAd() {
+      const name = document.getElementById('plant-name').value.trim() || 'Rare Houseplant';
+      const botanical = document.getElementById('plant-botanical').value.trim();
+      const price = document.getElementById('plant-price').value || '35';
+      const pot = document.getElementById('plant-pot').value.trim() || '4" pot';
+      const root = document.getElementById('plant-root').value.trim() || 'established';
+      const desc = document.getElementById('plant-desc').value.trim();
+      const attachPickup = document.getElementById('include-pickup-check').checked;
+
+      let ad = `🌱 ${name.toUpperCase()} ($${price})\n`;
+      if (botanical) ad += `Botanical: ${botanical}\n`;
+      ad += `Setup: ${pot} • ${root}\n\n`;
+      ad += `${desc}\n\n`;
+      ad += `✨ 1-of-1 WYSIWYG (Exact plant pictured)\n`;
+
+      if (attachPickup) {
+        ad += `📍 Pick up near 3103 Rimrock Trail, San Antonio, TX 78251\n`;
+      }
+      ad += `📦 Nationwide insulated shipping with heat packs also available.\n`;
+      ad += `Website: https://themagicwalnutplantshoppe.com`;
+
+      navigator.clipboard.writeText(ad).then(() => {
+        alert('copied formatted cross-listing ad to clipboard!\nready to paste into Facebook Marketplace or Palmstreet.');
+      });
+    }
+
+    // 7. Render Inventory Table & Controls
+    function renderInventoryTable() {
+      const tbody = document.getElementById('inventory-tbody');
+      if (!catalog || !catalog.plants || catalog.plants.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; padding: 1.5rem; color: var(--ink-dim);">[ no plants listed in catalog ]</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = catalog.plants.map((p, idx) => {
+        const thumb = (p.images && p.images[0]) ? p.images[0] : '../assets/logos/2.jpg';
+        const isAvail = p.status === 'available';
+        return `
+          <tr>
+            <td>
+              <img src="${thumb}" class="inv-thumb" alt="${p.name}" onerror="this.src='../assets/logos/2.jpg'">
+            </td>
+            <td>
+              <strong>${p.name}</strong><br>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-dim);">${p.botanical || ''}</span>
+            </td>
+            <td><span class="stamp-tag" style="font-size: 0.7rem;">${p.category}</span></td>
+            <td><strong>$${p.price}</strong></td>
+            <td>
+              <span class="status-badge ${isAvail ? 'status-available' : 'status-sold'}">
+                ${p.status}
+              </span>
+            </td>
+            <td style="text-align: right;">
+              <button class="btn-inv-action" onclick="toggleStatus(${idx})">
+                [ ${isAvail ? 'mark sold' : 'mark avail'} ]
+              </button>
+              <button class="btn-inv-action" onclick="quickEditPrice(${idx})">
+                [ price ]
+              </button>
+              <button class="btn-inv-action btn-danger" onclick="deletePlant(${idx})">
+                [ delete ]
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function toggleStatus(idx) {
+      if (!catalog.plants[idx]) return;
+      catalog.plants[idx].status = catalog.plants[idx].status === 'available' ? 'sold' : 'available';
+      localStorage.setItem('mw_sanctuary_catalog', JSON.stringify(catalog));
+      renderInventoryTable();
+    }
+
+    function quickEditPrice(idx) {
+      const p = catalog.plants[idx];
+      const newPrice = prompt(`enter new price for "${p.name}":`, p.price);
+      if (newPrice !== null && !isNaN(Number(newPrice))) {
+        p.price = Number(newPrice);
+        localStorage.setItem('mw_sanctuary_catalog', JSON.stringify(catalog));
+        renderInventoryTable();
+      }
+    }
+
+    function deletePlant(idx) {
+      const p = catalog.plants[idx];
+      if (confirm(`delete "${p.name}" from the active shoppe catalog?`)) {
+        catalog.plants.splice(idx, 1);
+        localStorage.setItem('mw_sanctuary_catalog', JSON.stringify(catalog));
+        renderInventoryTable();
+      }
+    }
+
+    function clearSoldPlants() {
+      if (confirm('remove all sold plants from catalog?')) {
+        catalog.plants = catalog.plants.filter(p => p.status === 'available');
+        localStorage.setItem('mw_sanctuary_catalog', JSON.stringify(catalog));
+        renderInventoryTable();
+      }
+    }
+
+    function exportCatalogJson() {
+      const blob = new Blob([JSON.stringify(catalog, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'catalog.json';
+      a.click();
+    }
+
+    // Run Auth Check on Load
+    checkAuth();
+  </script>
+</body>
+</html>
